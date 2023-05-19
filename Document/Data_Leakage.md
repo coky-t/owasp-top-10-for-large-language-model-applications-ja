@@ -1,22 +1,22 @@
 ### LLM02:2023 - データ漏洩 (Data Leakage)
 
 **説明:**  
-Data leakage occurs when an LLM accidentally reveals sensitive information, proprietary algorithms, or other confidential details through its responses. This can result in unauthorized access to sensitive data or intellectual property, privacy violations, and other security breaches.
+データ漏洩は LLM のレスポンスを通じて、機密情報、非公開アルゴリズム、その他の機密事項を誤って暴露した際に発生します。これにより機密データや知的財産への認可されていないアクセス、プライバシー侵害、その他のセキュリティ侵害につながる可能性があります。
 
 **一般的なデータ漏洩の脆弱性:**
-- Incomplete or improper filtering of sensitive information in the LLM's responses.
-- Overfitting or memorization of sensitive data in the LLM's training process.
-- Unintended disclosure of confidential information due to LLM misinterpretation or errors.
+- LLM のレスポンスにおいて、機密情報のフィルタリングが不完全または不適切です。
+- LLM のトレーニングプロセスにおいて、機密データの過学習やメモ化します。
+- LLM の誤った解釈やエラーにより、機密情報が意図せず開示します。
 
 **防止方法:**
-- Implement strict output filtering and context-aware mechanisms to prevent the LLM from revealing sensitive information.
-- Use differential privacy techniques or other data anonymization methods during the LLM's training process to reduce the risk of overfitting or memorization.
-- Regularly audit and review the LLM's responses to ensure that sensitive information is not being disclosed inadvertently.
-- Monitor and log LLM interactions to detect and analyze potential data leakage incidents.
+- 厳密な出力フィルタリングやコンテキストを考慮したメカニズムを実装して、 LLM による機密情報の漏洩を防止します。
+- LLM のトレーニングプロセスにおいて差分プライバシー技法やその他のデータ匿名化技法を使用して、過学習やメモ化のリスクを軽減します。
+- 定期的に LLM のレスポンスを監査およびレビューして、機密情報が不用意に開示されていないことを確認します。
+- LLM インタラクションを監視しログ記録して、潜在的なデータ漏洩インシデントを検出し分析します。
 
 **攻撃シナリオの例:**
-_シナリオ #1:_ A user inadvertently asks the LLM a question that could reveal sensitive information. The LLM, lacking proper output filtering, responds with the confidential data, exposing it to the user.
+_シナリオ #1:_ ユーザーが不用意に LLM に機密情報を明らかにする可能性のある質問をしてしまいました。LLM には適切な出力フィルタリングがないため、機密情報をレスポンスし、ユーザーに公開してしまいます。
 
-_シナリオ #2:_ An attacker deliberately probes the LLM with carefully crafted prompts, attempting to extract sensitive information that the LLM has memorized from its training data.
+_シナリオ #2:_ 攻撃者は慎重に作成されたプロンプトで LLM を意図的に調査し、LLM が訓練データからメモ化した機密情報を抽出しようとします。
 
-By understanding and addressing the risks associated with data leakage, developers can better protect their LLM implementations and ensure the safety and security of their systems.
+データ漏洩に関連するリスクを理解して対処することで、開発者は LLM 実装をより適切に保護し、システムの安全性とセキュリティを確保できます。
