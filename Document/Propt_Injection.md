@@ -1,21 +1,21 @@
 ### LLM01:2023 - プロンプトインジェクション (Prompt Injections)
 
 **説明:**  
-Prompt injections involve bypassing filters or manipulating the LLM using carefully crafted prompts that make the model ignore previous instructions or perform unintended actions. These vulnerabilities can lead to unintended consequences, including data leakage, unauthorized access, or other security breaches.
+プロンプトインジェクションは慎重に作成されたプロンプトを使用し、フィルタをバイパスしたり LLM を操作して、モデルが以前の命令を無視したり意図しないアクションを実行します。これらの脆弱性はデータ漏洩、認可されていないアクセス、その他のセキュリティ侵害などの予期せぬ結果を招く可能性があります。
 
 **一般的なプロンプトインジェクションの脆弱性:**
-- Crafting prompts that manipulate the LLM into revealing sensitive information.
-- Bypassing filters or restrictions by using specific language patterns or tokens.
-- Exploiting weaknesses in the LLM's tokenization or encoding mechanisms.
-- Misleading the LLM to perform unintended actions by providing misleading context.
+- プロンプトを作成し、LLM を操作して機密情報を明らかにします。
+- 特定の言語パターンやトークンを使用してフィルタや制限をバイパスします。
+- LLM のトークン化やエンコーディングメカニズムの弱点を悪用します。
+- 誤解を招くコンテキストを提供することで LLM を誤解させて意図しないアクションを実行します。
 
 **防止方法:**
-- Implement strict input validation and sanitization for user-provided prompts.
-- Use context-aware filtering and output encoding to prevent prompt manipulation.
-- Regularly update and fine-tune the LLM to improve its understanding of malicious inputs and edge cases.
-- Monitor and log LLM interactions to detect and analyze potential prompt injection attempts.
+- ユーザーが提供するプロンプトに対して厳密な入力バリデーションとサニタイズを実装します。
+- コンテキストを考慮したフィルタリングと出力エンコーディングを使用して、プロンプト操作を防止します。
+- 定期的に LLM を更新して微調整し、悪意のある入力やエッジケースの理解を深めます。
+- LLM インタラクションを監視しログ記録して、潜在的なプロンプトインジェクション試行を検出し分析します。
 
 **攻撃シナリオの例:**
-_シナリオ #1:_ An attacker crafts a prompt that tricks the LLM into revealing sensitive information, such as user credentials or internal system details, by making the model think the request is legitimate.
+_シナリオ #1:_ 攻撃者は LLM を騙してユーザー資格情報や内部システムの詳細などの機密情報を明らかにするプロンプトを作成し、モデルにそのリクエストが正当なものであると思わせます。
 
-_シナリオ #2:_ A malicious user bypasses a content filter by using specific language patterns, tokens, or encoding mechanisms that the LLM fails to recognize as restricted content, allowing the user to perform actions that should be blocked.
+_シナリオ #2:_ 悪意のあるユーザーは LLM が制限されたコンテンツとして認識できない特定の言語パターン、トークン、エンコーディングメカニズムを使用してコンテンツフィルタをバイパスし、ユーザーがブロックされるべきアクションを実行できるようにします。
