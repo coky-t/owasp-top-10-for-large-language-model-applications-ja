@@ -1,22 +1,22 @@
 ## LLM06:2023 - LLM が生成したコンテンツへの過度の依存 (Overreliance on LLM-generated Content)
 
 ### 説明
-Overreliance on LLM-generated content can lead to the propagation of misleading or incorrect information, decreased human input in decision-making, and reduced critical thinking. Organizations and users may trust LLM-generated content without verification, leading to errors, miscommunications, or unintended consequences.
+LLM が生成したコンテンツへの過度の依存は誤解を招く情報や不正確な情報が広まり、意思決定における人間の入力が減り、批判的思考が低下することにつながる可能性があります。組織やユーザーは LLM が生成したコンテンツを検証せずに信頼して、エラー、誤った伝達、意図しない結果につながる可能性があります。
 
-Common issues related to overreliance on LLM-generated content include:
-- Accepting LLM-generated content as fact without verification.
-- Assuming LLM-generated content is free from bias or misinformation.
-- Relying on LLM-generated content for critical decisions without human input or oversight.
+LLM が生成したコンテンツへの過度の依存に関連する一般的な問題は以下のとおりです。
+- LLM が生成したコンテンツを検証なしで事実として受け入れます。
+- LLM が生成したコンテンツには偏見や偽情報がないと思い込みます。
+- LLM が生成したコンテンツに依存して人間の入力や監視なしで重要な意思決定を行います。
 
 ### 防止方法
-To prevent issues related to overreliance on LLM-generated content, consider the following best practices:
-- Encourage users to verify LLM-generated content and consult alternative sources before making decisions or accepting information as fact.
-- Implement human oversight and review processes to ensure LLM-generated content is accurate, appropriate, and unbiased.
-- Clearly communicate to users that LLM-generated content is machine-generated and may not be entirely reliable or accurate.
-- Train users and stakeholders to recognize the limitations of LLM-generated content and to approach it with appropriate skepticism.
-- Use LLM-generated content as a supplement to, rather than a replacement for, human expertise and input.
+LLM が生成したコンテンツへの過度の依存に関連する問題一般的な問題を防ぐには、以下のベストプラクティスを検討してください。
+- 決定を下したり情報を事実として受け入れる前に、LLM が生成したコンテンツを検証して別の情報源を参照するよう、ユーザーに促します。
+- 人間による監視とレビュープロセスを実装して、LLM が生成したコンテンツが正確、適切、公平であることを確保します。
+- LLM が生成したコンテンツは機械が生成したものであり、完全に信頼できるものでも正確なものでもないことをユーザーに明確に伝えます。
+- LLM が生成したコンテンツの限界を認識し、適切な懐疑心でアプローチするよう、ユーザーや利害関係者を訓練します。
+- LLM が生成したコンテンツは人間の専門知識や入力の代替とするのではなく、それを補足するものとして使用します。
 
 ### 攻撃シナリオの例
-**シナリオ #1**: A news organization uses an LLM to generate articles on a variety of topics. The LLM generates an article containing false information that is published without verification. Readers trust the article, leading to the spread of misinformation.
+**シナリオ #1**: ある報道機関は LLM を使用してさまざまなトピックに関する記事を生成しています。LLM は偽情報を含む記事を生成し、検証なしで公開されました。読者は記事を信頼し、誤った情報の拡散につながります。
 
-**シナリオ #2**: A company relies on an LLM to generate financial reports and analysis. The LLM generates a report containing incorrect financial data, which the company uses to make critical investment decisions. This results in significant financial losses due to the reliance on inaccurate LLM-generated content.
+**シナリオ #2**: ある企業は LLM に依存して財務報告と分析を生成しています。LLM は不正確な財務データを含むレポートを生成し、企業はそのレポートを使用して重要な投資決定を行います。この結果、LLM が生成した不正確なコンテンツに依存したために、重大な経済的損失が発生しました。
