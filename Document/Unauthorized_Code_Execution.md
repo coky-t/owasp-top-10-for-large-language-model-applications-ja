@@ -1,22 +1,22 @@
 ### LLM04:2023 - 認可されていないコード実行 (Unauthorized Code Execution)
 
-**説明:**  
-Unauthorized code execution occurs when an attacker exploits an LLM to execute malicious code, commands, or actions on the underlying system through natural language prompts.
+**説明:**
+認可されていないコード実行は攻撃者が LLM を悪用して、自然言語プロンプトを通じて基盤となるシステム上で悪意のあるコード、コマンド、アクションを実行する際に発生します。
 
 **一般的な認可されていないコード実行の脆弱性:**
-- Failing to sanitize or restrict user input, allowing attackers to craft prompts that trigger the execution of unauthorized code.
-- Inadequate sandboxing or insufficient restrictions on the LLM's capabilities, allowing it to interact with the underlying system in unintended ways.
-- Unintentionally exposing system-level functionality or interfaces to the LLM.
+- ユーザー入力のサニタイズや制限に失敗し、攻撃者が認可されていないコードの実行をトリガーするプロンプトを作成できます。
+- LLM の機能に対する不十分なサンドボックス化や不十分な制限のため、意図しない方法で基盤とするシステムとやり取りできます。
+- LLM へのシステムレベルの機能やインタフェースを意図せず公開します。
 
 **防止方法:**
-- Implement strict input validation and sanitization processes to prevent malicious or unexpected prompts from being processed by the LLM.
-- Ensure proper sandboxing and restrict the LLM's capabilities to limit its ability to interact with the underlying system.
-- Regularly audit and review the LLM's environment and access controls to ensure that unauthorized actions are not possible.
-- Monitor and log LLM interactions to detect and analyze potential unauthorized code execution issues.
+- 厳密な入力バリデーションおよびサニタイズプロセスを実装して、悪意のあるプロンプトや予期しないプロンプトが LLM によって処理されることを防止します。
+- 適切なサンドボックス化を確保し、LLM の機能を制限して、基盤となるシステムとやり取りする機能を制限します。
+- 定期的に LLM の環境とアクセス制御を監査およびレビューし、認可されていないアクションができないようにします。
+- LLM インタラクションを監視しログ記録して、潜在的な認可されていないコード実行の問題を検出し分析します。
 
 **攻撃シナリオの例:**
-_シナリオ #1:_ An attacker crafts a prompt that instructs the LLM to execute a command that launches a reverse shell on the underlying system, granting the attacker unauthorized access.
+_シナリオ #1:_ 攻撃者は基盤となるシステム上でリバースシェルを起動するコメントを実行するよう LLM に指示するプロンプトを作成し、攻撃者に認可されていないアクセスを付与します。
 
-_シナリオ #2:_ The LLM is unintentionally allowed to interact with a system-level API, and an attacker manipulates the LLM into executing unauthorized actions on the system.
+_シナリオ #2:_ LLM は意図せずにシステムレベル API とのやり取りを許可され、攻撃者は LLM を操作してシステム上で認可されていないアクションを実行します。
 
-By understanding and addressing the risks associated with unauthorized code execution, developers can better protect their LLM implementations and ensure the safety and security of their systems.
+認可されていないコード実行に関連するリスクを理解して対処することで、開発者は LLM 実装をより適切に保護し、システムの安全性とセキュリティを確保できます。
