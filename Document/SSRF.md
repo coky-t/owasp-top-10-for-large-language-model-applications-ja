@@ -1,22 +1,22 @@
 ### LLM05:2023 - SSRF 脆弱性 (SSRF Vulnerabilities)
 
-**説明:**  
-Server-side Request Forgery (SSRF) vulnerabilities occur when an attacker exploits an LLM to perform unintended requests or access restricted resources, such as internal services, APIs, or data stores.
+**説明:**
+サーバーサイドリクエストフォージェリ (SSRF) 脆弱性は攻撃者が LLM を悪用して、意図しないリクエストを実行したり、内部のサービス、API、データストアなどの制限されたリソースにアクセスした際に発生します。
 
 **一般的な SSRF 脆弱性:**
-- Insufficient input validation, allowing attackers to manipulate LLM prompts to initiate unauthorized requests.
-- Inadequate sandboxing or resource restrictions, enabling the LLM to access restricted resources or interact with internal services.
-- Misconfigurations in network or application security settings, exposing internal resources to the LLM.
+- 不十分な入力バリデーションにより、攻撃者は LLM プロンプトを操作して認可されていないリクエストを開始できます。
+- 不十分なサンドボックス化やリソース制限により、LLM が制限されたリソースにアクセスしたり、内部サービスとやり取りできます。
+- ネットワークとアプリケーションのセキュリティ設定の設定ミスにより、内部リソースを LLM に公開します。
 
 **防止方法:**
-- Implement rigorous input validation and sanitization to prevent malicious or unexpected prompts from initiating unauthorized requests.
-- Enforce proper sandboxing and restrict the LLM's access to network resources, internal services, and APIs.
-- Regularly audit and review network and application security settings to ensure that internal resources are not inadvertently exposed to the LLM.
-- Monitor and log LLM interactions to detect and analyze potential SSRF vulnerabilities.
+- 厳密な入力バリデーションとサニタイズを実装して、悪意のあるプロンプトや予期しないプロンプトが認可されていないリクエストを開始するのを防止します。
+- 適切なサンドボックス化を実施し、ネットワークリソース、内部サービス、API への LLM のアクセスを制限します。
+- 定期的にネットワークとアプリケーションのセキュリティ設定を監査およびレビューし、内部リソースが不用意に LLM に公開されていないことを確保します。
+- LLM インタラクションを監視しログ記録して、潜在的な SSRF 脆弱性を検出し分析します。
 
 **攻撃シナリオの例:**
-_シナリオ #1:_ An attacker crafts a prompt that instructs the LLM to make a request to an internal service, bypassing access controls and gaining unauthorized access to sensitive information.
+_シナリオ #1:_ 攻撃者は内部サービスにリクエストを行うよう LLM に指示するプロンプトを作成し、アクセス制御をバイパスして、機密情報への認可されていないアクセスを取得します。
 
-_シナリオ #2:_ A misconfiguration in the application's security settings allows the LLM to interact with a restricted API, and an attacker manipulates the LLM to access or modify sensitive data.
+_シナリオ #2:_ アプリケーションのセキュリティ設定の設定ミスにより、LLM が制限された API とやり取りでき、攻撃者は LLM を操作して機密データにアクセスしたり改変します。
 
-By understanding and addressing the risks associated with SSRF vulnerabilities, developers can better protect their LLM implementations and ensure the safety and security of their systems.
+SSRF 脆弱性に関連するリスクを理解して対処することで、開発者は LLM 実装をより適切に保護し、システムの安全性とセキュリティを確保できます。
