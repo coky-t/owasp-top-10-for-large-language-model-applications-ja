@@ -1,21 +1,21 @@
 ### LLM09:2023 - 不適切なエラー処理 (Improper Error Handling)
 
-**説明:**  
-Improper error handling occurs when error messages or debugging information are exposed in a way that could reveal sensitive information, system details, or potential attack vectors to an attacker.
+**説明:**
+不適切なエラー処理は機密情報、システム詳細、潜在的な攻撃ベクトルを明らかにするエラーメッセージやデバッグ情報を公開した場合に発生します。
 
 **一般的な不適切なエラー処理の問題:**
-- Exposing sensitive information or system details through error messages.
-- Leaking debugging information that could help an attacker identify potential vulnerabilities or attack vectors.
-- Failing to handle errors gracefully, potentially causing unexpected behavior or system crashes.
+- エラーメッセージを通じて機密情報やシステム詳細を公開します。
+- 攻撃者が潜在的な脆弱性や攻撃ベクトルを特定するのに役立つデバッグ情報を漏洩します。
+- エラーを適切に処理できず、望ましくない動作やシステムクラッシュを引き起こす可能性があります。
 
 **防止方法:**
-- Implement proper error handling mechanisms to ensure that errors are caught, logged, and handled gracefully.
-- Ensure that error messages and debugging information do not reveal sensitive information or system details. Consider using generic error messages for users, while logging detailed error information for developers and administrators.
-- Regularly review error logs and take necessary actions to fix identified issues and improve system stability.
+- 適切なエラー処理メカニズムを実装して、エラーを適切に捕捉し、ログ記録し、処理するように確保します。
+- エラーメッセージやデバッグ情報が機密情報やシステム詳細を明らかにしないように確保します。ユーザーに対しては一般的なエラーメッセージを使用し、開発者や管理者には詳細なエラー情報をログ記録することを検討します。
+- 定期的にエラーログをレビューし、特定された問題を修正してシステムの安定性を向上させるために必要な措置を講じます。
 
 **攻撃シナリオの例:**
-_シナリオ #1:_ An attacker exploits an LLM's error messages to gather sensitive information or system details, enabling them to launch a targeted attack or exploit known vulnerabilities.
+_シナリオ #1:_ 攻撃者は LLM のエラーメッセージを悪用して機密情報やシステム詳細を収集し、標的型攻撃を実行したり既知の脆弱性を悪用できます。
 
-_シナリオ #2:_ A developer accidentally leaves debugging information exposed in production, allowing an attacker to identify potential attack vectors or vulnerabilities in the system.
+_シナリオ #2:_ 開発者は誤ってデバッグ情報を本番環境に公開したままにしたため、攻撃者はシステムの潜在的な攻撃ベクトルや脆弱性を特定できます。
 
-By implementing proper error handling mechanisms and ensuring that error messages do not reveal sensitive information, developers can reduce the risk of attackers exploiting LLM vulnerabilities and improve system stability.
+適切なエラー処理メカニズムを実装し、エラーメッセージが機密情報を明らかにしないようにすることで、開発者は攻撃者が LLM の脆弱性を悪用するリスクを軽減し、システムの安定性を向上できます。
