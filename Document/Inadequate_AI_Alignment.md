@@ -1,22 +1,22 @@
 ### LLM07:2023 - 不十分な AI 調整 (Inadequate AI Alignment)
 
-**説明:**  
-Inadequate AI alignment occurs when the LLM's objectives and behavior do not align with the intended use case, leading to undesired consequences or vulnerabilities.
+**説明:**
+不十分な AI 調整は LLM の目的と動作が意図したユースケースと合致していない際に発生し、望ましくない結果や脆弱性につながります。
 
 **一般的な不十分な AI 調整の問題:**
-- Poorly defined objectives, causing the LLM to prioritize undesired or harmful behaviors.
-- Misaligned reward functions or training data, resulting in unintended model behavior.
-- Insufficient testing and validation of LLM behavior in various contexts and scenarios.
+- 目的の定義が不十分であるため、LLM が望ましくない動作や有害な動作を優先することが発生します。
+- 報酬関数や訓練データの不整合により、意図しないモデルの動作が発生します。
+- さまざまなコンテキストやシナリオでの LLM 動作のテストとバリデーションが不十分です。
 
 **防止方法:**
-- Clearly define the objectives and intended behavior of the LLM during the design and development process.
-- Ensure that the reward functions and training data are aligned with the desired outcomes and do not encourage undesired or harmful behavior.
-- Regularly test and validate the LLM's behavior across a wide range of scenarios, inputs, and contexts to identify and address alignment issues.
-- Implement monitoring and feedback mechanisms to continuously evaluate the LLM's performance and alignment, and update the model as needed to improve alignment.
+- 設計および開発プロセスにおいて、LLM の目的と意図した動作を明確に定義します。
+- 報酬関数と訓練データが望む結果と合致しており、望ましくない動作や有害な動作を助長しないことを確保します。
+- 幅広いシナリオ、入力、コンテキストにわたって LLM の動作を定期的にテストおよび妥当性確認を行うことで、調整の問題を特定して対処します。
+- モニタリングとフィードバックのメカニズムを実装して、LLM の性能と調整を継続的に評価し、必要に応じてモデルを更新して調整を改善します。
 
 **攻撃シナリオの例:**
-_シナリオ #1:_ An LLM trained to optimize for user engagement inadvertently prioritizes controversial or polarizing content, resulting in the spread of misinformation or harmful content.
+_シナリオ #1:_ ユーザーエンゲージメントを最適化するように訓練された LLM が物議を醸すコンテンツや二極化をもたらすコンテンツを不注意に優先し、結果として偽情報や有害なコンテンツを拡散します。
 
-_シナリオ #2:_ An LLM designed to assist with system administration tasks is misaligned, causing it to execute harmful commands or prioritize actions that degrade system performance or security.
+_シナリオ #2:_ システム管理タスクを支援するように設計された LLM が調整ミスにより、有害なコマンド実行を実行したり、システムのパフォーマンスやセキュリティを低下させるアクションを優先します。
 
-By focusing on AI alignment and ensuring that the LLM's objectives and behavior align with the intended use case, developers can reduce the risk of unintended consequences and vulnerabilities in their LLM implementations.
+AI 調整に重点を置き、LLM の目的と動作が意図したユースケースと合致するように確保することで、開発者は LLM 実装において意図しない結果や脆弱性のリスクを軽減できます。
