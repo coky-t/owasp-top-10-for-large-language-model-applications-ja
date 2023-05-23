@@ -24,6 +24,8 @@ OWASP Top 10 大規模言語モデルアプリケーションは開発者とウ�
 
 このリストの最初のバージョンは Contrast Security の Steve Wilson によって寄稿されました。私たちはコミュニティがプロジェクトに貢献して改善に協力することを奨励します。なにかしらの提案、フィードバック、リストの改善に協力したい場合は、気軽に isshu をオープンするかプルリクエストをお送りください。
 
+[OWASP Slack](https://owasp.org/slack/invite) にワーキンググループチェンネルがあるので、サインアップしてから #project-t10-llm チェンネルに参加してください。
+
 ## ライセンス
 
 このプロジェクトは [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/) の条件に基づいてライセンスされています。
