@@ -23,6 +23,6 @@ OWASP Top 10 大規模言語モデルアプリケーションプロジェクト�
 
 **パスコード:** 256955
 
-[OWASP Slack](https://owasp.org/slack/invite) にワーキンググループチェンネルがあるので、サインアップしてから #project-t10-llm チェンネルに参加してください。
+[OWASP Slack](https://owasp.org/slack/invite) にワーキンググループチェンネルがあるので、サインアップしてから #project-top10-for-llm チェンネルに参加してください。
 
 LLM セキュリティは初めてですか？　詳細については [resources ページ](resources) をご覧ください。
