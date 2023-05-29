@@ -1,5 +1,5 @@
 # www-project-top-10-for-large-language-model-applications
-OWASP Foundation Web Respository
+OWASP Foundation Web Repository
 
 # OWASP Top 10 大規模言語モデルアプリケーション
 
