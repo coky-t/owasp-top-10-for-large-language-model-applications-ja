@@ -15,14 +15,7 @@ OWASP Top 10 大規模言語モデルアプリケーションプロジェクト�
 
 この取り組みはコミュニティ主導で行われ、すべての利害関係者の参加と貢献を推奨します。私たちは現在ワーキンググループを結成しています。
 
-キックオフミーティングは 2023 年 5 月 31 日 (水) 午前 9 時から午前 10 時 (太平洋時間) に開催し、興味のある人なら誰でも参加できます。
-
-**ミーティング URL:** [https://contrastsecurity.zoom.us/j/95013860946?pwd=N3B5SGRCQkk3N1Q5OWFlWllYQUZPQT09&from=addon](https://contrastsecurity.zoom.us/j/95013860946?pwd=N3B5SGRCQkk3N1Q5OWFlWllYQUZPQT09&from=addon)
-
-**ミーティング ID:** 950 1386 0946
-
-**パスコード:** 256955
-
-[OWASP Slack](https://owasp.org/slack/invite) にワーキンググループチェンネルがあるので、サインアップしてから #project-top10-for-llm チェンネルに参加してください。
+* [OWASP Slack](https://owasp.org/slack/invite) にワーキンググループチェンネルがあるので、サインアップしてから #project-top10-for-llm チェンネルに参加してください。
+* ワーキンググループは [Wiki](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/wiki) でコラボレーションしています。
 
 LLM セキュリティは初めてですか？　詳細については [resources ページ](resources) をご覧ください。
