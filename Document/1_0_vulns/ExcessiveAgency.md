@@ -2,11 +2,11 @@
 
 **説明:**
 
-An LLM-based system is often granted a degree of agency by its developer - the ability to interface with other systems and undertake actions in response to a prompt. The decision over which functions to invoke may also be delegated to an LLM 'agent' to dynamically determine based on input prompt or LLM output.
+LLM ベースのシステムは開発者によってある程度のエージェンシー、他のシステムとのインタフェースやプロンプトに応答してアクションを実行する機能、が与えられることがよくあります。どの機能を呼び出すかの判断は、入力プロンプトまたは LLM 出力に基づいて動的に決定する LLM 「エージェント」に委譲されることもあります。
 
-Excessive Agency is the vulnerability that enables damaging actions to be performed in response to unexpected/ambiguous outputs from an LLM (regardless of what is causing the LLM to malfunction; be it hallucination/confabulation, direct/indirect prompt injection, malicious plugin, poorly-engineered benign prompts, or just a poorly-performing model). The root cause of Excessive Agency is typically one or more of: excessive functionality, excessive permissions or excessive autonomy.
+過剰なエージェンシーは LLM からの予期しない/あいまいな出力に応答して有害なアクションを実行できる脆弱性です (LLM が誤動作する原因が何であるかに関係なく、ハルシネーション/作話、直接的/間接的プロンプトインジェクション、悪意のあるプラグイン、不十分な設計の無害なプロンプト、単にパフォーマンスが悪いモデルなど) 。過剰なエージェンシーの根本原因は一般的に過剰な機能、過剰な権限、過剰な自律性のうちの一つ以上です。
 
-Excessive Agency can lead to a broad range of impacts across the confidentiality, integrity and availability spectrum, and is dependent on which systems an LLM-based app is able to interact with.
+過剰なエージェンシーは機密性、完全性、可用性の領域にわたる広範囲の影響につながる可能性があり、LLM ベースのアプリがどのシステムとやり取りできるかに依存します。
 
 **脆弱性の一般的な例:**
 
