@@ -2,12 +2,12 @@
 
 **説明:**
 
-Insecure Output Handling is a vulnerability that arises when a downstream component blindly accepts large language model (LLM) output without proper scrutiny, such as passing LLM output directly to backend, privileged, or client-side functions. Since LLM-generated content can be controlled by prompt input, this behavior is similar to providing users indirect access to additional functionality.
+安全でない出力処理はダウンストリームコンポーネントが大規模言語モデル (LLM) 出力を適切な精査なしに盲目的に受け入れる場合 (LLM 出力をバックエンド機能、特権機能、クライアント側機能に直接渡すなど) に発生する脆弱性です。LLM が生成するコンテンツはプロンプト入力によって制御できるため、この動作はユーザーに追加機能への間接的なアクセスを提供するのと同様です。
 
-Successful exploitation of an Insecure Output Handling vulnerability can result in XSS and CSRF in web browsers as well as SSRF, privilege escalation, or remote code execution on backend systems. 
-The following conditions can increase the impact of this vulnerability:
-* The application grants the LLM privileges beyond what is intended for end users, enabling escalation of privileges or remote code execution.
-* The application is vulnerable to external prompt injection attacks, which could allow an attacker to gain privileged access to a target user's environment.
+安全でない出力処理の悪用に成功すると、ウェブブラウザでの XSS や CSRF だけでなく、バックエンドシステムでの SSRF、権限昇格、リモートコード実行につながる可能性があります。
+以下の条件によりこの脆弱性の影響が増大する可能性があります。
+* アプリケーションはエンドユーザーが意図する権限を超えたものを LLM に付与し、権限昇格やリモートコード実行を可能にしています。
+* アプリケーションは外部プロンプトインジェクション攻撃に対して脆弱であり、攻撃者がターゲットユーザーの環境への特権アクセスを取得できる可能性があります。
 
 **脆弱性の一般的な例:**
 
