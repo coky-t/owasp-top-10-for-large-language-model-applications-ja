@@ -2,11 +2,11 @@
 
 **説明**
 
-LLM plugins are  extensions that, when enabled, are called automatically by the model during user  interactions. They are driven by the model, and there  is no application control over the execution. Furthermore, to deal with context-size limitations, plugins are likely to implement free-text inputs from the model with no validation or type checking. This allows a potential attacker to construct a malicious request to the plugin, which could result in a wide range of undesired behaviours, up to and including remote code execution.  
+LLM プラグインは、有効にすると、ユーザーインタラクション時にモデルによって自動的に呼び出される拡張機能です。プラグインはモデルによって駆動され、アプリケーションによる実行制御はありません。さらに、コンテキストサイズの制限に対処するために、プラグインはバリデーションや型チェックを行わずにモデルからフリーテキスト入力を可能性があります。これにより悪意のある攻撃者がプラグインに悪意のあるリクエストを作成できるようになり、リモートコード実行に至るまで、さまざまな望ましくない動作を引き起こす可能性があります。
 
-The harm of malicious inputs often depends on insufficient access controls and the failure to track authorisation across plugins. Inadequate access control allows a plugin to blindly trust other plugins and assume that the end user provided the inputs. Such inadequate access control can enable malicious inputs to have harmful consequences ranging from data exfiltration, remote code execution, and privilege escalation.
+悪意のある入力の危害はアクセス制御が不十分であったり、プラグイン間の認可を追跡できないことが原因であることがよくあります。アクセス制御が不適切であると、プラグイン型のプラグインを盲目的に信頼し、エンドユーザーが入力を提供したとみなす可能性があります。このような不適切なアクセス制御により悪意のある入力がデータ流出、リモートコード実行、権限昇格などの有害な結果をもたらす可能性があります。
 
-This item focuses on the creation of LLM plugins rather than using third-party plugins, which is covered by LLM-Supply-Chain-Vulnerabilities.  
+この項目では LLM サプライチェーン脆弱性でカバーされるサードパーティプラグインの使用ではなく、LLM プラグインの作成に焦点を当てています。
 
 **脆弱性の一般的な例:**
 
