@@ -2,9 +2,9 @@
 
 **説明:**
 
-This entry refers to the unauthorized access and exfiltration of LLM models by malicious actors or APTs. This arises when the proprietary LLM models (being valuable intellectual property), are compromised, physically stolen, copied or weights and parameters are extracted to create a functional equivalent. The impact of LLM model theft can include economic and brand reputation loss, erosion of competitive advantage, unauthorized usage of the model or unauthorized access to sensitive information contained within the model.
+このエントリでは悪意のある攻撃者や APT による LLM モデルへの認可されていないアクセスや抽出について言及します。これはプロプライエタリ LLM モデル (貴重な知的財産である) が侵害されたり、物理的に盗まれたり、複製されたり、機能的に等価なものを作成するために重みとパラメータが抽出される場合に発生します。LLM モデル窃取の影響には、経済的およびブランド的評判の損失、競争上の優勢性の低下、モデルの認可されていない使用、モデル内に含まれる機密情報の認可されていないアクセスなどの可能性があります。
 
-The theft of LLMs represents a significant security concern as language models become increasingly powerful and prevalent. Organizations and researchers must prioritize robust security measures to protect their LLM models, ensuring the confidentiality and integrity of their intellectual property. Employing a comprehensive security framework that includes access controls, encryption, and continuous monitoring is crucial in mitigating the risks associated with LLM model theft and safeguarding the interests of both individuals and organizations relying on LLM.
+言語モデルがまずます強力になり普及するにつれて、LLM の窃取はセキュリティ上の重大な懸念事項となっています。組織や研究者は堅牢なセキュリティ対策を優先して、LLM モデルを保護し、知的財産の機密性と完全性を確保する必要があります。アクセス制御、暗号化、継続的監視を含む包括的なセキュリティフレームワークを採用することは、LLM モデル窃取に関連するリスクを軽減し、LLM に依存する個人と組織の両方の利益を守るうえで極めて重要です。
 
 **脆弱性の一般的な例:**
 
