@@ -2,7 +2,7 @@
 
 **説明:**
 
-An attacker interacts with a LLM in a method that consumes an exceptionally high amount of resources, which results in a decline in the quality of service for them and other users, as well as potentially incurring high resource costs. Furthermore, an emerging major security concern is the possibility of an attacker interfering with or manipulating the context window of an LLM. This issue is becoming more critical due to the increasing use of LLMs in various applications, their intensive resource utilization, the unpredictability of user input, and a general unawareness among developers regarding this vulnerability. In LLMs, the context window represents the maximum length of text the model can manage, covering both input and output. It's a crucial characteristic of LLMs as it dictates the complexity of language patterns the model can understand and the size of the text it can process at any given time. The size of the context window is defined by the model's architecture and can differ between models.
+攻撃者は非常に多くのリソースを消費する方法で LLM とやり取りし、その結果、攻撃者や他のユーザーのサービス品質が低下し、高額なリソースコストが発生する可能性があります。さらに、新たなセキュリティ上な重大な懸念は攻撃者が LLM のコンテキストウィンドウを妨害または操作する可能性があることです。この問題はさまざまなアプリケーションでの LLM の使用の増加、集中的なリソース使用、ユーザー入力の予測不可能性、およびこの脆弱性に関する開発者の一般的な意識の低さのため、よりクリティカルになってきています。LLM では、コンテキストウィンドウはモデルが管理できるテキストの最大長を表し、入力と出力の両方をカバーします。これはモデルが理解できる言語パターンの複雑さと任意の時点で処理できるテキストのサイズを決定する LLM の重要な特定です。コンテキストウィンドウのサイズはモデルのアーキテクチャによって定義され、モデル間で異なる可能性があります。
 
 **脆弱性の一般的な例:**
 
