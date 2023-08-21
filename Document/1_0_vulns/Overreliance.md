@@ -2,13 +2,13 @@
 
 **説明:**
 
-Overreliance occurs when systems or people depend on LLMs for decision-making or content generation without sufficient oversight. While LLMs can produce creative and informative content, they can also generate content that is factually incorrect, inappropriate or unsafe. This is referred to as hallucination or confabulation and can result in misinformation, miscommunication, legal issues, and reputational damage.
+過度の依存はシステムや人々が十分な監視なしに意思決定やコンテンツ生成を LLM に依存している場合に発生します。LLM は創造的で有益なコンテンツを生成できる一方で、事実と異なる、不適切、あるいは安全でないコンテンツを生成することもあります。これは幻覚 (hallucination) または作話 (confabulation) とよばれ、誤った情報、誤った伝達、法的問題、風評被害をもたらす可能性があります。
 
-LLM-generated source code can introduce unnoticed security vulnerabilities. This poses a significant risk to the operational safety and security of applications. These risks show the importance of a rigorous review processes, with:
+LLM が生成したソースコードは気づかれないうちにセキュリティ上の脆弱性を引き起こす可能性があります。これはアプリケーションの運用上の安全性とセキュリティに重大なリスクをもたらします。これらのリスクは以下のような厳格なレビュープロセスの重要性を示しています。
 
-- Oversight
-- Continuous validation mechanisms
-- Disclaimers on risk
+- 監視
+- 継続的なバリデーションメカニズム
+- リスクに関する免責事項
 
 **脆弱性の一般的な例:**
 
