@@ -2,14 +2,14 @@
 
 **説明:**
 
-Prompt Injection Vulnerability occurs when an attacker manipulates a large language model (LLM) through crafted inputs, causing the LLM to unknowingly execute the attacker's intentions. This can be done directly by "jailbreaking" the system prompt or indirectly through manipulated external inputs, potentially leading to data exfiltration, social engineering, and other issues.
+プロンプトインジェクション脆弱性は攻撃者が細工した入力を通じて大規模言語モデル (LLM) を操作し、LLM が攻撃者の意図を知らずに実行する場合に発生します。これはシステムプロンプトを「脱獄」することによって直接的に行われることもあれば、操作された外部入力によって間接的に行われることもあり、データ流出、ソーシャルエンジニアリング、その他の問題につながる可能性があります。
 
-* **Direct Prompt Injections**, also known as "jailbreaking", occur when a malicious user overwrites or reveals the underlying *system* prompt. This may allow attackers to exploit backend systems by interacting with insecure functions and data stores accessible through the LLM.
-* **Indirect Prompt Injections** occur when an LLM accepts input from external sources that can be controlled by an attacker, such as websites or files. The attacker may embed a prompt injection in the external content hijacking the conversation context. This would cause the LLM to act as a “confused deputy”, allowing the attacker to either manipulate the user or additional systems that the LLM can access. Additionally, indirect prompt injections do not need to be human-visible/readible, as long as the text is parsed by the LLM.
+* **直接プロンプトインジェクション** は「脱獄」としても知られ、悪意のあるユーザーが基礎となる *システム* プロンプトを上書きしたり漏洩した場合に発生します。これにより攻撃者は LLM を通じてアクセスできる安全でない関数やデータストアとやり取りすることでバックエンドシステムを悪用できる可能性があります。
+* **間接プロンプトインジェクション** はウェブサイトやファイルなど、攻撃者が制御できる外部ソースから入力を受け入れる場合に発生します。攻撃者は外部コンテンツにプロンプトインジェクションを埋め込み、会話コンテキストをハイジャックする可能性があります。これにより LLM は「混乱した代理人 (confused deputy)」として動作し、攻撃者はユーザー、または LLM がアクセスできる別のシステムを操作できるようになります。さらに、間接プロンプトインジェクションはテキストが LLM によって解析される限り、人間が見たり読んだりできる必要はありません。
 
-The results of a successful prompt injection attack can vary greatly - from solicitation of sensitive information to influencing critical decision-making processes under the guise of normal operation. 
+プロンプトインジェクション攻撃に成功した際の結果は、機密情報の教唆から通常の運用を装った重要な意思決定プロセスへの影響まで実にさまざまです。
 
-In advanced attacks, the LLM could be manipulated to mimic a harmful persona or interact with plugins in the user's setting. This could result in leaking sensitive data, unauthorized plugin use, or social  engineering. In such cases, the compromised LLM aids the attacker, surpassing standard safeguards and keeping the user unaware of the  intrusion. In these instances, the compromised LLM effectively acts as an agent for the attacker, furthering their objectives without triggering usual safeguards or alerting the end user to the intrusion.
+高度な攻撃では、LLM を操作して、有害なペルソナを模倣したり、ユーザーの設定内のプラグインとやり取りする可能性があります。その結果、機密データの漏洩、認可されていないプラグインの使用、ソーシャルエンジニアリングの可能性があります。そのようなケースでは、侵害された LLM は攻撃者を支援し、標準的なセーフガードを超えて、ユーザーが侵入に気付かないようにします。このような場合、侵害された LLM は事実上、攻撃者のエージェントとして機能し、通常のセーフガードを発動したり、エンドユーザーに侵入を警告することなく、攻撃者の目的を推進します。
 
 **脆弱性の一般的な例:**
 
