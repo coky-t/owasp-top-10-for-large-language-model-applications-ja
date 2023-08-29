@@ -2,9 +2,9 @@
 
 **説明:** 
 
-The supply chain in LLMs can be vulnerable, impacting the integrity of training data, ML models, and deployment platforms. These vulnerabilities can lead to biased outcomes, security breaches, or even complete system failures. Traditionally, vulnerabilities are focused on software components, but Machine Learning  extends this with the pre-trained models and training data supplied by third parties susceptible to tampering and poisoning attacks. 
+LLM のサプライチェーンは脆弱である可能性があり、訓練データ、ML モデル、デプロイメントプラットフォームの完全性に影響を与えます。これらの脆弱性はバイアスのある結果、セキュリティ侵害、さらには完全なシステム障害につながる可能性があります。従来、脆弱性はソフトウェアコンポーネントに焦点を当てているが、機械学習では改竄やポイズニング攻撃の影響を受けやすいサードパーティが提供する事前学習済みモデルや訓練データでこれを拡張します。
 
-Finally, LLM Plugin extensions can bring their own vulnerabilities. These are described in LLM - Insecure Plugin Design, which covers writing LLM  Plugins and  provides information useful to evaluate third-party plugins.
+最後に、LLM プラグイン拡張機能はそれ自体の脆弱性をもたらす可能性があります。これらは LLM - 安全でないプラグイン設計 (Insecure Plugin Design) で説明されており、LLM プラグインの書き方をカバーし、サードパーティプラグインを評価するのに役立つ情報を提供しています。
 
 **脆弱性の一般的な例:**
 
