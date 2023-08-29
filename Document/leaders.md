@@ -3,5 +3,5 @@
     - [LinkedIn](https://www.linkedin.com/in/wilsonsd/) [Twitter](https://twitter.com/virtualsteve)
 
 
-### チーム
-* フルコアチーム [チームページ](CoreTeam.md)
+### コアリーダーシップ仮想チーム
+* フルコアチーム [チームページ](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/wiki/Core-Team)
