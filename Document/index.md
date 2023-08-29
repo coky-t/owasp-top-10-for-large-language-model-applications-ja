@@ -13,9 +13,10 @@ OWASP Top 10 大規模言語モデルアプリケーションプロジェクト�
 
 これまでに行われた作業を理解するには、公式 1.0.1 リリース ([フルバージョン](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/blob/main/assets/PDF/OWASP-Top-10-for-LLMs-2023-v1_0_1.pdf) や [ショートスライド](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/blob/main/assets/PDF/OWASP-Top-10-for-LLMs-2023-slides-v1_0_1.pdf)) を確認してください。
 
-この取り組みはコミュニティ主導で行われ、すべての利害関係者の参加と貢献を推奨します。私たちは現在ワーキンググループを結成しています。
+この取り組みはコミュニティ主導で行われ、すべての利害関係者の参加と貢献を推奨します。
 
 * [OWASP Slack](https://owasp.org/slack/invite) にワーキンググループチェンネルがあるので、サインアップしてから #project-top10-for-llm チェンネルに参加してください。
 * ワーキンググループは [Wiki](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/wiki) でコラボレーションしています。
+* 最新の進捗状況を定期的に知りたいでしょうか？ [ニュースレターを申し込んでください](https://llmtop10.beehiiv.com/subscribe)
 
 LLM セキュリティは初めてですか？詳細については [resources ページ](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/wiki/Educational-Resources) をご覧ください。
