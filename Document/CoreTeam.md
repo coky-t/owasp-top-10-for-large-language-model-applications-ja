@@ -1,6 +1,8 @@
 
 # バージョン 1.0 のコアチームメンバー
 
+このバージョンは現在ではレガシーです。 [新しいバージョンはこちら](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/wiki/Core-Team)
+
 これらの人物はリストのバージョン 1.0 の作成において特に重要な役割を果たし、プロジェクト管理を支援するために選ばれました。
 
 | 氏名               | 役割           | 組織                  | 個人リンク                                                                          |
