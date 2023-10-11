@@ -6,6 +6,7 @@ This is the unofficial Japanese translation of the [OWASP Top 10 for Large Langu
 
 - Project Site - <https://owasp.org/www-project-top-10-for-large-language-model-applications/>
 - Project Repository - <https://github.com/OWASP/www-project-top-10-for-large-language-model-applications>
+- Document Site - <https://llmtop10.com/>
 
 # OWASP Top 10 大規模言語モデルアプリケーション 日本語版 0.1
 
