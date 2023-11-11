@@ -6,38 +6,38 @@
 
 **脆弱性の一般的な例:**
 
-1. Posing queries that lead to recurring resource usage through high-volume generation of tasks in a queue, e.g. with LangChain or AutoGPT.
-2. Sending queries that are unusually resource-consuming, perhaps because they use unusual orthography or sequences.
-3. Continuous input overflow: An attacker sends a stream of input to the LLM that exceeds its context window, causing the model to consume excessive computational resources.
-4. Repetitive long inputs: The attacker repeatedly sends long inputs to the LLM, each exceeding the context window.
-5. Recursive context expansion: The attacker constructs input that triggers recursive context expansion, forcing the LLM to repeatedly expand and process the context window.
-6. Variable-length input flood: The attacker floods the LLM with a large volume of variable-length inputs, where each input is carefully crafted to just reach the limit of the context window. This technique aims to exploit any inefficiencies in processing variable-length inputs, straining the LLM and potentially causing it to become unresponsive.
+1. たとえば LangChain や AutoGPT で、キューに大量のタスクを生成して、リソースを繰り返し使用するようなクエリを実行します。
+2. リソースを異常に消費するクエリを送信します。おそらくこれは通常とは異なる書法やシーケンスを使用しているかもしれません。
+3. 継続的な入力オーバーフロー: 攻撃者はコンテキストウィンドウを超える入力ストリームを LLM に送信し、モデルに過剰な計算リソースを消費させます。
+4. 反復的な長い入力: 攻撃者はコンテキストウィンドウを超える長い入力を LLM に繰り返し送信します。
+5. 再帰的なコンテキスト展開: 攻撃者は再帰的なコンテキスト展開をトリガーする入力を構築し、LLM に繰り返しコンテキストウィンドウの展開と処理を強制します。
+6. 可変長入力フラッド: 攻撃者は大量の可変長入力で LLM をフラッドします。各入力はコンテキストウィンドウの制限にちょうど達成するように注意深く作成されています。この技法は可変長入力を処理する際の非効率性を悪用し、LLM に負担をかけて応答不能に陥る可能性を狙っています。
 
 **防止方法:**
 
-1. Implement input validation and sanitization to ensure user input adheres to defined limits and filters out any malicious content.
-2. Cap resource use per request or step, so that requests involving complex parts execute more slowly.
-3. Enforce API rate limits to restrict the number of requests an individual user or IP address can make within a specific timeframe.
-4. Limit the number of queued actions and the number of total actions in a system reacting to LLM responses.
-5. Continuously monitor the resource utilization of the LLM to identify abnormal spikes or patterns that may indicate a DoS attack.
-6. Set strict input limits based on the LLM's context window to prevent overload and resource exhaustion.
-7. Promote awareness among developers about potential DoS vulnerabilities in LLMs and provide guidelines for secure LLM implementation.
+1. 入力バリデーションとサニタイゼーションを実装して、ユーザー入力が定義された制限を遵守し、悪意のあるコンテンツをフィルターで除外します。
+2. リクエストやステップごとのリソース使用量を制限し、複雑なパーツを含むリクエストの実行が遅くなります。
+3. API レート制限を適用して、特定の時間枠内で個々のユーザーまたは IP アドレスが実行できるリクエスト数を制限します。
+4. キューに入れられるアクションの数と、LLM レスポンスに反応するシステムのアクションの総数を制限します。
+5. LLM のリソース使用率を継続的に監視して、DoS 攻撃を示す可能性がある異常なスパイクやパターンを特定します。
+6. LLM のコンテキストウィンドウに基づいた厳密な入力制限を設定し、過負荷やリソース枯渇を防ぎます。
+7. LLM の潜在的な DoS 脆弱性について開発者の間で認識を促し、安全な LLM 実装のためのガイドラインを提供します。
 
 
 **攻撃シナリオの例:**
 
-1. An attacker repeatedly sends multiple requests to a hosted model that are difficult and costly for it to process, leading to worse service for other users and increased resource bills for the host.
-2. A piece of text on a webpage is encountered while an LLM-driven tool is collecting information to respond to a benign query. This leads to the tool making many more web page requests, resulting in large amounts of resource consumption.
-3. An attacker continuously bombards the LLM with input that exceeds its context window. The attacker may use automated scripts or tools to send a high volume of input, overwhelming the LLM's processing capabilities. As a result, the LLM consumes excessive computational resources, leading to a significant slowdown or complete unresponsiveness of the system.
-4. An attacker sends a series of sequential inputs to the LLM, with each input designed to be just below the context window's limit. By repeatedly submitting these inputs, the attacker aims to exhaust the available context window capacity. As the LLM struggles to process each input within its context window, system resources become strained, potentially resulting in degraded performance or a complete denial of service.
-5. An attacker leverages the LLM's recursive mechanisms to trigger context expansion repeatedly. By crafting input that exploits the recursive behavior of the LLM, the attacker forces the model to repeatedly expand and process the context window, consuming significant computational resources. This attack strains the system and may lead to a DoS condition, making the LLM unresponsive or causing it to crash.
-6. An attacker floods the LLM with a large volume of variable-length inputs, carefully crafted to approach or reach the context window's limit. By overwhelming the LLM with inputs of varying lengths, the attacker aims to exploit any inefficiencies in processing variable-length inputs. This flood of inputs puts excessive load on the LLM's resources, potentially causing performance degradation and hindering the system's ability to respond to legitimate requests.
+1. 攻撃者は処理が難しくコストがかかる複数のリクエストをホストされたモデルに繰り返し送信し、他のユーザーのサービスが低下し、ホストのリソース請求の増加につながります。
+2. LLM 駆動ツールが無害なクエリに応答するための情報を収集している際に、ウェブページ上のテキストの一部に遭遇します。これによりツールはさらに多くのウェブページリクエストを行うことになり、大量のリソースを消費することになります。
+3. 攻撃者は LLM に対してそのコンテキストウィンドウを超える入力を継続的に浴びせます。その攻撃者は自動化されたスクリプトやツールを使用して大量の入力を送信し、LLM の処理能力を圧倒する可能性があります。その結果、LLM は過剰な計算リソースを消費し、システムの大幅な速度低下や完全な応答不能につながります。
+4. 攻撃者は各入力がコンテキストウィンドウの制限をわずかに下回るように設計された一連の連続入力を LLM に送信します。これらの入力を繰り返し送信することで、攻撃者は利用可能なコンテキストウィンドウの容量を使い果たすことを狙います。LLM がコンテキストウィンドウ内で各入力を処理することに苦闘すると、システムリソースが逼迫し、パフォーマンスの低下や完全なサービス拒否となる可能性があります。
+5. 攻撃者は LLM の再帰メカニズムを利用して、コンテキスト展開を繰り返し引き起こします。LLM の再帰的な動作を悪用する入力を作成することで、攻撃者はモデルにコンテキストウィンドウの展開と処理を繰り返し実施させ、大量の計算リソースを消費します。この攻撃はシステムを逼迫して DoS 状態を引き起こし、LLM を応答不能にしたりクラッシュする可能性があります。
+6. 攻撃者はコンテキストウィンドウの制限に近づくか達するように注意深く作成された大量の可変長入力を LLM にフラッドします。さまざまな長さの入力で LLM を圧倒することで、攻撃者は可変長入力を処理する際の非効率性を悪用することを狙います。このような入力のフラッドにより LLM のリソースに過度の負荷をかけ、パフォーマンス低下を引き起こして、正当なリクエストに対する応答するシステムの能力を妨げる可能性があります。
 
 
 
 **参考情報リンク:**
 
-1. [LangChain max_iterations](https://twitter.com/hwchase17/status/1608467493877579777): demo + fix of this vulnerability in LangChain.
+1. [LangChain max_iterations](https://twitter.com/hwchase17/status/1608467493877579777): LangChain でのこの脆弱性のデモと修正。
 2. [Sponge Examples: Energy-Latency Attacks on Neural Networks](https://arxiv.org/abs/2006.03463): POC
 3. [OWASP DOS Attack](https://owasp.org/www-community/attacks/Denial_of_Service)
 4. [Learning From Machines: Know Thy Context](https://lukebechtel.com/blog/lfm-know-thy-context)
