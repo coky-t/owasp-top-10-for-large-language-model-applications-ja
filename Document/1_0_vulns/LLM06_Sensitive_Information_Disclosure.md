@@ -10,32 +10,32 @@ LLM アプリケーションはその出力を通じて機密情報、プロプ�
 
 **脆弱性の一般的な例:**
 
-1. Incomplete or improper filtering of sensitive information in the LLM’s responses.
-2. Overfitting or memorization of sensitive data in the LLM’s training process.
-3. Unintended disclosure of confidential information due to LLM misinterpretation, lack of data scrubbing methods or errors.
+1. LLM のレスポンスにおいて、機密情報のフィルタリングが不完全または不適切。
+2. LLM のトレーニングプロセスにおいて、機密データの過学習やメモ化。
+3. LLM の誤った解釈、データスクラビング方法の欠如やエラーによる機密情報の意図しない開示。
 
 **防止方法:**
 
-1. Integrate adequate data sanitization and scrubbing techniques to prevent user data from entering the training model data.
-2. Implement robust input validation and sanitization methods to identify and filter out potential malicious inputs to prevent the model from being poisoned.
-3. When enriching the model with data and if [fine-tuning](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/wiki/Definitions) a model: (I.E, data fed into the model before or during deployment)
-   1. Anything that is deemed sensitive in the fine-tuning data has the potential to be revealed to a user. Therefore, apply the rule of least privilege and do not train the model on information that the highest-privileged user can access which may be displayed to a lower-privileged user.
-   2. Access to external data sources (orchestration of data at runtime) should be limited.
-   3. Apply strict access control methods to external data sources and a rigorous approach to maintaining a secure supply chain.
+1. 適切なデータサニタイゼーションとスクラビング技法を統合して、ユーザーデータが訓練データモデルに入ることを防ぎます。
+2. 堅牢な入力バリデーションとサニタイゼーション手法を実装し、潜在的な悪意のある入力を特定して除外し、モデルが汚染されることを防ぎます。
+3. モデルをデータで強化する場合、およびモデルを [ファインチューニング](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/wiki/Definitions) する場合 (つまり、データがデプロイメント前またはデプロイメント中にモデルに投入される場合)
+   1. ファインチューニングデータ内の機密性が高いとみなされるものがユーザーに公開される可能性があります。したがって、最小権限のルールを適用し、最高権限のユーザーがアクセスでき、低い権限のユーザーに表示される可能性がある情報でモデルを訓練してはいけません。
+   2. 外部データソースへのアクセス (実行時のデータのオーケストレーション) は制限されるべきです。
+   3. 外部データソースに厳格なアクセスコントロール方法と、安全なサプライチェーンを維持するための厳密なアプローチを適用します。
 
 **攻撃シナリオの例:**
 
-1. Unsuspecting legitimate user A is exposed to certain other user data via the LLM when interacting with the LLM application in a non-malicious manner.
+1. 疑う余地のない正規ユーザー A は悪意のない方法で LLM アプリケーションと対話する際に、LLM を介して他の特定のユーザーデータにさらされます。
 
-2. User A targets a well crafted set of prompts to bypass input filters and sanitization from the LLM to cause it to reveal sensitive information (PII) about other users of the application.
+2. ユーザー A は巧妙に作成された一連のプロンプトをターゲットにして、LLM からの入力フィルタとサニタイゼーションをバイパスし、アプリケーションの他のユーザーに関する機密情報 (PII) を漏洩させます。
 
-3. Personal data such as PII is leaked into the model via training data due to either negligence from the user themselves, or the LLM application. This case could increase risk and probability of scenario 1 or 2 above.
+3. ユーザー自身または LLM アプリケーションの不注意により、PII などの個人データが訓練データを介してモデルに漏洩します。この場合、上記のシナリオ 1 または 2 のリスクと確率が高まる可能性があります。
 
 **参考情報リンク:**
 
-1. [AI data leak crisis: New tool prevents company secrets from being fed to ChatGPT](https://www.foxbusiness.com/politics/ai-data-leak-crisis-prevent-company-secrets-chatgpt) A blog explaining the risks associated to users unintentionally leaking sensitive data into LLM's and the consequences of when this information is fed into training data.
-2. [Lessons learned from ChatGPT’s Samsung leak](https://cybernews.com/security/chatgpt-samsung-leak-explained-lessons/) A write up on an incident caused due to an employee unintentionally leaking source code into an LLM's training data due to misuse and unawareness, leading to this being leaked across other use-case interactions with the LLM.
-3. [Cohere - Terms Of Use](https://cohere.com/terms-of-use) An example terms of use notice made available to users of an LLM to identify how data is processed.
-4. [A threat modeling example](https://aivillage.org/large%20language%20models/threat-modeling-llm/) for LLM applications to assess the understanding of a systems’ goals from a business objective, mapping out the components responsible for them and recursively identifying system and performance criteria down to the essence of the implementation. Thus, the exercise aims to pre-anticipate and assess vulnerabilities to remediate and|or reduce risk.
-5. [OWASP AI Security and Privacy Guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) which is separate from this project.
-6. [Ensuring the Security of Large Language Models](https://www.experts-exchange.com/articles/38220/Ensuring-the-Security-of-Large-Language-Models-Strategies-and-Best-Practices.html): Strategies and best practices, including Homomorphic Encryption.
+1. [AI data leak crisis: New tool prevents company secrets from being fed to ChatGPT](https://www.foxbusiness.com/politics/ai-data-leak-crisis-prevent-company-secrets-chatgpt) ユーザーが意図せず LLM に機密データを漏洩することに関連するリスクと、その情報が訓練データに入力された場合の影響についてについて説明するブログ。
+2. [Lessons learned from ChatGPT’s Samsung leak](https://cybernews.com/security/chatgpt-samsung-leak-explained-lessons/) 従業員が誤用や認識不足により意図せずに LLM の訓練データのソースコードを漏洩し、これが LLM との他のユースケースのやり取りを通じて漏洩することになったインシデントに関する記事。
+3. [Cohere - Terms Of Use](https://cohere.com/terms-of-use) LLM のユーザーがデータの処理方法を確認できるようにする利用規約通知の例。
+4. [A threat modeling example](https://aivillage.org/large%20language%20models/threat-modeling-llm/) LLM アプリケーションに対してビジネス目標からシステムの目標の理解を評価し、それらを担当するコンポーネントをマッピングし、実装の本質に至るまでシステムとパフォーマンス基準を再帰的に特定します。したがって、このエクササイズの目的は脆弱性を事前に予測して評価し、リスクを修正や軽減することです。
+5. [OWASP AI Security and Privacy Guide](https://owasp.org/www-project-ai-security-and-privacy-guide/) これはこのプロジェクトとは別のものです。
+6. [Ensuring the Security of Large Language Models](https://www.experts-exchange.com/articles/38220/Ensuring-the-Security-of-Large-Language-Models-Strategies-and-Best-Practices.html): 準同型暗号を含む戦略とベストプラクティス。
