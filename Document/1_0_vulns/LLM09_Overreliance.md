@@ -12,28 +12,28 @@ LLM が生成したソースコードは気づかれないうちにセキュリ�
 
 **脆弱性の一般的な例:**
 
-1. LLM provides inaccurate information as a response, causing misinformation. 
-2. LLM produces logically incoherent or nonsensical text that, while grammatically correct, doesn't make sense.
-3. LLM melds information from varied sources, creating misleading content.
-4. LLM suggests insecure or faulty code, leading to vulnerabilities when incorporated into a software system.
-5. Failure of provider to appropriately communicate the inherent risks to end users, leading to potential harmful consequences.
+1. LLM はレスポンスとして不正確な情報を提供し、誤った情報を引き起こします。
+2. LLM は文法的には正しくても意味をなさない、論理的に一貫性がない、または意味のないテキストを生成します。
+3. LLM はさまざまな情報源から情報を融合し、誤解を招くコンテンツを作成します。
+4. LLM は安全でないコードや欠陥のあるコードを提案し、ソフトウェアシステムに組み込んだ際に脆弱性を引き起こします。
+5. プロバイダがエンドユーザーに内在するリスクを適切に伝えていない場合、有害な結果を招く可能性があります。
 
 **防止方法:**
 
-1. Regularly monitor and review the LLM outputs. Use self-consistency or voting techniques to filter out inconsistent text. Comparing multiple model responses for a single prompt can better judge the quality and consistency of output.
-2. Cross-check the LLM output with trusted external sources. This additional layer of validation can help ensure the information provided by the model is accurate and reliable.
-3. Enhance the model with fine-tuning or embeddings to improve output quality. Generic pre-trained models are more likely to produce inaccurate information compared to tuned models in a partiular domain.  Techniques such as prompt engineering, parameter efficient tuning (PET), full model tuning, and chain of thought prompting can be employed for this purpose.
-4. Implement automatic validation mechanisms that can cross-verify the generated output against known facts or data. This can provide an additional layer of security and mitigate the risks associated with hallucinations.
-5. Break down complex tasks into manageable subtasks and assign them to different agents. This not only helps in managing complexity, but it also reduces the chances of hallucinations as each agent can be held accountable for a smaller task.
-6. Clearly communicate the risks and limitations associated with using LLMs. This includes potential for information inaccuracies, and other risks. Effective risk communication can prepare users for potential issues and help them make informed decisions.
-7. Build APIs and user interfaces that encourage responsible and safe use of LLMs. This can involve measures such as content filters, user warnings about potential inaccuracies, and clear labeling of AI-generated content.
-8. When using LLMs in development environments, establish secure coding practices and guidelines to prevent the integration of possible vulnerabilities.
+1. LLM 出力を定期的に監視してレビューします。自己一貫性や投票技法を使用して、一貫性のないテキストを除外します。単一のプロンプトに対して複数のモデルのレスポンスを比較することで、出力の品質と一貫性をより適切に判断できます。
+2. LLM 出力を信頼できる外部情報源とクロスチェックします。このようにバリデーションのレイヤを追加することで、モデルによって提供される情報が正確で信頼できることを確保できます。
+3. ファインチューニングや embedding でモデルを強化して、出力品質を向上します。一般的な事前訓練モデルは特定のドメインで調整されたモデルと比較して不正確な情報を生成する可能性が高くなります。この目的のために、プロンプトエンジニアリング、パラメータ効率チューニング (PET)、フルモデルチューニング、思考連鎖プロンプトなどの技法を採用できます。
+4. 生成された出力を既知の事実やデータと相互検証できる自動バリデーションメカニズムを実装します。これはセキュリティの追加レイヤを提供し、幻覚 (hallucination) に関連するリスクを軽減できます。
+5. 複雑なタスクを管理可能なサブタスクに分割し、さまざまなエージェントに割り当てます。これは複雑さを管理するのに役立つだけでなく、各エージェントをより小さなタスクに責任を負うことができるため、幻覚 (hallucination) の可能性も減少します。
+6. LLM の使用に関するリスクと制限を明確に伝えます。これには情報の不正確さの可能性や他のリスクを含みます。効果的なリスク伝達により、ユーザーは潜在的な問題に備え、情報に基づいた意思決定を行うことができます。
+7. LLM の責任ある安全な使用を促す API とユーザーインタフェースを構築します。これにはコンテンツフィルタ、潜在的な不正確さに関するユーザーへの警告、AI が生成したコンテンツの明確なラベル付けなどの手段があります。
+8. 開発環境で LLM を使用する場合、セキュアコーディングプラクティスとガイドラインを確立し、潜在的な脆弱性の統合を防ぎます。
 
 **攻撃シナリオの例:**
 
-1. A news organization heavily uses an AI model to generate news articles. A malicious actor exploits this over-reliance, feeding the AI misleading information, causing the spread of disinformation. The AI unintentionally plagiarizes content, leading to copyright issues and decreased trust in the organization.
-2. A software development team utilizes an AI system like Codex to expedite the coding process. Over-reliance on the AI's suggestions introduces security vulnerabilities into the application due to insecure default settings or recommendations inconsistent with secure coding practices.
-3. A software development firm uses an LLM to assist developers. The LLM suggests a non-existent code library or package, and a developer, trusting the AI, unknowingly integrates a malicious package into the firm's software. This highlights the importance of cross-checking AI suggestions, especially when involving third-party code or libraries.
+1. ある報道機関は AI モデルを多用してニュース記事を生成します。悪意のあるユーザーはこの過度の依存を悪用して、AI に誤解を招く情報を与え、偽情報の拡散を引き起こします。AI は意図せずコンテンツを盗用し、著作権の問題や組織の信頼低下につながります。
+2. あるソフトウェア開発チームは Codex のような AI システムを利用してコーディングプロセスを迅速化します。AI の提案に過度に依存すると、安全でないデフォルト設定やセキュアコーディングプラクティスと矛盾する推奨事項により、アプリケーションにセキュリティ脆弱性をもたらします。
+3. あるソフトウェア開発会社は LLM を使用して開発者を支援します。LLM は存在しないコードライブラリやパッケージを提案し、開発者は AI を信頼して、知らないうちに悪意のあるパッケージを会社のソフトウェアに組み込んでしまいます。これは、特にサードパーティコードやライブラリが関与する場合、AI の提案をクロスチェックすることの重要性を浮き彫りにしています。
 
 **参考情報リンク:**
 
