@@ -8,46 +8,46 @@
 
 **脆弱性の一般的な例:**
 
-1. An attacker exploits a vulnerability in a company's infrastructure to gain unauthorized access to their LLM model repository via misconfiguration in their network or application security settings.
-2. An insider threat scenario where a disgruntled employee leaks model or related artifacts.
-3. An attacker queries the model API using carefully crafted inputs and prompt injection techniques to collect a sufficient number of outputs to create a shadow model.
-4. A malicious attacker is able to bypass input filtering techniques of the LLM to perform a side-channel attack and ultimately harvest model weights and architecture information to a remote controlled resource.
-5. The attack vector for model extraction involves querying the LLM with a large number of prompts on a particular topic. The outputs from the LLM can then be used to fine-tune another model. However, there are a few things to note about this attack:
-   - The attacker must generate a large number of targeted prompts. If the prompts are not specific enough, the outputs from the LLM will be useless.
-   - The outputs from LLMs can sometimes contain hallucinated answers meaning the attacker may not be able to extract the entire model as some of the outputs can be nonsensical.
-     - It is not possible to replicate an LLM 100% through model extraction. However, the attacker will be able to replicate a partial model.
-6. The attack vector for **_functional model replication_** involves using the target model via prompts to generate synthetic training data (an approach called "self-instruct") to then use it and fine-tune another foundational model to produce a functional equivalent. This bypasses the limitations of traditional query-based extraction used in Example 5 and has been successfully used in research of using an LLM to train another LLM. Although in the context of this research, model replication is not an attack. The approach could be used by an attacker to replicate a proprietary model with a public API.
+1. 攻撃者はある企業のインフラストラクチャの脆弱性を悪用して、ネットワークやアプリケーションセキュリティ設定の構成ミスを介して LLM モデルリポジトリへの認可されていないアクセスを獲得します。
+2. 不満を抱いた従業員がモデルや関連成果物を漏洩する内部脅威シナリオ。
+3. 攻撃者は注意深く作成された入力とプロンプトインジェクション技法を使用してモデル API をクエリし、十分な数の出力を収集して、シャドウモデルを作成します。
+4. 悪意のある攻撃者は LLM の入力フィルタリング技法をバイパスして、サイドチャネル攻撃を実行し、最終的にモデルの重みとアーキテクチャ情報を遠隔操作されたリソースに収集できます。
+5. モデル抽出のための攻撃ベクトルには、特定のトピックに関する多数のプロンプトで LLM をクエリすることが含まれます。LLM からの出力は別のモデルをファインチューニングするために使用できます。ただし、この攻撃については注意すべき点がいくつかあります。
+   - 攻撃者はターゲットとなるプロンプトを多数生成しなければなりません。プロンプトは十分に具体的ではない場合、LLM からの出力は役に立ちません。
+   - LLM からの出力には幻覚のような回答が含まれることがあります。つまり、出力の一部が無意味となる可能性があるため、攻撃者はモデル全体を抽出できないことがあります。
+     - モデル抽出を通じて LLM を 100% 複製することは可能ではありません。ただし、攻撃者は部分的なモデルを複製できます。
+6. **_機能モデルの複製_** の攻撃ベクトルは、プロンプトを介してターゲットモデルを使用して合成トレーニングデータを生成し ("self-instruct" と呼ばれるアプローチ) 、それを使用して別の基本モデルをファインチューニングし、機能的に同等なものを生成することが含まれます。これは例 5 で使用される従来のクエリベースの抽出の制限を回避し、LLM を使用して他の LLM を訓練する研究での使用に成功しています。この研究の文脈では、モデル複製は攻撃ではありません。このアプローチは攻撃者が使用して、パブリック API でプロプライエタリモデルを複製できる可能性があります。
 
-Use of a stolen model, as a shadow model, can be used to stage adversarial attacks including unauthorized access to sensitive information contained within the model or experiment undetected with adversarial inputs to further stage advanced prompt injections.
+盗まれたモデルをシャドウモデルとして使用すると、モデル内に含まれる機密情報への認可されていないアクセスなどの敵対的な攻撃を仕掛けたり、敵対的入力を検出されずにさらに高度なプロンプトインジェクションを実験したりできます。
 
 **防止方法:**
 
-1. Implement strong access controls (E.G., RBAC and rule of least privilege) and strong authentication mechanisms to limit unauthorized access to LLM model repositories and training environments.
-   1. This is particularly true for the first three common examples, which could cause this vulnerability due to insider threats, misconfiguration, and/or weak security controls about the infrastructure that houses LLM models, weights and architecture in which a malicious actor could infiltrate from insider or outside the environment.
-   2. Supplier management tracking, verification and dependency vulnerabilities are important focus topics to prevent exploits of supply-chain attacks.
-2. Restrict the LLM's access to network resources, internal services, and APIs.
-   1. This is particularly true for all common examples as it covers insider risk and threats, but also ultimately controls what the LLM application "*has access to*" and thus could be a mechanism or prevention step to prevent side-channel attacks.
-3. Regularly monitor and audit access logs and activities related to LLM model repositories to detect and respond to any suspicious or unauthorized behavior promptly.
-4. Automate MLOps deployment with governance and tracking and approval workflows to tighten access and deployment controls within the infrastructure.
-5. Implement controls and mitigation strategies to mitigate and|or reduce risk of prompt injection techniques causing side-channel attacks.
-6. Rate Limiting of API calls where applicable and|or filters to reduce risk of data exfiltration from the LLM applications, or implement techniques to detect (E.G., DLP) extraction activity from other monitoring systems.
-7. Implement adversarial robustness training to help detect extraction queries and tighten physical security measures.
-8. Implement a watermarking framework into the embedding and detection stages of an LLMs lifecyle.
+1. 強力なアクセス制御 (RBAC や最小権限のルールなど) や強力な認証メカニズムを実装して、LLM モデルリポジトリとトレーニング環境への認可されていないアクセスを制限します。
+   1. これは特に最初の三つの一般的な例に当てはまり、インサイダー脅威、構成ミスや、LLM モデル、重み、アーキテクチャを格納するインフラストラクチャに関する脆弱なセキュリティコントロールによって、この脆弱性を引き起こし、悪意のあるアクターが環境の内部または外部から侵入する可能性があります。
+   2. サプライヤー管理の追跡、検証、依存関係の脆弱性はサプライチェーン攻撃の悪用を防ぐための重要な焦点トピックです。
+2. ネットワークリソース、内部サービス、API への LLM のアクセスを制限します。
+   1. これはインサイダーリスクと脅威をカバーするだけでなく、最終的に LLM アプリケーションが "*アクセスできる*" ものを制御するので、サイドチャネル攻撃を防ぐためのメカニズムまたは防止ステップになりえるため、すべての一般的な例に特に当てはまります。
+3. LLM モデルリポジトリに関連するアクセスログとアクティビティを定期的に監視および監査して、疑わしい行為や認可されていない行為を迅速に検出して対応します。
+4. ガバナンスと追跡および承認ワークフローで MLOps デプロイメントを自動化し、インフラストラクチャ内のアクセスとデプロイメントのコントロールを強化します。
+5. 管理策と緩和策を導入して、サイドチャネル攻撃を引き起こすプロンプトインジェクション技法のリスクを緩和ないし軽減します。
+6. 適用可能であれば API 呼び出しのレート制限や、LLM アプリケーションからデータ流出のリスクを軽減するためのフィルター、他の監視システムからの (DLP などの) 抽出アクティビティを検出する技法を実装します。
+7. 敵対的ロバストネストレーニングを実装して、抽出クエリを検出し、物理的なセキュリティ対策を強化します。
+8. LLM ライフサイクルの埋め込みと検出のステージにウォーターマークのフレームワークを実装します。
 
 **攻撃シナリオの例:**
 
-1. An attacker exploits a vulnerability in a company's infrastructure to gain unauthorized access to their LLM model repository. The attacker proceeds to exfiltrate valuable LLM models and uses them to launch a competing language processing service or extract sensitive information, causing significant financial harm to the original company.
-2. A disgruntled employee leaks model or related artifacts. The public exposure of this scenario increases knowledge to attackers for gray box adversarial attacks or alternatively directly steal the available property.
-3. An attacker queries the API with carefully selected inputs and collects sufficient number of outputs to create a shadow model.
-4. A security control failure is present within the supply-chain and leads to data leaks of proprietary model information.
-5. A malicious attacker bypasses input filtering techniques and preambles of the LLM to perform a side-channel attack and retrieve model information to a remote controlled resource under their control.
+1. 攻撃者は企業のインフラストラクチャの脆弱性を悪用して、LLM モデルリポジトリへの認可されていないアクセスを獲得します。攻撃者は貴重な LLM モデルの抽出を進め、それらを使用して、競合する言語処理サービスを立ち上げたり機密情報を抽出して、元の企業に重大な経済的損害を与えます。
+2. 不満を抱いた従業員はモデルや関連成果物を漏洩します。このシナリオが一般に公開されることで、攻撃者の知識が増加し、グレーボックスの敵対的攻撃や、利用可能な財産を直接盗むことが可能になります。
+3. 攻撃者は注意深く選択した入力で API をクエリして、シャドウモデルを作成するのに十分な数の出力を収集します。
+4. サプライチェーン内にセキュリティコントロール上の欠陥が存在して、プロプライエタリモデル情報のデータ漏洩につながります。
+5. 悪意のある攻撃者は LLM の入力フィルタリング技法とプリアンブルを回避してサイドチャネル攻撃を実行して、制御下にある遠隔操作されたリソースにモデル情報を取得します。
 
 **参考情報リンク:**
 
-1. [Meta’s powerful AI language model has leaked online](https://www.theverge.com/2023/3/8/23629362/meta-ai-language-model-llama-leak-online-misuse) A news article highlighting a real-world incident where an AI language model leaked online, emphasizing the importance of protecting LLM models from unauthorized access and misuse.
-2. [Runaway LLaMA | How Meta's LLaMA NLP model leaked](https://www.deeplearning.ai/the-batch/how-metas-llama-nlp-model-leaked/) The same example as the prior reference, but detailing exploitation steps from a detailed-level of how the proprietary model was leaked. Physical model theft is a key concern and the Meta "LaMa leak" indicates the challenges of applying access control in collaborative research.
-3. [I Know What You See:](https://arxiv.org/pdf/1803.05847.pdf) Power Side-Channel Attack on Convolutional Neural Network Accelerators: Example of Side-channel attacks to extract model information.
-4. [D-DAE: Defense-Penetrating Model Extraction Attacks:](https://www.computer.org/csdl/proceedings-article/sp/2023/933600a432/1He7YbsiH4c) Adversarial approaches to defeat current extraction techniques.
-5. [A Comprehensive Defense Framework Against Model Extraction Attacks](https://ieeexplore.ieee.org/document/10080996) Techniques to defend against Extraction Attacks focusing on adversarial training and measures to achieve robustness against adaptive adversarial techniques.
-6. [Alpaca: A Strong, Replicable Instruction-Following Model](https://crfm.stanford.edu/2023/03/13/alpaca.html) Use of self-instruct to create an equivalent functional model to OpenAI’s ext-davinci-003 model on top of LLaMa.
-7. [How Watermarking Can Help Mitigate The Potential Risks Of LLMs?](https://www.kdnuggets.com/2023/03/watermarking-help-mitigate-potential-risks-llms.html) Adding embedding signals into generated text can help mitigate potential risks of plagiarism, misinformation, and abuse in large language models.
+1. [Meta’s powerful AI language model has leaked online](https://www.theverge.com/2023/3/8/23629362/meta-ai-language-model-llama-leak-online-misuse) AI 言語モデルがオンラインに漏洩した実際の事件を取り上げ、認可されていないアクセスや悪用から LLM モデルを保護することの重要性を強調したニュース記事。
+2. [Runaway LLaMA | How Meta's LLaMA NLP model leaked](https://www.deeplearning.ai/the-batch/how-metas-llama-nlp-model-leaked/) 先行文献と同じ例ですが、プロプライエタリモデルがどのように漏洩したかを詳細なレベルから悪用の手順を詳述しています。物理モデル窃取は重要な懸念事項であり、Meta の "LaMa リーク" は共同研究においてアクセス制御を適用する際の課題を示しています。
+3. [I Know What You See:](https://arxiv.org/pdf/1803.05847.pdf) 畳み込みニューラルネットワークアクセラレータに対する強力なサイドチャネル攻撃: モデル情報を抽出するサイドチャネル攻撃の例。
+4. [D-DAE: Defense-Penetrating Model Extraction Attacks:](https://www.computer.org/csdl/proceedings-article/sp/2023/933600a432/1He7YbsiH4c) 現在の抽出技法を打ち破る敵対的なアプローチ。
+5. [A Comprehensive Defense Framework Against Model Extraction Attacks](https://ieeexplore.ieee.org/document/10080996) 敵対的トレーニングと、適応的な敵対的技法に対する堅牢性を実現するための対策に焦点を当てた、抽出攻撃を防御するための技法。
+6. [Alpaca: A Strong, Replicable Instruction-Following Model](https://crfm.stanford.edu/2023/03/13/alpaca.html) self-instruct を使用して、LLaMa の上に OpenAI の ext-davinci-003 モデルと同等の機能モデルを作成します。
+7. [How Watermarking Can Help Mitigate The Potential Risks Of LLMs?](https://www.kdnuggets.com/2023/03/watermarking-help-mitigate-potential-risks-llms.html) 生成されたテキストに埋め込みシグナルを追加することで、大規模言語モデルにおける盗用、誤った情報、悪用などの潜在的なリスクを軽減できます。
