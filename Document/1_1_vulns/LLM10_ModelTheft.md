@@ -1,12 +1,12 @@
-## LLM10: Model Theft
+## LLM10: モデル窃取 (Model Theft)
 
-### Description
+### 説明
 
 This entry refers to the unauthorized access and exfiltration of LLM models by malicious actors or APTs. This arises when the proprietary LLM models (being valuable intellectual property), are compromised, physically stolen, copied or weights and parameters are extracted to create a functional equivalent. The impact of LLM model theft can include economic and brand reputation loss, erosion of competitive advantage, unauthorized usage of the model or unauthorized access to sensitive information contained within the model.
 
 The theft of LLMs represents a significant security concern as language models become increasingly powerful and prevalent. Organizations and researchers must prioritize robust security measures to protect their LLM models, ensuring the confidentiality and integrity of their intellectual property. Employing a comprehensive security framework that includes access controls, encryption, and continuous monitoring is crucial in mitigating the risks associated with LLM model theft and safeguarding the interests of both individuals and organizations relying on LLM.
 
-### Common Examples of Vulnerability
+### 脆弱性の一般的な例
 
 1. An attacker exploits a vulnerability in a company's infrastructure to gain unauthorized access to their LLM model repository via misconfiguration in their network or application security settings.
 2. An insider threat scenario where a disgruntled employee leaks model or related artifacts.
@@ -20,7 +20,7 @@ The theft of LLMs represents a significant security concern as language models b
 
 Use of a stolen model, as a shadow model, can be used to stage adversarial attacks including unauthorized access to sensitive information contained within the model or experiment undetected with adversarial inputs to further stage advanced prompt injections.
 
-### Prevention and Mitigation Strategies
+### 予防および緩和戦略
 
 1. Implement strong access controls (E.G., RBAC and rule of least privilege) and strong authentication mechanisms to limit unauthorized access to LLM model repositories and training environments.
    1. This is particularly true for the first three common examples, which could cause this vulnerability due to insider threats, misconfiguration, and/or weak security controls about the infrastructure that houses LLM models, weights and architecture in which a malicious actor could infiltrate from insider or outside the environment.
@@ -35,7 +35,7 @@ Use of a stolen model, as a shadow model, can be used to stage adversarial attac
 8. Implement adversarial robustness training to help detect extraction queries and tighten physical security measures.
 9. Implement a watermarking framework into the embedding and detection stages of an LLMs lifecyle.
 
-### Example Attack Scenarios
+### 攻撃シナリオの例
 
 1. An attacker exploits a vulnerability in a company's infrastructure to gain unauthorized access to their LLM model repository. The attacker proceeds to exfiltrate valuable LLM models and uses them to launch a competing language processing service or extract sensitive information, causing significant financial harm to the original company.
 2. A disgruntled employee leaks model or related artifacts. The public exposure of this scenario increases knowledge to attackers for gray box adversarial attacks or alternatively directly steal the available property.
@@ -43,7 +43,7 @@ Use of a stolen model, as a shadow model, can be used to stage adversarial attac
 4. A security control failure is present within the supply-chain and leads to data leaks of proprietary model information.
 5. A malicious attacker bypasses input filtering techniques and preambles of the LLM to perform a side-channel attack and retrieve model information to a remote controlled resource under their control.
 
-### Reference Links
+### 参考情報リンク
 
 1. [Meta’s powerful AI language model has leaked online](https://www.theverge.com/2023/3/8/23629362/meta-ai-language-model-llama-leak-online-misuse): **The Verge**
 2. [Runaway LLaMA | How Meta's LLaMA NLP model leaked](https://www.deeplearning.ai/the-batch/how-metas-llama-nlp-model-leaked/): **Deep Learning Blog**

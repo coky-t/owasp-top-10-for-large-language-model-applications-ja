@@ -1,12 +1,12 @@
-## LLM05: Supply-Chain Vulnerabilities
+## LLM05: サプライチェーン脆弱性 (Supply-Chain Vulnerabilities)
 
-### Description
+### 説明
 
 The supply chain in LLMs can be vulnerable, impacting the integrity of training data, ML models, and deployment platforms. These vulnerabilities can lead to biased outcomes, security breaches, or even complete system failures. Traditionally, vulnerabilities are focused on software components, but Machine Learning extends this with the pre-trained models and training data supplied by third parties susceptible to tampering and poisoning attacks.
 
 Finally, LLM Plugin extensions can bring their own vulnerabilities. These are described in [LLM07 - Insecure Plugin Design](InsecurePluginDesign.md), which covers writing LLM Plugins and provides helpful information to evaluate third-party plugins.
 
-### Common Examples of Vulnerability
+### 脆弱性の一般的な例
 
 1. Traditional third-party package vulnerabilities, including outdated or deprecated components.
 2. Using a vulnerable pre-trained model for fine-tuning.
@@ -14,7 +14,7 @@ Finally, LLM Plugin extensions can bring their own vulnerabilities. These are de
 4. Using outdated or deprecated models that are no longer maintained leads to security issues.
 5. Unclear T&Cs and data privacy policies of the model operators lead to the application's sensitive data being used for model training and subsequent sensitive information exposure. This may also apply to risks from using copyrighted material by the model supplier.
 
-### Prevention and Mitigation Strategies
+### 予防および緩和戦略
 
 1. Carefully vet data sources and suppliers, including T&Cs and their privacy policies, only using trusted suppliers. Ensure adequate and independently audited security is in place and that model operator policies align with your data protection policies, i.e., your data is not used for training their models; similarly, seek assurances and legal mitigations against using copyrighted material from model maintainers.
 2. Only use reputable plugins and ensure they have been tested for your application requirements. LLM-Insecure Plugin Design provides information on the LLM-aspects of Insecure Plugin design you should test against to mitigate risks from using third-party plugins.
@@ -27,7 +27,7 @@ Finally, LLM Plugin extensions can bring their own vulnerabilities. These are de
 9. Implement a patching policy to mitigate vulnerable or outdated components. Ensure the application relies on a maintained version of APIs and the underlying model.
 10. Regularly review and audit supplier Security and Access, ensuring no changes in their security posture or T&Cs.
 
-### Example Attack Scenarios
+### 攻撃シナリオの例
 
 1. An attacker exploits a vulnerable Python library to compromise a system. This happened in the first Open AI data breach.
 2. An attacker provides an LLM plugin to search for flights, generating fake links that lead to scamming users.
@@ -37,7 +37,7 @@ Finally, LLM Plugin extensions can bring their own vulnerabilities. These are de
 6. A compromised employee of a supplier (outsourcing developer, hosting company, etc.) exfiltrates data, model, or code stealing IP.
 7. An LLM operator changes its T&Cs and Privacy Policy to require an explicit opt out from using application data for model training, leading to the memorization of sensitive data.
 
-### Reference Links
+### 参考情報リンク
 
 1. [ChatGPT Data Breach Confirmed as Security Firm Warns of Vulnerable Component Exploitation](https://www.securityweek.com/chatgpt-data-breach-confirmed-as-security-firm-warns-of-vulnerable-component-exploitation/): **Security Week**
 2. [Plugin review process](https://platform.openai.com/docs/plugins/review) **OpenAI**

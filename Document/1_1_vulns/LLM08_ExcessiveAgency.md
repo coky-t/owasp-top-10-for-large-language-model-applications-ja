@@ -1,6 +1,6 @@
-## LLM08: Excessive Agency
+## LLM08: 過剰なエージェンシー (Excessive Agency)
 
-### Description
+### 説明
 
 An LLM-based system is often granted a degree of agency by its developer - the ability to interface with other systems and undertake actions in response to a prompt. The decision over which functions to invoke may also be delegated to an LLM 'agent' to dynamically determine based on input prompt or LLM output.
 
@@ -8,7 +8,7 @@ Excessive Agency is the vulnerability that enables damaging actions to be perfor
 
 Excessive Agency can lead to a broad range of impacts across the confidentiality, integrity and availability spectrum, and is dependent on which systems an LLM-based app is able to interact with.
 
-### Common Examples of Vulnerability
+### 脆弱性の一般的な例
 
 1. Excessive Functionality: An LLM agent has access to plugins which include functions that are not needed for the intended operation of the system. For example, a developer needs to grant an LLM agent the ability to read documents from a repository, but the 3rd-party plugin they choose to use also includes the ability to modify and delete documents.
 2. Excessive Functionality: A plugin may have been trialed during a development phase and dropped in favor of a better alternative, but the original plugin remains available to the LLM agent.
@@ -17,7 +17,7 @@ Excessive Agency can lead to a broad range of impacts across the confidentiality
 5. Excessive Permissions: An LLM plugin that is designed to perform operations on behalf of a user accesses downstream systems with a generic high-privileged identity. E.g., a plugin to read the current user's document store connects to the document repository with a privileged account that has access to all users' files.
 6. Excessive Autonomy: An LLM-based application or plugin fails to independently verify and approve high-impact actions. E.g., a plugin that allows a user's documents to be deleted performs deletions without any confirmation from the user.
 
-### Prevention and Mitigation Strategies
+### 予防および緩和戦略
 
 The following actions can prevent Excessive Agency:
 
@@ -34,7 +34,7 @@ The following options will not prevent Excessive Agency, but can limit the level
 1. Log and monitor the activity of LLM plugins/tools and downstream systems to identify where undesirable actions are taking place, and respond accordingly.
 2. Implement rate-limiting to reduce the number of undesirable actions that can take place within a given time period, increasing the opportunity to discover undesirable actions through monitoring before significant damage can occur.
 
-### Example Attack Scenarios
+### 攻撃シナリオの例
 
 An LLM-based personal assistant app is granted access to an individual’s mailbox via a plugin in order to summarise the content of incoming emails. To achieve this functionality, the email plugin requires the ability to read messages, however the plugin that the system developer has chosen to use also contains functions for sending messages. The LLM is vulnerable to an indirect prompt injection attack, whereby a maliciously-crafted incoming email tricks the LLM into commanding the email plugin to call the 'send message' function to send spam from the user's mailbox. This could be avoided by:
 (a) eliminating excessive functionality by using a plugin that only offered mail-reading capabilities,
@@ -42,7 +42,7 @@ An LLM-based personal assistant app is granted access to an individual’s mailb
 (c) eliminating excessive autonomy by requiring the user to manually review and hit 'send' on every mail drafted by the LLM plugin.
 Alternatively, the damage caused could be reduced by implementing rate limiting on the mail-sending interface.
 
-### Reference Links
+### 参考情報リンク
 
 1. [Embrace the Red: Confused Deputy Problem](https://embracethered.com/blog/posts/2023/chatgpt-cross-plugin-request-forgery-and-prompt-injection./): **Embrace The Red**
 2. [NeMo-Guardrails: Interface guidelines](https://github.com/NVIDIA/NeMo-Guardrails/blob/main/docs/security/guidelines.md): **NVIDIA Github**
