@@ -2,37 +2,37 @@
 
 ### 説明
 
-LLM plugins are extensions that, when enabled, are called automatically by the model during user interactions. The model integration platform drives them,  and the application may have no control over the execution, especially when the model is hosted by another party. Furthermore, plugins are likely to implement free-text inputs from the model with no validation or type-checking to deal with context-size limitations. This allows a potential attacker to construct a malicious request to the plugin, which could result in a wide range of undesired behaviors, up to and including remote code execution.
+LLM プラグインは、有効にすると、ユーザーインタラクション時にモデルによって自動的に呼び出される拡張機能です。モデル統合プラットフォームがそれらを駆動しますが、特にモデルが他のパーティによってホストされている場合、アプリケーションは実行を制御できないかもしれません。さらに、コンテキストサイズの制限に対処するために、プラグインはバリデーションや型チェックを行わずにモデルからフリーテキスト入力を可能性があります。これにより悪意のある攻撃者がプラグインに悪意のあるリクエストを作成できるようになり、リモートコード実行に至るまで、さまざまな望ましくない動作を引き起こす可能性があります。
 
-The harm of malicious inputs often depends on insufficient access controls and the failure to track authorization across plugins. Inadequate access control allows a plugin to blindly trust other plugins and assume that the end user provided the inputs. Such inadequate access control can enable malicious inputs to have harmful consequences ranging from data exfiltration, remote code execution, and privilege escalation.
+悪意のある入力の危害はアクセス制御が不十分であったり、プラグイン間の認可を追跡できないことが原因であることがよくあります。アクセス制御が不適切であると、プラグイン型のプラグインを盲目的に信頼し、エンドユーザーが入力を提供したとみなす可能性があります。このような不適切なアクセス制御により悪意のある入力がデータ流出、リモートコード実行、権限昇格などの有害な結果をもたらす可能性があります。
 
-This item focuses on creating LLM plugins rather than third-party plugins, which LLM-Supply-Chain-Vulnerabilities cover.
+この項目では LLM サプライチェーン脆弱性でカバーされるサードパーティプラグインではなく、LLM プラグインの作成に焦点を当てています。
 
 ### 脆弱性の一般的な例
 
-1. A plugin accepts all parameters in a single text field instead of distinct input parameters.
-2. A plugin accepts configuration strings instead of parameters that can override entire configuration settings.
-3. A plugin accepts raw SQL or programming statements instead of parameters.
-4. Authentication is performed without explicit authorization to a particular plugin.
-5. A plugin treats all LLM content as being created entirely by the user and performs any requested actions without requiring additional authorization.
+1. プラグインは個別の入力パラメータではなく単一のテキストフィールドですべてのパラメータを受け入れます。
+2. プラグインはパラメータの代わりにコンフィギュレーション文字列を受け入れ、コンフィギュレーション設定全体をオーバーライドできます。
+3. プラグインはパラメータの代わりに生の SQL やプログラミングステートメントを受け入れます。
+4. 認証は特定のプラグインに対する明示的な認可なしで実施されます。
+5. プラグインはすべての LLM コンテンツを完全にユーザーによって作成されたものとして扱い、追加の認可を必要とせずにリクエストされたアクションを実行します。
 
 ### 予防および緩和戦略
 
-1. Plugins should enforce strict parameterized input wherever possible and include type and range checks on inputs. When this is not possible, a second layer of typed calls should be introduced, parsing requests and applying validation and sanitization. When freeform input must be accepted because of application semantics, it should be carefully inspected to ensure no potentially harmful methods are being called.
-2. Plugin developers should apply OWASP’s recommendations in ASVS (Application Security Verification Standard) to ensure adequate input validation and sanitization.
-3. Plugins should be inspected and tested thoroughly to ensure adequate validation. Use Static Application Security Testing (SAST) scans and Dynamic and Interactive application testing (DAST, IAST) in development pipelines.
-4. Plugins should be designed to minimize the impact of any insecure input parameter exploitation following the OWASP ASVS Access Control Guidelines. This includes least-privilege access control, exposing as little functionality as possible while still performing its desired function.
-5. Plugins should use appropriate authentication identities, such as OAuth2, to apply effective authorization and access control. Additionally, API Keys should be used to provide context for custom authorization decisions that reflect the plugin route rather than the default interactive user.
-6. Require manual user authorization and confirmation of any action taken by sensitive plugins.
-7. Plugins are, typically, REST APIs, so developers should apply the recommendations found in OWASP Top 10 API Security Risks – 2023 to minimize generic vulnerabilities.
+1. プラグインは可能な限り厳密にパラメータ化された入力を強制し、入力の型と範囲のチェックを含める必要があります。これが可能でない場合には、型付き呼び出しの第二のレイヤーを導入し、リクエストを解析してバリデーションとサニタイゼーションを適用する必要があります。アプリケーションのセマンティクスのために自由形式の入力を受け入れなければならない場合には、入力を注意深く検査して、有害な可能性があるメソッドが呼び出されていないことを確保します。
+2. プラグイン開発者は ASVS (Application Security Verification Standard) での OWASP の推奨事項を適用して、適切な入力バリデーションとサニタイゼーションを確保する必要があります。
+3. プラグインを徹底的に検査及びテストして、適切なバリデーションを確保します。開発パイプラインでは静的アプリケーションセキュリティテスト (SAST) スキャンと動的および対話的アプリケーションテスト (DAST, IAST) を使用します。
+4. プラグインは OWASP ASVS アクセス制御ガイドラインに従い、安全でない入力パラメータの悪用による影響を最小限にするように設計する必要があります。これには最小権限アクセス制御が含まれ、必要な機能を実行しますが、可能な限り少ない機能だけ公開します。
+5. プラグインは OAuth2 などの適切な認証 ID を使用して、効果的な認可とアクセス制御を適用する必要があります。さらに、API キーはデフォルトの対話型ユーザーではなくプラグインのルートを反映するカスタム認可決定のコンテキストを提供するために使用する必要があります。
+6. 機密性の高いプラグインによって実行されるすべてのアクションについて、手動によるユーザー認可と確認を要求します。
+7. プラグインは一般的に REST API ですので、開発者は OWASP Top 10 API セキュリティリスク 2023 にある推奨事項を適用し、一般的な脆弱性を最小限に抑える必要があります。
 
 ### 攻撃シナリオの例
 
-1. A plugin accepts a base URL and instructs the LLM to combine the URL with a query to obtain weather forecasts which are included in handling the user request. A malicious user can craft a request such that the URL points to a domain they control, which allows them to inject their own content into the LLM system via their domain.
-2. A plugin accepts a free-form input into a single field that it does not validate. An attacker supplies carefully crafted payloads to perform reconnaissance from error messages. It then exploits known third-party vulnerabilities to execute code and perform data exfiltration or privilege escalation.
-3. A plugin used to retrieve embeddings from a vector store accepts configuration parameters as a connection string without any validation. This allows an attacker to experiment and access other vector stores by changing names or host parameters and exfiltrate embeddings they should not have access to.
-4. A plugin accepts SQL WHERE clauses as advanced filters, which are then appended to the filtering SQL. This allows an attacker to stage a SQL attack.
-5. An attacker uses indirect prompt injection to exploit an insecure code management plugin with no input validation and weak access control to transfer repository ownership and lock out the user from their repositories.
+1. プラグインはベース URL を受け入れ、LLM にその URL とクエリを組み合わせて、ユーザーリクエストの処理に含まれる天気予報を取得するように指示します。悪意のあるユーザーは URL が自分の制御するドメインを指すようにリクエストを作成し、そのドメインを介して LLM システムに自分のコンテンツを注入できます。
+2. プラグインは検証していない単一フィールドへの自由形式入力を受け入れます。攻撃者は注意深く作成されたペイロードを提供して、エラーメッセージから偵察を実行します。次に、既知のサードパーティ脆弱性を悪用してコードを実行し、データ流出や権限昇格を実行します。
+3. vector ストアから embedding を取得するために使用されるプラグインを使用して、バリデーションなしでコンフィギュレーションパラメータを接続文字列として受け入れます。これにより攻撃者は名前やホストパラメータを変更することで、他の vector ストアを実験およびアクセスして、アクセスすべきでない embedding を流出できます。
+4. プラグインは SQL WHERE 句を高度なフィルタとして、フィルタリング SQL に追加します。これにより攻撃者は SQL 攻撃を実行できます。
+5. 攻撃者は間接プロンプトインジェクションを使用して、入力バリデーションがなく、アクセス制御が弱い、安全でないコード管理プラグインを悪用し、リポジトリの所有権を譲渡して、ユーザーをリポジトリからロックアウトします。
 
 ### 参考情報
 
