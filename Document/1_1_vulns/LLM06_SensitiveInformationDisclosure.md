@@ -2,32 +2,32 @@
 
 ### 説明
 
-LLM applications have the potential to reveal sensitive information, proprietary algorithms, or other confidential details through their output. This can result in unauthorized access to sensitive data, intellectual property, privacy violations, and other security breaches. It is important for consumers of LLM applications to be aware of how to safely interact with LLMs and identify the risks associated with unintentionally inputting sensitive data that may be subsequently returned by the LLM in output elsewhere.
+LLM アプリケーションはその出力を通じて機密情報、プロプライエタリアルゴリズム、その他の機密情報を明らかにする可能性があります。これにより機密データや知的財産への認可されていないアクセス、プライバシー侵害、その他のセキュリティ侵害を引き起こす可能性があります。LLM アプリケーションの利用者は LLM と安全にやり取りする方法を認識し、意図せずに機密データを入力すると、後に LLM によって他の場所に出力される可能性があるというリスクを認識することが重要です。
 
-To mitigate this risk, LLM applications should perform adequate data sanitization to prevent user data from entering the training model data. LLM application owners should also have appropriate Terms of Use policies available to make consumers aware of how their data is processed and the ability to opt out of having their data included in the training model.
+このリスクを軽減するには、LLM アプリケーションは適切なデータサニタイゼーションを実行して、ユーザーデータが訓練モデルデータに混入するのを防ぐ必要があります。また、LLM アプリケーションオーナーは適切な利用規約ポリシーを用意し、自分のデータがどのように処理されるか、また、訓練モデルにデータが含まれることをオプトアウトできることを利用者が認識できるようにする必要があります。
 
-The consumer-LLM application interaction forms a two-way trust boundary, where we cannot inherently trust the client->LLM input or the LLM->client output. It is important to note that this vulnerability assumes that certain prerequisites are out of scope, such as threat modeling exercises, securing infrastructure, and adequate sandboxing. Adding restrictions within the system prompt around the types of data the LLM should return can provide some mitigation against sensitive information disclosure, but the unpredictable nature of LLMs means such restrictions may not always be honored and could be circumvented via prompt injection or other vectors.
+利用者と LLM アプリケーションのやり取りは双方向の信頼境界を形成し、私たちは クライアント → LLM 入力 や LLM → クライアント出力 を本質的に信頼できません。この脆弱性は脅威モデリング演習、インフラストラクチャの保護、適切なサンドボックス化など、特定の前提条件がスコープ外であることを仮定していることに注意することが重要です。LLM が返すデータの種類に関する制限をシステムプロンプト内に追加することで、機密情報の漏洩をある程度緩和できますが、LLM の予測不可能な性質により、そのような制限が常に守られるとは限らず、プロンプトインジェクションや他の攻撃によって回避される可能性があります。
 
 ### 脆弱性の一般的な例
 
-1. Incomplete or improper filtering of sensitive information in the LLM’s responses.
-2. Overfitting or memorization of sensitive data in the LLM’s training process.
-3. Unintended disclosure of confidential information due to LLM misinterpretation, lack of data scrubbing methods or errors.
+1. LLM のレスポンスにおいて、機密情報のフィルタリングが不完全または不適切。
+2. LLM のトレーニングプロセスにおいて、機密データの過学習やメモ化。
+3. LLM の誤った解釈、データスクラビング方法の欠如やエラーによる機密情報の意図しない開示。
 
 ### 予防および緩和戦略
 
-1. Integrate adequate data sanitization and scrubbing techniques to prevent user data from entering the training model data.
-2. Implement robust input validation and sanitization methods to identify and filter out potential malicious inputs to prevent the model from being poisoned.
-3. When enriching the model with data and if [fine-tuning](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/wiki/Definitions) a model: (I.E, data fed into the model before or during deployment)
-   1. Anything that is deemed sensitive in the fine-tuning data has the potential to be revealed to a user. Therefore, apply the rule of least privilege and do not train the model on information that the highest-privileged user can access which may be displayed to a lower-privileged user.
-   2. Access to external data sources (orchestration of data at runtime) should be limited.
-   3. Apply strict access control methods to external data sources and a rigorous approach to maintaining a secure supply chain.
+1. 適切なデータサニタイゼーションとスクラビング技法を統合して、ユーザーデータが訓練データモデルに入ることを防ぎます。
+2. 堅牢な入力バリデーションとサニタイゼーション手法を実装し、潜在的な悪意のある入力を特定して除外し、モデルが汚染されることを防ぎます。
+3. モデルをデータで強化する場合、およびモデルを [ファインチューニング](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/wiki/Definitions) する場合 (つまり、データがデプロイメント前またはデプロイメント中にモデルに投入される場合)
+   1. ファインチューニングデータ内の機密性が高いとみなされるものがユーザーに公開される可能性があります。したがって、最小権限のルールを適用し、最高権限のユーザーがアクセスでき、低い権限のユーザーに表示される可能性がある情報でモデルを訓練してはいけません。
+   2. 外部データソースへのアクセス (実行時のデータのオーケストレーション) は制限されるべきです。
+   3. 外部データソースに厳格なアクセスコントロール方法と、安全なサプライチェーンを維持するための厳密なアプローチを適用します。
 
 ### 攻撃シナリオの例
 
-1. Unsuspecting legitimate user A is exposed to certain other user data via the LLM when interacting with the LLM application in a non-malicious manner.
-2. User A targets a well-crafted set of prompts to bypass input filters and sanitization from the LLM to cause it to reveal sensitive information (PII) about other users of the application.
-3. Personal data such as PII is leaked into the model via training data due to either negligence from the user themselves, or the LLM application. This case could increase the risk and probability of scenario 1 or 2 above.
+1. 疑う余地のない正規ユーザー A は悪意のない方法で LLM アプリケーションと対話する際に、LLM を介して他の特定のユーザーデータにさらされます。
+2. ユーザー A は巧妙に作成された一連のプロンプトをターゲットにして、LLM からの入力フィルタとサニタイゼーションをバイパスし、アプリケーションの他のユーザーに関する機密情報 (PII) を漏洩させます。
+3. ユーザー自身または LLM アプリケーションの不注意により、PII などの個人データが訓練データを介してモデルに漏洩します。この場合、上記のシナリオ 1 または 2 のリスクと確率が高まる可能性があります。
 
 ### 参考情報リンク
 
