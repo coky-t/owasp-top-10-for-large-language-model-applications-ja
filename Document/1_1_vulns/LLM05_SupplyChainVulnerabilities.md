@@ -2,40 +2,40 @@
 
 ### 説明
 
-The supply chain in LLMs can be vulnerable, impacting the integrity of training data, ML models, and deployment platforms. These vulnerabilities can lead to biased outcomes, security breaches, or even complete system failures. Traditionally, vulnerabilities are focused on software components, but Machine Learning extends this with the pre-trained models and training data supplied by third parties susceptible to tampering and poisoning attacks.
+LLM のサプライチェーンは脆弱である可能性があり、訓練データ、ML モデル、デプロイメントプラットフォームの完全性に影響を与えます。これらの脆弱性はバイアスのある結果、セキュリティ侵害、さらには完全なシステム障害につながる可能性があります。従来、脆弱性はソフトウェアコンポーネントに焦点を当てていますが、機械学習では改竄やポイズニング攻撃の影響を受けやすいサードパーティが提供する事前学習済みモデルや訓練データでこれを拡張します。
 
-Finally, LLM Plugin extensions can bring their own vulnerabilities. These are described in [LLM07 - Insecure Plugin Design](InsecurePluginDesign.md), which covers writing LLM Plugins and provides helpful information to evaluate third-party plugins.
+最後に、LLM プラグイン拡張機能はそれ自体の脆弱性をもたらす可能性があります。これらは [LLM07 - 安全でないプラグイン設計 (Insecure Plugin Design)](LLM07_InsecurePluginDesign.md) で説明されており、LLM プラグインの書き方をカバーし、サードパーティプラグインを評価するのに役立つ情報を提供しています。
 
 ### 脆弱性の一般的な例
 
-1. Traditional third-party package vulnerabilities, including outdated or deprecated components.
-2. Using a vulnerable pre-trained model for fine-tuning.
-3. Use of poisoned crowd-sourced data for training.
-4. Using outdated or deprecated models that are no longer maintained leads to security issues.
-5. Unclear T&Cs and data privacy policies of the model operators lead to the application's sensitive data being used for model training and subsequent sensitive information exposure. This may also apply to risks from using copyrighted material by the model supplier.
+1. 従来のサードパーティパッケージの脆弱性 (古いコンポーネントや非推奨のコンポーネントを含む) 。
+2. 脆弱な事前訓練モデルを使用してファインチューニングします。
+3. 汚染されたクラウドソーシングデータを訓練に使用します。
+4. セキュリティ問題につながる保守されていない古いモデルや非推奨のモデルを使用します。
+5. モデル運用者の利用規約やデータプライバシーポリシーが不明確なため、アプリケーションの機密データがモデルの訓練とその後の機密情報の流出につながります。これはモデル提供者が著作権で保護された素材を使用することによるリスクにも当てはまることがあります。
 
 ### 予防および緩和戦略
 
-1. Carefully vet data sources and suppliers, including T&Cs and their privacy policies, only using trusted suppliers. Ensure adequate and independently audited security is in place and that model operator policies align with your data protection policies, i.e., your data is not used for training their models; similarly, seek assurances and legal mitigations against using copyrighted material from model maintainers.
-2. Only use reputable plugins and ensure they have been tested for your application requirements. LLM-Insecure Plugin Design provides information on the LLM-aspects of Insecure Plugin design you should test against to mitigate risks from using third-party plugins.
-3. Understand and apply the mitigations found in the OWASP Top Ten's [A06:2021 – Vulnerable and Outdated Components](https://owasp.org/Top10/A06_2021-Vulnerable_and_Outdated_Components/). This includes vulnerability scanning, management, and patching components. For development environments with access to sensitive data, apply these controls in those environments, too.
-4. Maintain an up-to-date inventory of components using a Software Bill of Materials (SBOM) to ensure you have an up-to-date, accurate, and signed inventory, preventing tampering with deployed packages. SBOMs can be used to detect and alert for new, zero-date vulnerabilities quickly.
-5. At the time of writing, SBOMs do not cover models, their artifacts, and datasets. If your LLM application uses its own model, you should use MLOps best practices and platforms offering secure model repositories with data, model, and experiment tracking.
-6. You should also use model and code signing when using external models and suppliers.
-7. Anomaly detection and adversarial robustness tests on supplied models and data can help detect tampering and poisoning as discussed in [ Training Data Poisoning](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/blob/main/1_0_vulns/Training_Data_Poisoning.md); ideally, this should be part of MLOps pipelines; however, these are emerging techniques and may be easier to implement as part of red teaming exercises.
-8. Implement sufficient monitoring to cover component and environment vulnerabilities scanning, use of unauthorized plugins, and out-of-date components, including the model and its artifacts.
-9. Implement a patching policy to mitigate vulnerable or outdated components. Ensure the application relies on a maintained version of APIs and the underlying model.
-10. Regularly review and audit supplier Security and Access, ensuring no changes in their security posture or T&Cs.
+1. データソースとサプライヤー (利用規約とプライバシーポリシーを含む) を慎重に精査し、信頼できるサプライヤーのみを使用します。独立して監査された適切なセキュリティが配備されていること、モデルオペレータのポリシーがデータ保護ポリシーに沿っていること、つまり、モデルの訓練にデータが使用されていないことを確保します。同様に、モデル保守者から著作権で保護された素材の使用に対する保証と法的緩和を求めます。
+2. 信頼できるプラグインのみを使用し、アプリケーション要件についてテストされていることを確保します。LLM-Insecure Plugin Design ではサードパーティプラグインの使用によるリスクを軽減するためにテストすべきである、安全でないプラグイン設計の LLM の側面に関する情報を提供します。
+3. OWASP Top 10 の [A06:2021 – 脆弱で古くなったコンポーネント (Vulnerable and Outdated Components)](https://owasp.org/Top10/A06_2021-Vulnerable_and_Outdated_Components/) にある緩和策を理解し、適用します。これには脆弱性スキャン、管理、コンポーネントのパッチ適用が含まれます。機密データにアクセスできる開発環境では、それらの環境にもこれらのコントロールを適用します。
+4. ソフトウェア部品表 (Software Bill of Materials, SBOM) を使用してコンポーネントの最新のインベントリを維持し、デプロイされたパッケージの改竄を防ぐために、最新かつ正確で署名されたインベントリを確保します。SBOM を使用して、新しいゼロデイ脆弱性を迅速に検出して警告できます。
+5. 執筆時点では、SBOM はモデル、そのアーティファクト、データセットをカバーしていません。LLM アプリケーションが独自のモデルを使用する場合、MLOps のベストプラクティスと、データ、モデル、実験を追跡する安全なモデルリポジトリを提供するプラットフォームを使用すべきです。
+6. また、外部モデルとサプライヤーを使用する場合は、モデル署名とコード署名を使用すべきです。
+7. 提供されたモデルとデータに対する異常検出と敵対的ロバストネステストは [訓練データポイズニング (Training Data Poisoning)](LLM03_Training_Data_Poisoning.md) で説明されているように、改竄やポイズニングの検出に役立ちます。理想的には、MLOps パイプラインの一部であるべきです。しかし、これらは新たな技法であり、レッドチームエクササイズの一部として実装するほうが簡単かもしれません。
+8. コンポーネントと環境の脆弱性スキャン、認可されていないプラグインの使用、モデルとそのアーティファクトを含む古いコンポーネントをカバーするために十分な監視を実装します。
+9. パッチ適用ポリシーを実装して、脆弱なコンポーネントや古いコンポーネントを軽減します。アプリケーションが維持している API と基盤となるモデルに依存していることを確保します。
+10. サプライヤーのセキュリティとアクセスを定期的にレビューおよび監査して、セキュリティ態勢や利用規約に変更がないことを確認します。
 
 ### 攻撃シナリオの例
 
-1. An attacker exploits a vulnerable Python library to compromise a system. This happened in the first Open AI data breach.
-2. An attacker provides an LLM plugin to search for flights, generating fake links that lead to scamming users.
-3. An attacker exploits the PyPi package registry to trick model developers into downloading a compromised package and exfiltrating data or escalating privilege in a model development environment. This was an actual attack.
-4. An attacker poisons a publicly available pre-trained model specializing in economic analysis and social research to create a back door that generates misinformation and fake news. They deploy it on a model marketplace (e.g., Hugging Face) for victims to use.
-5. An attacker poisons publicly available datasets to help create a back door when fine-tuning models. The back door subtly favors certain companies in different markets.
-6. A compromised employee of a supplier (outsourcing developer, hosting company, etc.) exfiltrates data, model, or code stealing IP.
-7. An LLM operator changes its T&Cs and Privacy Policy to require an explicit opt out from using application data for model training, leading to the memorization of sensitive data.
+1. 攻撃者は脆弱な Python ライブラリを悪用して、システムを侵害します。これは最初の Open AI データ侵害で発生しました。
+2. 攻撃者はフライトを検索するための LLM プラグインを提供して、プラグインユーザーの詐欺につながる偽のリンクを生成します。
+3. 攻撃者は PyPi パッケージレジストリを悪用して、モデル開発者を騙し、危殆化したパッケージをダウンロードさせ、モデル開発環境でデータ窃取や権限昇格を行います。これは実際の攻撃でした。
+4. 攻撃者は経済分析や社会調査に特化した一般に公開されている事前訓練モデルを汚染し、誤情報やフェイクニュースを生成するバックドアを作成します。攻撃者はそれをモデルマーケットプレイス (Hugging Face など) にデプロイし、被害者が使用します。
+5. 攻撃者は一般に公開されているデータセットを汚染し、モデルをファインチューニングする際にバックドアの作成を支援します。バックドアはさまざまなマーケットで特定の企業を巧妙に優遇します。
+6. サプライヤー (アウトソーシング開発者、ホスティング会社など) の危殆化した従業員がデータ、モデル、コードを抽出し、知的財産を盗みます。
+7. LLM オペレータが利用規約とプライバシーポリシーを変更し、モデルトレーニングのためにアプリケーションデータを使用することを明示的にオプトアウトする必要があるため、機密データのメモ化につながります。
 
 ### 参考情報リンク
 
