@@ -2,46 +2,46 @@
 
 ### 説明
 
-This entry refers to the unauthorized access and exfiltration of LLM models by malicious actors or APTs. This arises when the proprietary LLM models (being valuable intellectual property), are compromised, physically stolen, copied or weights and parameters are extracted to create a functional equivalent. The impact of LLM model theft can include economic and brand reputation loss, erosion of competitive advantage, unauthorized usage of the model or unauthorized access to sensitive information contained within the model.
+このエントリでは悪意のある攻撃者や APT による LLM モデルへの認可されていないアクセスや抽出について言及します。これはプロプライエタリ LLM モデル (貴重な知的財産である) が侵害されたり、物理的に盗まれたり、複製されたり、機能的に等価なものを作成するために重みとパラメータが抽出される場合に発生します。LLM モデル窃取の影響には、経済的およびブランド的評判の損失、競争上の優勢性の低下、モデルの認可されていない使用、モデル内に含まれる機密情報の認可されていないアクセスなどの可能性があります。
 
-The theft of LLMs represents a significant security concern as language models become increasingly powerful and prevalent. Organizations and researchers must prioritize robust security measures to protect their LLM models, ensuring the confidentiality and integrity of their intellectual property. Employing a comprehensive security framework that includes access controls, encryption, and continuous monitoring is crucial in mitigating the risks associated with LLM model theft and safeguarding the interests of both individuals and organizations relying on LLM.
+言語モデルがまずます強力になり普及するにつれて、LLM の窃取はセキュリティ上の重大な懸念事項となっています。組織や研究者は堅牢なセキュリティ対策を優先して、LLM モデルを保護し、知的財産の機密性と完全性を確保する必要があります。アクセス制御、暗号化、継続的監視を含む包括的なセキュリティフレームワークを採用することは、LLM モデル窃取に関連するリスクを軽減し、LLM に依存する個人と組織の両方の利益を守るうえで極めて重要です。
 
 ### 脆弱性の一般的な例
 
-1. An attacker exploits a vulnerability in a company's infrastructure to gain unauthorized access to their LLM model repository via misconfiguration in their network or application security settings.
-2. An insider threat scenario where a disgruntled employee leaks model or related artifacts.
-3. An attacker queries the model API using carefully crafted inputs and prompt injection techniques to collect a sufficient number of outputs to create a shadow model.
-4. A malicious attacker is able to bypass input filtering techniques of the LLM to perform a side-channel attack and ultimately harvest model weights and architecture information to a remote controlled resource.
-5. The attack vector for model extraction involves querying the LLM with a large number of prompts on a particular topic. The outputs from the LLM can then be used to fine-tune another model. However, there are a few things to note about this attack:
-   - The attacker must generate a large number of targeted prompts. If the prompts are not specific enough, the outputs from the LLM will be useless.
-   - The outputs from LLMs can sometimes contain hallucinated answers meaning the attacker may not be able to extract the entire model as some of the outputs can be nonsensical.
-     - It is not possible to replicate an LLM 100% through model extraction. However, the attacker will be able to replicate a partial model.
-6. The attack vector for **_functional model replication_** involves using the target model via prompts to generate synthetic training data (an approach called "self-instruct") to then use it and fine-tune another foundational model to produce a functional equivalent. This bypasses the limitations of traditional query-based extraction used in Example 5 and has been successfully used in research of using an LLM to train another LLM. Although in the context of this research, model replication is not an attack. The approach could be used by an attacker to replicate a proprietary model with a public API.
+1. 攻撃者はある企業のインフラストラクチャの脆弱性を悪用して、ネットワークやアプリケーションセキュリティ設定の構成ミスを介して LLM モデルリポジトリへの認可されていないアクセスを獲得します。
+2. 不満を抱いた従業員がモデルや関連成果物を漏洩する内部脅威シナリオ。
+3. 攻撃者は注意深く作成された入力とプロンプトインジェクション技法を使用してモデル API をクエリし、十分な数の出力を収集して、シャドウモデルを作成します。
+4. 悪意のある攻撃者は LLM の入力フィルタリング技法をバイパスして、サイドチャネル攻撃を実行し、最終的にモデルの重みとアーキテクチャ情報を遠隔操作されたリソースに収集できます。
+5. モデル抽出のための攻撃ベクトルには、特定のトピックに関する多数のプロンプトで LLM をクエリすることが含まれます。LLM からの出力は別のモデルをファインチューニングするために使用できます。ただし、この攻撃については注意すべき点がいくつかあります。
+   - 攻撃者はターゲットとなるプロンプトを多数生成しなければなりません。プロンプトは十分に具体的ではない場合、LLM からの出力は役に立ちません。
+   - LLM からの出力には幻覚のような回答が含まれることがあります。つまり、出力の一部が無意味となる可能性があるため、攻撃者はモデル全体を抽出できないことがあります。
+     - モデル抽出を通じて LLM を 100% 複製することは可能ではありません。ただし、攻撃者は部分的なモデルを複製できます。
+6. **_機能モデルの複製_** の攻撃ベクトルは、プロンプトを介してターゲットモデルを使用して合成トレーニングデータを生成し ("self-instruct" と呼ばれるアプローチ) 、それを使用して別の基本モデルをファインチューニングし、機能的に同等なものを生成することが含まれます。これは例 5 で使用される従来のクエリベースの抽出の制限を回避し、LLM を使用して他の LLM を訓練する研究での使用に成功しています。この研究の文脈では、モデル複製は攻撃ではありません。このアプローチは攻撃者が使用して、パブリック API でプロプライエタリモデルを複製できる可能性があります。
 
-Use of a stolen model, as a shadow model, can be used to stage adversarial attacks including unauthorized access to sensitive information contained within the model or experiment undetected with adversarial inputs to further stage advanced prompt injections.
+盗まれたモデルをシャドウモデルとして使用すると、モデル内に含まれる機密情報への認可されていないアクセスなどの敵対的な攻撃を仕掛けたり、敵対的入力を検出されずにさらに高度なプロンプトインジェクションを実験したりできます。
 
 ### 予防および緩和戦略
 
-1. Implement strong access controls (E.G., RBAC and rule of least privilege) and strong authentication mechanisms to limit unauthorized access to LLM model repositories and training environments.
-   1. This is particularly true for the first three common examples, which could cause this vulnerability due to insider threats, misconfiguration, and/or weak security controls about the infrastructure that houses LLM models, weights and architecture in which a malicious actor could infiltrate from insider or outside the environment.
-   2. Supplier management tracking, verification and dependency vulnerabilities are important focus topics to prevent exploits of supply-chain attacks.
-2. Restrict the LLM's access to network resources, internal services, and APIs.
-   1. This is particularly true for all common examples as it covers insider risk and threats, but also ultimately controls what the LLM application "_has access to_" and thus could be a mechanism or prevention step to prevent side-channel attacks.
-3. Use a centralized ML Model Inventory or Registry for ML models used in production. Having a centralized model registry prevents unauthorized access to ML Models via access controls, authentication, and monitoring/logging capability which are good foundations for governance. Having a centralized repository is also beneficial for collecting data about algorithms used by the models for the purposes of compliance, risk assessments, and risk mitigation.
-4. Regularly monitor and audit access logs and activities related to LLM model repositories to detect and respond to any suspicious or unauthorized behavior promptly.
-5. Automate MLOps deployment with governance and tracking and approval workflows to tighten access and deployment controls within the infrastructure.
-6. Implement controls and mitigation strategies to mitigate and|or reduce risk of prompt injection techniques causing side-channel attacks.
-7. Rate Limiting of API calls where applicable and|or filters to reduce risk of data exfiltration from the LLM applications, or implement techniques to detect (E.G., DLP) extraction activity from other monitoring systems.
-8. Implement adversarial robustness training to help detect extraction queries and tighten physical security measures.
-9. Implement a watermarking framework into the embedding and detection stages of an LLMs lifecyle.
+1. 強力なアクセス制御 (RBAC や最小権限のルールなど) や強力な認証メカニズムを実装して、LLM モデルリポジトリとトレーニング環境への認可されていないアクセスを制限します。
+   1. これは特に最初の三つの一般的な例に当てはまり、インサイダー脅威、構成ミスや、LLM モデル、重み、アーキテクチャを格納するインフラストラクチャに関する脆弱なセキュリティコントロールによって、この脆弱性を引き起こし、悪意のあるアクターが環境の内部または外部から侵入する可能性があります。
+   2. サプライヤー管理の追跡、検証、依存関係の脆弱性はサプライチェーン攻撃の悪用を防ぐための重要な焦点トピックです。
+2. ネットワークリソース、内部サービス、API への LLM のアクセスを制限します。
+   1. これはインサイダーリスクと脅威をカバーするだけでなく、最終的に LLM アプリケーションが "*_アクセスできる_*" ものを制御するので、サイドチャネル攻撃を防ぐためのメカニズムまたは防止ステップになりえるため、すべての一般的な例に特に当てはまります。
+3. 運用環境で使用される ML モデルには一元管理された ML モデルインベントリを使用します。一元管理されたモデルレジストリを持つことで、ガバナンスの優れた基盤となるアクセス制御、認証、監視/ログ記録機能を介して ML モデルへの認可されていないアクセスを防止できます。また、一元管理されたリポジトリを持つことで、コンプライアンス、リスク評価、リスク軽減の目的として、モデルで使用されるアルゴリズムに関するデータを収集するためにも有益です。
+4. LLM モデルリポジトリに関連するアクセスログとアクティビティを定期的に監視および監査して、疑わしい行為や認可されていない行為を迅速に検出して対応します。
+5. ガバナンスと追跡および承認ワークフローで MLOps デプロイメントを自動化し、インフラストラクチャ内のアクセスとデプロイメントのコントロールを強化します。
+6. 管理策と緩和策を導入して、サイドチャネル攻撃を引き起こすプロンプトインジェクション技法のリスクを緩和ないし軽減します。
+7. 適用可能であれば API 呼び出しのレート制限や、LLM アプリケーションからデータ流出のリスクを軽減するためのフィルター、他の監視システムからの (DLP などの) 抽出アクティビティを検出する技法を実装します。
+8. 敵対的ロバストネストレーニングを実装して、抽出クエリを検出し、物理的なセキュリティ対策を強化します。
+9. LLM ライフサイクルの埋め込みと検出のステージにウォーターマークのフレームワークを実装します。
 
 ### 攻撃シナリオの例
 
-1. An attacker exploits a vulnerability in a company's infrastructure to gain unauthorized access to their LLM model repository. The attacker proceeds to exfiltrate valuable LLM models and uses them to launch a competing language processing service or extract sensitive information, causing significant financial harm to the original company.
-2. A disgruntled employee leaks model or related artifacts. The public exposure of this scenario increases knowledge to attackers for gray box adversarial attacks or alternatively directly steal the available property.
-3. An attacker queries the API with carefully selected inputs and collects sufficient number of outputs to create a shadow model.
-4. A security control failure is present within the supply-chain and leads to data leaks of proprietary model information.
-5. A malicious attacker bypasses input filtering techniques and preambles of the LLM to perform a side-channel attack and retrieve model information to a remote controlled resource under their control.
+1. 攻撃者は企業のインフラストラクチャの脆弱性を悪用して、LLM モデルリポジトリへの認可されていないアクセスを獲得します。攻撃者は貴重な LLM モデルの抽出を進め、それらを使用して、競合する言語処理サービスを立ち上げたり機密情報を抽出して、元の企業に重大な経済的損害を与えます。
+2. 不満を抱いた従業員はモデルや関連成果物を漏洩します。このシナリオが一般に公開されることで、攻撃者の知識が増加し、グレーボックスの敵対的攻撃や、利用可能な財産を直接盗むことが可能になります。
+3. 攻撃者は注意深く選択した入力で API をクエリして、シャドウモデルを作成するのに十分な数の出力を収集します。
+4. サプライチェーン内にセキュリティコントロール上の欠陥が存在して、プロプライエタリモデル情報のデータ漏洩につながります。
+5. 悪意のある攻撃者は LLM の入力フィルタリング技法とプリアンブルを回避してサイドチャネル攻撃を実行して、制御下にある遠隔操作されたリソースにモデル情報を取得します。
 
 ### 参考情報リンク
 
