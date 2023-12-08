@@ -11,10 +11,17 @@ OWASP Top 10 大規模言語モデルアプリケーションプロジェクト�
 
 これまでに行われた作業を理解するには、公式 1.1 リリース ([フルバージョン](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/blob/main/assets/PDF/OWASP-Top-10-for-LLMs-2023-v1_1.pdf) や [ショートスライド](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/blob/main/assets/PDF/OWASP-Top-10-for-LLMs-2023-slides-v1_1.pdf)) を確認してください。
 
+# 📢 新しいドキュメントのリリース: セキュリティとガバナンスのチェックリスト
+
+最新ドキュメント **セキュリティとガバナンスのチェックリスト** の 0.5 プレリリースを発表できることをうれしく思います。この包括的なガイドは組織内で生成 AI テクノロジのロールアウトを管理する最高情報セキュリティ責任者 (CISO) にとって不可欠です。
+
+🔗 [こちらから PDF をダウンロードしてください](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/blob/main/llm-top-10-governance-doc/LLM_AI_Security_and_Governance_Checklist.pdf)
+
+
 この取り組みはコミュニティ主導で行われ、すべての利害関係者の参加と貢献を推奨します。
 
 - [OWASP Slack](https://owasp.org/slack/invite) にワーキンググループチェンネルがあるので、サインアップしてから #project-top10-for-llm チェンネルに参加してください。
 - ワーキンググループは [Wiki](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/wiki) でコラボレーションしています。
-- 最新の進捗状況を定期的に知りたいでしょうか？ [ニュースレターを申し込んでください](https://llmtop10.beehiiv.com/subscribe)
+- 最新の進捗状況を定期的に知りたいでしょうか？ [ニュースレターを申し込んでください](https://llmtop10.beehiiv.com/subscribe) もしくは [プロジェクトの LinkedIn ページをフォローしてください](https://www.linkedin.com/company/owasp-top-10-for-large-language-model-applications/)
 
 LLM アプリケーションセキュリティは初めてですか？詳細については [resources ページ](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/wiki/Educational-Resources) をご覧ください。
