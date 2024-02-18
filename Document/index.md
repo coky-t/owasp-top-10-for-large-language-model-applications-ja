@@ -13,9 +13,9 @@ OWASP Top 10 大規模言語モデルアプリケーションプロジェクト�
 
 # 📢 新しいドキュメントのリリース: セキュリティとガバナンスのチェックリスト
 
-最新ドキュメント **セキュリティとガバナンスのチェックリスト** の 0.5 プレリリースを発表できることをうれしく思います。この包括的なガイドは組織内で生成 AI テクノロジのロールアウトを管理する最高情報セキュリティ責任者 (CISO) にとって不可欠です。
+最新ドキュメント **セキュリティとガバナンスのチェックリスト** のバージョン 1.0 を発表できることをうれしく思います。この包括的なガイドは組織内で生成 AI テクノロジのロールアウトを管理する最高情報セキュリティ責任者 (CISO) にとって不可欠です。
 
-🔗 [こちらから PDF をダウンロードしてください](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/blob/main/llm-top-10-governance-doc/LLM_AI_Security_and_Governance_Checklist.pdf)
+🔗 [こちらから PDF をダウンロードしてください](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/blob/main/llm-top-10-governance-doc/LLM_AI_Security_and_Governance_Checklist-v1.pdf)
 
 
 この取り組みはコミュニティ主導で行われ、すべての利害関係者の参加と貢献を推奨します。
