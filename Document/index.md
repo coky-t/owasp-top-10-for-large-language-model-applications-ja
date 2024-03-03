@@ -25,3 +25,16 @@ OWASP Top 10 大規模言語モデルアプリケーションプロジェクト�
 - 最新の進捗状況を定期的に知りたいでしょうか？ [ニュースレターを申し込んでください](https://llmtop10.beehiiv.com/subscribe) もしくは [プロジェクトの LinkedIn ページをフォローしてください](https://www.linkedin.com/company/owasp-top-10-for-large-language-model-applications/)
 
 LLM アプリケーションセキュリティは初めてですか？詳細については [resources ページ](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/wiki/Educational-Resources) をご覧ください。
+
+
+
+## プロジェクトのスポンサーシップ
+
+### [OWASP LLM プロジェクトスポンサー/ドナー](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/wiki/Donors-and-Project-Sponsors) になる方法をご覧ください。
+
+私たちは新しいプロジェクトスポンサープログラムを立ち上げたところです。OWASP Top 10 for LLM プロジェクトは貢献したい人なら誰でも参加できるコミュニティ主導の取り組みです。このプロジェクトは非営利の取り組みであり、スポンサーシップは運営および支援/教育のコストをカバーすることを助け、コミュニティの貢献がプロジェクト全体にもたらす価値を最大化するためのリソースを提供することで、プロジェクトの成功を確実にするのに役立ちます。見返りとして、プロジェクトは企業の貢献を表彰する多くの特典を提供します。
+
+
+## スポンサー
+
+スポンサーロゴは近日公開予定です。
