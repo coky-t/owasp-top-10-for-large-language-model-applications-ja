@@ -17,6 +17,9 @@ OWASP Top 10 大規模言語モデルアプリケーションプロジェクト�
 
 🔗 [こちらから PDF をダウンロードしてください](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/blob/main/llm-top-10-governance-doc/LLM_AI_Security_and_Governance_Checklist-v1.1.pdf) - また [フランス語版](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/blob/main/llm-top-10-governance-doc/LLM_AI_Security_and_Governance_Checklist-v1_FR.pdf) と [日本語版](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/blob/main/llm-top-10-governance-doc/LLM_AI_Security_and_Governance_Checklist-v1_1_JP.pdf) もあります。
 
+# 📢 新しいウェブサイトを立ち上げました: こちらもご覧ください
+
+このプロジェクトを補完するために [新しいウェブサイト](https://genai.owasp.org) を立ち上げました。
 
 この取り組みはコミュニティ主導で行われ、すべての利害関係者の参加と貢献を推奨します。
 
