@@ -39,3 +39,7 @@ OWASP Top 10 大規模言語モデルアプリケーションは開発者とウ�
 ## ライセンス
 
 このプロジェクトは [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/) の条件に基づいてライセンスされています。
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=OWASP/www-project-top-10-for-large-language-model-applications&type=Date)](https://star-history.com/#OWASP/www-project-top-10-for-large-language-model-applications&Date)
