@@ -2,7 +2,7 @@
 
 ### 説明
 
-あらゆる機械学習アプローチの出発点は訓練データ、つまり単なる "raw text" です。高い能力 (言語や世界の知識など) を得るには、このテキストは幅広いドメイン、ジャンル、言語にまたがる必要があります。大規模言語モデルはディープニューラルネットワークを使用して、訓練データから学習したパターンに基づいて出力を生成します。Therefore Large Language Models (LLMs) rely heavily on vast amounts of diverse training data to produce successful outputs.
+あらゆる機械学習アプローチの出発点は訓練データ、つまり単なる "raw text" です。高い能力 (言語や世界の知識など) を得るには、このテキストは幅広いドメイン、ジャンル、言語にまたがる必要があります。大規模言語モデルはディープニューラルネットワークを使用して、訓練データから学習したパターンに基づいて出力を生成します。したがって、大規模言語モデル (LLM) が成功する出力を生成するには、膨大な量の多様な訓練データに大きく依存します。
 
 データポイズニングはモデルのセキュリティ、有効性、倫理的行動を損なう可能性のある脆弱性 (すべては固有の、場合によっては共有された攻撃ベクトルを持ちます)、バックドア、バイアスを導入するために、事前訓練データや、ファインチューニングや埋め込みプロセスに含まれるデータを操作することを指します。汚染された情報はユーザーに公開されたり、パフォーマンス低下、ダウンストリームソフトウェア悪用、風評被害などの他のリスクを引き起こす可能性があります。たとえユーザーが問題のある AI 出力に不信感を抱いたとしても、モデル機能の低下やブランドの評判を損なう可能性などのリスクが残ります。
 
@@ -10,11 +10,11 @@
 - ファインチューニングはすでに訓練された既存のモデルを取得し、監修されたデータセットを使用して訓練することで、より狭い対象やより焦点を絞った目標に適応することを含みます。このデータセットには一般的に入力とそれに対応する望ましい出力の例を含みます。
 - 埋め込みプロセスはカテゴリデータ (多くの場合テキスト) を言語モデルの訓練に使用できる数値表現に変換するプロセスです。埋め込みプロセスにはテキストデータの単語やフレーズを連続ベクトル空間内のベクトルとして表現することが含まれます。ベクトルは一般的に大規模テキストコーパスで訓練されたニューラルネットワークにテキストデータを入力することで生成されます。
 
-These unique stages of the model development lifecycle are imperative to understand to identify where data poisoning can occur and from what origin, depending on the nature of the attack and the attack target. データポイズニングは完全性攻撃とみなされ、訓練データの改竄が正しい予測を出力するモデルの能力に影響を与えます。当然ながら、外部データソースはモデル作成者がデータを管理できず、コンテンツにバイアス、改竄された情報、不適切なコンテンツが含まれていないという高いレベルの信頼性がないため、リスクがより高くなります。Data poisoning can degrade a model's performance, introduce biased or harmful content, and even exploit downstream systems. These risks are especially high with external data sources, which may contain unverified or malicious content.
+このようなモデル開発ライフサイクルのユニークなステージを理解して、攻撃の性質や攻撃対象に応じて、データポイズニングが発生する場所と発生源を特定することが不可欠です。データポイズニングは完全性攻撃とみなされ、訓練データの改竄が正しい予測を出力するモデルの能力に影響を与えます。当然ながら、外部データソースはモデル作成者がデータを管理できず、コンテンツにバイアス、改竄された情報、不適切なコンテンツが含まれていないという高いレベルの信頼性がないため、リスクがより高くなります。データポイズニングは、モデルのパフォーマンスを低下し、偏ったコンテンツや有害なコンテンツを導入し、ダウンストリームシステムを悪用する可能性があります。これらのリスクは、検証されないコンテンツや悪意のあるコンテンツを含む可能性がある外部データソースで特に高くなります。
 
-Models are often distributed as artifacts through shared model repositories or open-source platforms, making them susceptible to inherited vulnerabilities. Additionally, since models are implemented as software and integrated with infrastructure, they can introduce risks such as backdoors and computer viruses when these environments are embedded.
+モデルは、共有モデルリポジトリやオープンソースプラットフォームを通じて成果物として配布されることが多く、継承された脆弱性の影響を受けやすくなります。さらに、モデルはソフトウェアとして実装され、インフラストラクチャと統合されるため、これらの環境が組み込まれると、バックドアやコンピュータウィルスなどのリスクをもたらす可能性があります。
 
-Whether a developer, client, or general user of an LLM, it's crucial to understand the risks associated with interacting with non-proprietary models. These vulnerabilities can affect the legitimacy of model outputs due to their training procedures. Developers, in particular, may face risks from direct or indirect attacks on internal or third-party data used for fine-tuning and embedding, which can ultimately impact all users of the LLM.
+LLM の開発者、クライアント、一般ユーザーのいずれであれ、非プロプライエタリモデルとのやり取りに伴うリスクを理解することが重要です。これらの脆弱性は訓練手順によりモデル出力の正当性に影響を与える可能性があります。特に開発者は、ファインチューニングや埋め込みに使用される内部データまたはサードパーティデータに対する直接的または間接的な攻撃のリスクに直面する可能性があり、最終的には LLM のすべてのユーザーに影響を与える可能性があります。
 
 ### 脆弱性の一般的な例
 
