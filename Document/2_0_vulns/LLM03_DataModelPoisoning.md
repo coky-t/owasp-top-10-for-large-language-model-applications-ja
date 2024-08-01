@@ -18,14 +18,14 @@ LLM の開発者、クライアント、一般ユーザーのいずれであれ�
 
 ### 脆弱性の一般的な例
 
-1.  Malicious actors intentionally introduce inaccurate or harmful data into a model's training set. This can be achieved through techniques such as [Split-View Data Poisoning](https://github.com/GangGreenTemperTatum/speaking/blob/main/dc604/hacker-summer-camp-23/Ads%20_%20Poisoning%20Web%20Training%20Datasets%20_%20Flow%20Diagram%20-%20Exploit%201%20Split-View%20Data%20Poisoning.jpeg) or [Frontrunning Poisoning](https://github.com/GangGreenTemperTatum/speaking/blob/main/dc604/hacker-summer-camp-23/Ads%20_%20Poisoning%20Web%20Training%20Datasets%20_%20Flow%20Diagram%20-%20Exploit%202%20Frontrunning%20Data%20Poisoning.jpeg). 
+1. 悪意のある人物はモデルの訓練セットに不正確なデータや有害なデータを意図的に導入します。これは [Split-View Data Poisoning](https://github.com/GangGreenTemperTatum/speaking/blob/main/dc604/hacker-summer-camp-23/Ads%20_%20Poisoning%20Web%20Training%20Datasets%20_%20Flow%20Diagram%20-%20Exploit%201%20Split-View%20Data%20Poisoning.jpeg) や [Frontrunning Poisoning](https://github.com/GangGreenTemperTatum/speaking/blob/main/dc604/hacker-summer-camp-23/Ads%20_%20Poisoning%20Web%20Training%20Datasets%20_%20Flow%20Diagram%20-%20Exploit%202%20Frontrunning%20Data%20Poisoning.jpeg) などの技法によって実現できます。
    - 被害者モデルは利用者への生成 AI プロンプトの出力に反映される偽情報を使用して訓練します。
 2. 悪意のある人物はモデルの訓練プロセスに改竄された、偏りのある、あるいは有害なコンテンツを直接注入して、後続の出力で返すことができます。
-3. Users unknowingly inject sensitive or proprietary information during model interactions, which can be reflected in subsequent outputs.
+3. ユーザーはモデルのインタラクションの際に機密情報やプロプライエタリ情報を意図せずに注入して、後続の出力に反映される可能性があります。
 4. モデルは訓練ステージのどの例においても、その出所、起源、内容が検証されていないデータを使用して訓練されるため、データが汚染されていたり正しくない場合、誤った結果を生じる可能性があります。
 5. リソースへのアクセスが制限されていなかったり、サンドボックス化が不適切であると、モデルは安全でないデータを取り込み、偏った出力や有害な出力が生じる可能性があります。
-   - An example scenario might occur during the fine-tuning process, where inference calls from LLM clients could either intentionally or unintentionally introduce confidential information into the model's data store. This sensitive data could then be exposed to another unsuspecting client through generated outputs.
-   - Another example is during web scraping of remote resources from unverified sources in aid to obtain data used for either training of fine-tuning elements of the model lifecycle.
+   - 例のシナリオはファインチューニングプロセスで発生する可能性があり、LLM クライアントからの推論呼び出しが、意図的に、あるいは意図せずに、機密情報をモデルのデータストアに取り込む可能性があります。この機密データは、生成された出力を通じて、他の無防備なクライアントに公開されるかもしれません。
+   - もう一つの例は、検証されていないソースからリモートリソースをウェブスクレイピングして、モデルのライフサイクルの訓練やファインチューニングの要素として使用されるデータを取得することです。
 
 ### 予防および緩和戦略
 
