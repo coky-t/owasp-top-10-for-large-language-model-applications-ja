@@ -2,7 +2,7 @@
 
 ### 説明
 
-Sensitive information is contextually relevant to both the model and its deployment in LLM applications. This term includes, but is not limited to, personal identifiable information (PII), financial details, health records, confidential business data, security credentials, and legal or regulatory documents. Additionally, proprietary closed or foundation models have unique training methods and source code that may also be considered sensitive, which is less of a concern for open-source and open-weight models.
+機密情報は LLM アプリケーションでのモデルとそのデプロイメントの両方にコンテキスト的に関連しています。この用語は、個人を識別できる情報 (PII)、財務情報、健康記録、ビジネス上の機密データ、セキュリティクレデンシャル、法規制文書を含みますが、これらに限定されません。さらに、プロプライエタリのクローズドモデルやファウンデーションモデルには、機密とみなされる可能性のある独自の訓練手法とソースコードがありますが、これはオープンソースモデルやオープンウエイトモデルではそれほど問題にはなりません。
 
 LLM も、アプリケーション内に組み込まれた場合も、その出力を通じて機密情報、プロプライエタリアルゴリズム、その他の機密情報を明らかにする可能性があります。これにより機密データや知的財産への認可されていないアクセス、プライバシー侵害、その他のセキュリティ侵害を引き起こす可能性があります。LLM アプリケーションの利用者は LLM と安全にやり取りする方法を認識し、意図せずに機密データを入力すると、後に LLM によって他の場所に出力される可能性があるというリスクを認識することが重要です。
 
