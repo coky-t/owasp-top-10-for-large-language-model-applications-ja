@@ -12,9 +12,9 @@ LLM も、アプリケーション内に組み込まれた場合も、その出�
 
 ### 脆弱性の一般的な例
 
-1. LLM のレスポンスにおいて、機密情報のフィルタリングが不完全または不適切: Occurs when the LLM fails to adequately filter out sensitive information from its outputs, potentially exposing confidential data to unauthorized users.
-2. LLM のトレーニングプロセスにおける、機密データの過学習やメモ化: When the LLM inadvertently learns and retains specific sensitive data from its training set, leading to the potential for this information to be reproduced in responses.
-3. LLM の誤った解釈、データスクラビング方法の欠如やエラーによる機密情報の意図しない開示: Happens when the LLM misinterprets input data or lacks effective data sanitization mechanisms, resulting in accidental exposure of sensitive information.
+1. LLM のレスポンスにおいて、機密情報のフィルタリングが不完全または不適切: LLM がその出力から機密情報を適切にフィルタアウトできない場合に発生し、機密データが認可されていないユーザーに開示される可能性があります。
+2. LLM のトレーニングプロセスにおける、機密データの過学習やメモ化: LLM が訓練セットから特定の機密データを不注意に学習して保持すると、この情報がレスポンスで再現される可能性があります。
+3. LLM の誤った解釈、データスクラビング方法の欠如やエラーによる機密情報の意図しない開示: LLM が入力データを誤って解釈したり、効果的なデータサニタイゼーションメカニズムを書いている場合に発生し、機密情報を意図せず開示することにつながります。
 
 ### 予防および緩和戦略
 
