@@ -14,38 +14,38 @@ LLM も、アプリケーション内に組み込まれた場合も、その出�
 
 1. LLM のレスポンスにおいて、機密情報のフィルタリングが不完全または不適切: LLM がその出力から機密情報を適切にフィルタアウトできない場合に発生し、機密データが認可されていないユーザーに開示される可能性があります。
 2. LLM のトレーニングプロセスにおける、機密データの過学習やメモ化: LLM が訓練セットから特定の機密データを不注意に学習して保持すると、この情報がレスポンスで再現される可能性があります。
-3. LLM の誤った解釈、データスクラビング方法の欠如やエラーによる機密情報の意図しない開示: LLM が入力データを誤って解釈したり、効果的なデータサニタイゼーションメカニズムを書いている場合に発生し、機密情報を意図せず開示することにつながります。
+3. LLM の誤った解釈、データスクラビング手法の欠如やエラーによる機密情報の意図しない開示: LLM が入力データを誤って解釈したり、効果的なデータサニタイゼーションメカニズムを書いている場合に発生し、機密情報を意図せず開示することにつながります。
 
 ### 予防および緩和戦略
 
-1. 適切なデータサニタイゼーションとスクラビング技法を統合する: ユーザーデータが訓練データモデルに入ることを防ぎます。by implementing effective data sanitization and scrubbing methods.
+1. 適切なデータサニタイゼーションとスクラビング技法を統合する: 効果的なデータサニタイゼーションとスクラビング手法を実装して、ユーザーデータが訓練データモデルに入ることを防ぎます。
 2. 堅牢な入力バリデーションとサニタイゼーション手法を実装する: 潜在的な悪意のある入力を特定して除外し、モデルが汚染されることを防ぎます。
-3. Fine-Tuning with Sensitive Data:
-   - Apply the Rule of Least Privilege: Do not train the model on information accessible to the highest-privileged user if it may be displayed to lower-privileged users.
-   - Limit Access to External Data Sources: Restrict access to external data sources and ensure proper data orchestration at runtime.
-   - Enforce Strict Access Control: Apply rigorous access control methods to external data sources and maintain a secure supply chain.
-4. Utilize Federated Learning: Train models across multiple decentralized devices or servers holding local data samples without exchanging them, thus reducing the risk of sensitive data exposure.
-5. Integrate Differential Privacy Techniques: Ensure that individual data points cannot be reverse-engineered from the LLM outputs by incorporating differential privacy techniques.
-   - User Education and Training: Educate users on the risks of inputting sensitive information into LLMs and provide training on best practices.
-6. Data Minimization Principles: Adhere to data minimization principles by collecting and processing only the data that is necessary for the specific purpose of the application.
-7. Tokenization for Sensitive Information Disclosure: A tokenizer can prevent sensitive information disclosure within an LLM application by sanitizing data through preprocessing (e.g., masking sensitive information) and redacting sensitive terms using pattern matching techniques.
-   - Data Sanitization: Preprocessing data to mask or remove sensitive information (e.g., replacing credit card numbers with placeholders).
-   - Using pattern matching techniques to detect and sanitize sensitive information before tokenization.
-   - Redaction: Configuring the tokenizer to recognize and redact specific sensitive terms or phrases before processing by the model.
-9. Padding: Apply padding to the token responses with random length noise to obscure the length of the token so that responses can not be inferred from the packets in aid to prevent side-channel attacks.
-10. Homomorphic encryption can protect sensitive information in AI applications by enabling secure data analysis, facilitating privacy-preserving machine learning, supporting federated learning with encrypted data, and ensuring secure predictions while keeping user data confidential.
-11. Continuous Red Teaming Operations: Regularly perform red teaming exercises to address evolving threat vectors such as Prompt Injection Attacks (LLM01) and Data Poisoning (LLM03).
-12. Dynamic Monitoring and Anomaly Detection: Implement real-time monitoring and anomaly detection systems to identify and mitigate potential data leaks as they occur.
-13. User Consent and Transparency:
-   - Explicit Consent Mechanisms: Ensure that users explicitly consent to data usage policies.
-   - Transparent Data Practices: Maintain transparency in data handling practices, including clear communication about data retention, usage, and deletion policies.
-14. Limit Overrides and Conceal System Preamble to Prevent Exploitation
-       - Restrict Model Preamble Overrides and Conceal System Preamble: Prevent the possibility of malicious actors exploiting the LLM by limiting the ability to override the model's preamble capabilities and ensuring that the system preamble is  not revealed. This involves implementing strict access controls and safeguards to prevent unauthorized changes or disclosures of the model's initial setup instructions. By doing so, you reduce the risk of adversaries gaining insights into the model’s structure and behavior, which they could use during the reconnaissance and weaponization phases of an attack. This strategy ensures the integrity of the LLM's foundational parameters and minimizes potential attack vectors.
-15. Refer to the [OWASP API8:2023 Security Misconfiguration](https://owasp.org/API-Security/editions/2023/en/0xa8-security-misconfiguration/) when error messages are not handled properly, they can inadvertently expose sensitive information in logs or responses. This information can include stack traces, database dumps, API keys, user credentials, or other sensitive data that could be exploited by attackers.
-       - Sanitize Error Messages: Ensure that error messages returned to clients are generic and do not reveal internal implementation details. Use custom error messages that provide minimal information.
-       - Secure Logging Practices: Implement secure logging practices by sanitizing and redacting sensitive information from logs. Only log the necessary information for troubleshooting.
-       - Configuration Management: Regularly review and update API configurations to ensure they follow security best practices. Disable verbose logging and other insecure settings by default.
-       - Monitoring and Auditing: Monitor logs and audit configurations regularly to detect and respond to any security misconfigurations.
+3. 機密データでのファインチューニング:
+   - 最小権限のルールを適用する: 最高権限のユーザーがアクセスできる情報でモデルを訓練してはいけません。より低い権限のユーザーに表示される可能性があります。
+   - 外部データソースへのアクセスを制限する: 外部データソースへのアクセスを制限し、実行時に適切なデータオーケストレーションを確保します。
+   - 厳格なアクセス制御を実施する: 外部データソースに厳格なアクセス制御手法を適用し、安全なサプライチェーンを維持します。
+4. 連合学習を活用する: ローカルデータサンプルを保持する複数の分散デバイスやサーバーで、それらを交換することなくモデルを訓練して、機密データ開示のリスクを軽減します。
+5. 差分プライバシー技法を統合する: 差分プライバシー技法を組み込むことにより、LLM 出力から個々のデータポイントをリバースエンジニアリングできないようにします。
+   - ユーザー教育とトレーニング: LLM に機密情報を入力するリスクをユーザーに教育し、ベストプラクティスについてのトレーニングを提供します。
+6. データ最小化の原則: アプリケーションの特定の目的に必要なデータのみを収集して処理することにより、データ最小化の原則を遵守します。
+7. 機密情報開示に対するトークナイゼーション: トークナイザーは、前処理 (機密情報のマスキングなど) によってデータをサニタイズし、パターンマッチング技法を使用して機密用語を訂正することで、LLM アプリケーション内での機密情報開示を防ぐことができます。
+   - データサニタイゼーション: データを前処理して、機密情報をマスクまたは削除します (クレジットカード番号をプレースホルダーに置き換えるなど)。
+   - パターンマッチング技法を使用して、トークナイゼーションの前に機密情報を検出してサニタイズします。
+   - リダクション: トークナイザーを構成して、モデルで処理する前に特定の機密用語やフレーズを認識して訂正します。
+9. パディング: トークンレスポンスにランダムな長さのノイズでパディングを適用して、トークンの長さを不明瞭にすることで、レスポンスがパケットから推測できないようにして、サイドチャネル攻撃を防止します。
+10. 準同型暗号は、安全なデータ分析を可能にし、プライバシーを保護する機械学習を促進し、暗号化されたデータでの連合学習をサポートし、ユーザーデータの機密性を維持しながら安全な予測を確保することで、AI アプリケーションでの機密情報を保護できます。
+11. 継続的なレッドチーム活動: 定期的にレッドチーム演習を実施して、プロンプトインジェクション攻撃 (LLM01) やデータポイズニング (LLM03) などの進化する脅威ベクトルに対処します。
+12. 動的監視と異常検出: リアルタイム監視と異常検出システムを実装して、潜在的なデータ漏洩が発生した際に特定して軽減します。
+13. ユーザーの同意と透明性:
+   - 明示的な同意のメカニズム: ユーザーがデータ使用ポリシーに明示的に同意することを確保します。
+   - 透明性のあるデータ慣行: データの保持、使用、削除のポリシーに関する明確なコミュニケーションを含む、データ処理慣行の透明性を維持します。
+14. オーバーライドを制限し、システムプリアンブルを隠蔽して、悪用を防止する
+       - モデルプリアンブルのオーバーライドを制限して、システムプリアンブルを隠蔽する: モデルのプリアンブル機能をオーバーライドする機能を制限し、システムプリアンブルが公開されないようにすることで、悪意のある行為者が LLM を悪用する可能性を防ぎます。これは厳格なアクセス制御とセーフガードを実装して、モデルの初期セットアップインストラクションの認可されていない変更や開示を防ぎます。そうすることで、攻撃者がモデルの構造と動作の洞察を獲得し、攻撃の偵察や兵器化フェーズで利用するリスクを軽減します。この戦略により、LLM の基礎パラメータの完全性を確保し、潜在的な攻撃ベクトルを最小限に抑えます。
+15. [OWASP API8:2023 Security Misconfiguration](https://owasp.org/API-Security/editions/2023/en/0xa8-security-misconfiguration/) を参照します。エラーメッセージが適切に処理されない場合、機密情報をログやレスポンスに不注意に開示する可能性があります。この情報は、スタックトレース、データベースダンプ、API キー、ユーザークレデンシャル、攻撃者に悪用される可能性のあるその他の機密データを含みます。
+       - エラーメッセージをサニタイズする: クライアントに返されるエラーメッセージは汎用的なものであり、内部実装の詳細を明らかにしないようにします。最小限の情報を提供するカスタムエラーメッセージを使用します。
+       - 安全なログ記録慣行: ログからの機密情報をサニタイズして訂正することで、安全なログ記録慣行を実装します。トラブルシューティングに必要な情報のみをログ記録します。
+       - 構成管理: API 構成を定期的にレビューして更新し、セキュリティベストプラクティスに従うようにします。詳細なログ記録やその他のデフォルトで安全でない設定を無効にします。
+       - 監視と監査: ログを監視し、定期的に構成を監査して、セキュリティの設定ミスを検出して対応します。
 
 ### 攻撃シナリオの例
 
