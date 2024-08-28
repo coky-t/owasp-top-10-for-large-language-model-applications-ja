@@ -40,6 +40,23 @@ OWASP Top 10 大規模言語モデルアプリケーションは開発者とウ�
 
 このプロジェクトは [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/) の条件に基づいてライセンスされています。
 
-## Star History
+## Support OWASP!
 
-[![Star History Chart](https://api.star-history.com/svg?repos=OWASP/www-project-top-10-for-large-language-model-applications&type=Date)](https://star-history.com/#OWASP/www-project-top-10-for-large-language-model-applications&Date)
+<picture>
+  <source
+    media="(prefers-color-scheme: dark)"
+    srcset="
+      https://api.star-history.com/svg?repos=OWASP/www-project-top-10-for-large-language-model-applications&type=Date&theme=dark
+    "
+  />
+  <source
+    media="(prefers-color-scheme: light)"
+    srcset="
+      https://api.star-history.com/svg?repos=OWASP/www-project-top-10-for-large-language-model-applications&type=Date
+    "
+  />
+  <img
+    alt="Star History Chart"
+    src="https://api.star-history.com/svg?repos=OWASP/www-project-top-10-for-large-language-model-applications&type=Date"
+  />
+</picture>
