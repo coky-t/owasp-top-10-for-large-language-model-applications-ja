@@ -1,72 +1,66 @@
-## LLM06: 機密情報の開示 (Sensitive Information Disclosure)
+## LLM02:2025 機密情報の開示 (Sensitive Information Disclosure)
 
 ### 説明
 
-機密情報は LLM アプリケーションでのモデルとそのデプロイメントの両方にコンテキスト的に関連しています。この用語は、個人を識別できる情報 (PII)、財務情報、健康記録、ビジネス上の機密データ、セキュリティクレデンシャル、法規制文書を含みますが、これらに限定されません。さらに、プロプライエタリのクローズドモデルやファウンデーションモデルには、機密とみなされる可能性のある独自の訓練手法とソースコードがありますが、これはオープンソースモデルやオープンウエイトモデルではそれほど問題にはなりません。
+Sensitive information can affect both the LLM and its application context. This includes personal identifiable information (PII), financial details, health records, confidential business data, security credentials, and legal documents. Proprietary models may also have unique training methods and source code considered sensitive, especially in closed or foundation models.
 
-LLM も、アプリケーション内に組み込まれた場合も、その出力を通じて機密情報、プロプライエタリアルゴリズム、その他の機密情報を明らかにする可能性があります。これにより機密データや知的財産への認可されていないアクセス、プライバシー侵害、その他のセキュリティ侵害を引き起こす可能性があります。LLM アプリケーションの利用者は LLM と安全にやり取りする方法を認識し、意図せずに機密データを入力すると、後に LLM によって他の場所に出力される可能性があるというリスクを認識することが重要です。
+LLMs, especially when embedded in applications, risk exposing sensitive data, proprietary algorithms, or confidential details through their output. This can result in unauthorized data access, privacy violations, and intellectual property breaches. Consumers should be aware of how to interact safely with LLMs. They need to understand the risks of unintentionally providing sensitive data, which may later be disclosed in the model's output.
 
-このリスクを軽減するには、LLM アプリケーションは適切なデータサニタイゼーションを実行して、ユーザーデータが訓練モデルデータに混入するのを防ぐ必要があります。また、LLM アプリケーションオーナーは適切な利用規約ポリシーを用意し、自分のデータがどのように処理されるか、また、訓練モデルにデータが含まれることをオプトアウトできることを利用者が認識できるようにする必要があります。
-
-利用者と LLM アプリケーションのやり取りは双方向の信頼境界を形成し、私たちは クライアント → LLM 入力 や LLM → クライアント出力 を本質的に信頼できません。この脆弱性は脅威モデリング演習、インフラストラクチャの保護、適切なサンドボックス化など、特定の前提条件がスコープ外であることを仮定していることに注意することが重要です。LLM が返すデータの種類に関する制限をシステムプロンプト内に追加することで、機密情報の漏洩をある程度緩和できますが、LLM の予測不可能な性質により、そのような制限が常に守られるとは限らず、プロンプトインジェクションや他の攻撃によって回避される可能性があります。
+To reduce this risk, LLM applications should perform adequate data sanitization to prevent user data from entering the training model. Application owners should also provide clear Terms of Use policies, allowing users to opt out of having their data included in the training model. Adding restrictions within the system prompt about data types that the LLM should return can provide mitigation against sensitive information disclosure. However, such restrictions may not always be honored and could be bypassed via prompt injection or other methods.
 
 ### 脆弱性の一般的な例
 
-1. LLM のレスポンスにおいて、機密情報のフィルタリングが不完全または不適切: LLM がその出力から機密情報を適切にフィルタアウトできない場合に発生し、機密データが認可されていないユーザーに開示される可能性があります。
-2. LLM のトレーニングプロセスにおける、機密データの過学習やメモ化: LLM が訓練セットから特定の機密データを不注意に学習して保持すると、この情報がレスポンスで再現される可能性があります。
-3. LLM の誤った解釈、データスクラビング手法の欠如やエラーによる機密情報の意図しない開示: LLM が入力データを誤って解釈したり、効果的なデータサニタイゼーションメカニズムを書いている場合に発生し、機密情報を意図せず開示することにつながります。
+1. **PII Leakage:** Personal identifiable information (PII) may be disclosed during interactions with the LLM.
+2. **Proprietary Algorithm Exposure:** Poorly configured model outputs can reveal proprietary algorithms or data. Revealing training data can expose models to inversion attacks, where attackers extract sensitive information or reconstruct inputs. For instance, as demonstrated in the 'Proof Pudding' attack (CVE-2019-20634), disclosed training data facilitated model extraction and inversion, allowing attackers to circumvent security controls in machine learning algorithms and bypass email filters.
+3. **Sensitive Business Data Disclosure:** Generated responses might inadvertently include confidential business information.
 
 ### 予防および緩和戦略
 
-1. 適切なデータサニタイゼーションとスクラビング技法を統合する: 効果的なデータサニタイゼーションとスクラビング手法を実装して、ユーザーデータが訓練データモデルに入ることを防ぎます。
-2. 堅牢な入力バリデーションとサニタイゼーション手法を実装する: 潜在的な悪意のある入力を特定して除外し、モデルが汚染されることを防ぎます。
-3. 機密データでのファインチューニング:
-   - 最小権限のルールを適用する: 最高権限のユーザーがアクセスできる情報でモデルを訓練してはいけません。より低い権限のユーザーに表示される可能性があります。
-   - 外部データソースへのアクセスを制限する: 外部データソースへのアクセスを制限し、実行時に適切なデータオーケストレーションを確保します。
-   - 厳格なアクセス制御を実施する: 外部データソースに厳格なアクセス制御手法を適用し、安全なサプライチェーンを維持します。
-4. 連合学習を活用する: ローカルデータサンプルを保持する複数の分散デバイスやサーバーで、それらを交換することなくモデルを訓練して、機密データ開示のリスクを軽減します。
-5. 差分プライバシー技法を統合する: 差分プライバシー技法を組み込むことにより、LLM 出力から個々のデータポイントをリバースエンジニアリングできないようにします。
-   - ユーザー教育とトレーニング: LLM に機密情報を入力するリスクをユーザーに教育し、ベストプラクティスについてのトレーニングを提供します。
-6. データ最小化の原則: アプリケーションの特定の目的に必要なデータのみを収集して処理することにより、データ最小化の原則を遵守します。
-7. 機密情報開示に対するトークナイゼーション: トークナイザーは、前処理 (機密情報のマスキングなど) によってデータをサニタイズし、パターンマッチング技法を使用して機密用語を訂正することで、LLM アプリケーション内での機密情報開示を防ぐことができます。
-   - データサニタイゼーション: データを前処理して、機密情報をマスクまたは削除します (クレジットカード番号をプレースホルダーに置き換えるなど)。
-   - パターンマッチング技法を使用して、トークナイゼーションの前に機密情報を検出してサニタイズします。
-   - リダクション: トークナイザーを構成して、モデルで処理する前に特定の機密用語やフレーズを認識して訂正します。
-9. パディング: トークンレスポンスにランダムな長さのノイズでパディングを適用して、トークンの長さを不明瞭にすることで、レスポンスがパケットから推測できないようにして、サイドチャネル攻撃を防止します。
-10. 準同型暗号は、安全なデータ分析を可能にし、プライバシーを保護する機械学習を促進し、暗号化されたデータでの連合学習をサポートし、ユーザーデータの機密性を維持しながら安全な予測を確保することで、AI アプリケーションでの機密情報を保護できます。
-11. 継続的なレッドチーム活動: 定期的にレッドチーム演習を実施して、プロンプトインジェクション攻撃 (LLM01) やデータポイズニング (LLM03) などの進化する脅威ベクトルに対処します。
-12. 動的監視と異常検出: リアルタイム監視と異常検出システムを実装して、潜在的なデータ漏洩が発生した際に特定して軽減します。
-13. ユーザーの同意と透明性:
-   - 明示的な同意のメカニズム: ユーザーがデータ使用ポリシーに明示的に同意することを確保します。
-   - 透明性のあるデータ慣行: データの保持、使用、削除のポリシーに関する明確なコミュニケーションを含む、データ処理慣行の透明性を維持します。
-14. オーバーライドを制限し、システムプリアンブルを隠蔽して、悪用を防止する
-       - モデルプリアンブルのオーバーライドを制限して、システムプリアンブルを隠蔽する: モデルのプリアンブル機能をオーバーライドする機能を制限し、システムプリアンブルが公開されないようにすることで、悪意のある行為者が LLM を悪用する可能性を防ぎます。これは厳格なアクセス制御とセーフガードを実装して、モデルの初期セットアップインストラクションの認可されていない変更や開示を防ぎます。そうすることで、攻撃者がモデルの構造と動作の洞察を獲得し、攻撃の偵察や兵器化フェーズで利用するリスクを軽減します。この戦略により、LLM の基礎パラメータの完全性を確保し、潜在的な攻撃ベクトルを最小限に抑えます。
-15. [OWASP API8:2023 Security Misconfiguration](https://owasp.org/API-Security/editions/2023/en/0xa8-security-misconfiguration/) を参照します。エラーメッセージが適切に処理されない場合、機密情報をログやレスポンスに不注意に開示する可能性があります。この情報は、スタックトレース、データベースダンプ、API キー、ユーザークレデンシャル、攻撃者に悪用される可能性のあるその他の機密データを含みます。
-       - エラーメッセージをサニタイズする: クライアントに返されるエラーメッセージは汎用的なものであり、内部実装の詳細を明らかにしないようにします。最小限の情報を提供するカスタムエラーメッセージを使用します。
-       - 安全なログ記録慣行: ログからの機密情報をサニタイズして訂正することで、安全なログ記録慣行を実装します。トラブルシューティングに必要な情報のみをログ記録します。
-       - 構成管理: API 構成を定期的にレビューして更新し、セキュリティベストプラクティスに従うようにします。詳細なログ記録やその他のデフォルトで安全でない設定を無効にします。
-       - 監視と監査: ログを監視し、定期的に構成を監査して、セキュリティの設定ミスを検出して対応します。
+**Sanitization**:
+
+1. **Integrate Data Sanitization Techniques:** Implement data sanitization to prevent user data from entering the training model. This includes scrubbing or masking sensitive content before it is used in training.
+2. **Robust Input Validation:** Apply strict input validation methods to detect and filter out potentially harmful or sensitive data inputs, ensuring they do not compromise the model.
+
+**Access Controls**:
+
+1. **Enforce Strict Access Controls:** Limit access to sensitive data based on the principle of least privilege. Only grant access to data that is necessary for the specific user or process.
+2. **Restrict Data Sources:** Limit model access to external data sources, and ensure runtime data orchestration is securely managed to avoid unintended data leakage.
+
+**Federated Learning and Privacy Techniques**:
+
+1. **Utilize Federated Learning:** Train models using decentralized data stored across multiple servers or devices. This approach minimizes the need for centralized data collection and reduces exposure risks.
+2. **Incorporate Differential Privacy:** Apply techniques that add noise to the data or outputs, making it difficult for attackers to reverse-engineer individual data points.
+
+**User Education and Transparency**
+
+1. **Educate Users on Safe LLM Usage:** Provide guidance on avoiding the input of sensitive information. Offer training on best practices for interacting with LLMs securely.
+2. **Ensure Transparency in Data Usage:** Maintain clear policies about data retention, usage, and deletion. Allow users to opt out of having their data included in training processes.
+
+**Secure System Configuration**
+
+1. **Conceal System Preamble:** Limit the ability for users to override or access the system's initial settings, reducing the risk of exposure to internal configurations.
+2. **Reference Security Misconfiguration Best Practices:** Follow guidelines like [OWASP API8:2023 Security Misconfiguration](https://owasp.org/API-Security/editions/2023/en/0xa8-security-misconfiguration/) to prevent leaking sensitive information through error messages or configuration details.  
+**Advanced Techniques**
+
+1. **Homomorphic Encryption:** Use homomorphic encryption to enable secure data analysis and privacy-preserving machine learning. This ensures data remains confidential while being processed by the model.
+2. **Tokenization and Redaction:** Implement tokenization to preprocess and sanitize sensitive information. Techniques like pattern matching can detect and redact confidential content before processing.
 
 ### 攻撃シナリオの例
 
-1. 意図しないデータ開示: 疑う余地のない正規ユーザー A は悪意のない方法で LLM アプリケーションと対話する際に、LLM を介して他の特定のユーザーデータにさらされます。たとえば、一般的な質問をするなかで、データのサニタイゼーションが不十分なために、ユーザー A は他のユーザーの個人情報の断片を含むレスポンスを受け取ります。
-2. 標的型プロンプトインジェクション攻撃: ユーザー A は巧妙に構成された一連のプロンプトを作成し、入力フィルタとサニタイゼーションのメカニズムをバイパスして、LLM がアプリケーションの他のユーザーに関する機密情報 (PII など) を公開するようにします。この攻撃は LLM の入力バリデーションプロセスの弱点を悪用します。
-3. 訓練データを介したデータ漏洩: ユーザーや LLM アプリケーションの不注意により、PII などの個人データがモデルの訓練データに誤って含まれてしまうことがあります。これは、モデルを訓練に使用される前に、訓練データが適切に精査およびサニタイズされない場合に発生する可能性があります。その結果、機密情報が LLM のレスポンスから明らかになり、シナリオ 1 と 2 の影響を悪化する可能性があります。
-4. 不十分なアクセス制御: LLM が実行時に外部データソースにアクセスするシナリオでは、アクセス制御方法が弱いと、認可されていないユーザーが LLM を通じて機密情報を照会できる可能性があります。たとえば、LLM が適切なアクセス制限なしで企業データベースに統合されている場合、認可されていないユーザーに機密性の高いビジネスデータを開示するかもしれません。
-5. モデルの過学習とメモ化: 訓練プロセスにおいて、LLM が機密性の高いデータポイントに過剰適合し、それをメモ化します。これにより、LLM がレスポンスを生成する際に、意図しない開示につながります。たとえば、内部の電子メールで訓練された LLM は、それらの電子メールの正確なフレーズや機密情報を不注意にそのレスポンスに再現するかもしれません。
+1. **Unintentional Data Exposure:** A user receives a response containing another user's personal data due to inadequate data sanitization.
+2. **Targeted Prompt Injection:** An attacker bypasses input filters to extract sensitive information.
+3. **Data Leak via Training Data:** Negligent data inclusion in training leads to sensitive information disclosure.
 
 ### 参考情報リンク
 
 1. [Lessons learned from ChatGPT’s Samsung leak](https://cybernews.com/security/chatgpt-samsung-leak-explained-lessons/): **Cybernews**
 2. [AI data leak crisis: New tool prevents company secrets from being fed to ChatGPT](https://www.foxbusiness.com/politics/ai-data-leak-crisis-prevent-company-secrets-chatgpt): **Fox Business**
-3. [ChatGPT Spit Out Sensitive Data When Told to Repeat ‘Poem’ Forever](https://www.wired.com/story/chatgpt-poem-forever-security-roundup/) **Wired**
-4. [Nvidia’s AI software tricked into leaking data](https://www.ft.com/content/5aceb7a6-9d5a-4f1f-af3d-1ef0129b0934) **Financial Times**
-5. [Building a serverless tokenization solution to mask sensitive data](https://aws.amazon.com/blogs/compute/building-a-serverless-tokenization-solution-to-mask-sensitive-data/#:~:text=Tokenization%20replaces%20the%20sensitive%20data,while%20helping%20with%20data%20protection.) **AWS**
-6. [Hackers can read private AI-assistant chats even though they’re encrypted](https://arstechnica.com/security/2024/03/hackers-can-read-private-ai-assistant-chats-even-though-theyre-encrypted/) **ArsTechnica**
-7. [Mitigating a token-length side-channel attack in our AI products](https://blog.cloudflare.com/ai-side-channel-attack-mitigated#:~:text=The%20researchers%20suggested%20a%20few,be%20inferred%20from%20the%20packets.)
-8. [How Federated Learning Protects Privacy](https://pair.withgoogle.com/explorables/federated-learning/)
-9. [Using Differential Privacy to Build Secure Models: Tools, Methods, Best Practices](https://neptune.ai/blog/using-differential-privacy-to-build-secure-models-tools-methods-best-practices) **Neptune Blog**
-10. [Maximizing Data Privacy in Fine-Tuning LLMs](https://pvml.com/maximizing-data-privacy-in-fine-tuning-llms/#:~:text=of%20customer%20trust.-,Organizations%20that%20fail%20to%20protect%20sensitive%20data%20during%20the%20fine,to%20concerns%20about%20data%20privacy.)
-11. [What is Data Minimization? Main Principles & Techniques](https://www.piiano.com/blog/data-minimization#:~:text=Data%20minimization%20plays%20a%20big,making%20your%20data%20even%20safer.)
-12. [Solving LLM Privacy with FHE](https://medium.com/@ingonyama/solving-llm-privacy-with-fhe-3486de6ee228)
-13. [OWASP API8:2023 Security Misconfiguration](https://owasp.org/API-Security/editions/2023/en/0xa8-security-misconfiguration/) **OWASP API Security**
+3. [ChatGPT Spit Out Sensitive Data When Told to Repeat ‘Poem’ Forever](https://www.wired.com/story/chatgpt-poem-forever-security-roundup/): **Wired**
+4. [Using Differential Privacy to Build Secure Models](https://neptune.ai/blog/using-differential-privacy-to-build-secure-models-tools-methods-best-practices): **Neptune Blog**
+5. [Proof Pudding (CVE-2019-20634)](https://avidml.org/database/avid-2023-v009/) **AVID** (`moohax` & `monoxgas`)
+
+### 関連するフレームワークと分類
+
+- [AML.T0024.000 - Infer Training Data Membership](https://atlas.mitre.org/techniques/AML.T0024.000) **MITRE ATLAS**
+- [AML.T0024.001 - Invert ML Model](https://atlas.mitre.org/techniques/AML.T0024.001) **MITRE ATLAS**
+- [AML.T0024.002 - Extract ML Model](https://atlas.mitre.org/techniques/AML.T0024.002) **MITRE ATLAS**

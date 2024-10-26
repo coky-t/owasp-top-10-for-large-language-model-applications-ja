@@ -1,12 +1,12 @@
-# OWASP Top 10 大規模言語モデルアプリケーション 2.0 日本語版
+# OWASP Top 10 大規模言語モデルアプリケーション 2.0 (2025) 日本語版
 
-* [LLM01: プロンプトインジェクション (Prompt Injection)](LLM01_PromptInjection.md)
-* [LLM02: 安全でない出力処理 (Insecure Output Handling)](LLM02_ImproperOutputHandling.md)
-* [LLM03: データおよびモデルポイズニング (Data and Model Poisoning)](LLM03_DataModelPoisoning.md)
-* [LLM04: モデルサービス拒否 (Model Denial of Service)](LLM04_ModelDoS.md)
-* [LLM05: サプライチェーン脆弱性 (Supply Chain Vulnerabilities)](LLM05_SupplyChainVulnerabilities.md)
-* [LLM06: 機密情報の開示 (Sensitive Information Disclosure)](LLM06_SensitiveInformationDisclosure.md)
-* [LLM07: 安全でないプラグイン設計 (Insecure Plugin Design)](LLM07_InsecurePluginDesign.md)
-* [LLM08: 過剰なエージェンシー (Excessive Agency)](LLM08_ExcessiveAgency.md)
-* [LLM09: 過度の依存 (Overreliance)](LLM09_Overreliance.md)
-* [LLM10: モデル窃取 (Model Theft)](LLM10_ModelTheft.md)
+* [LLM01:2025 プロンプトインジェクション (Prompt Injection)](LLM01_PromptInjection.md)
+* [LLM02:2025 機密情報の開示 (Sensitive Information Disclosure)](LLM02_SensitiveInformationDisclosure.md)
+* [LLM03:2025 サプライチェーン (Supply Chain)](LLM03_SupplyChain.md)
+* [LLM04:2025 データおよびモデルポイズニング (Data and Model Poisoning)](LLM04_DataModelPoisoning.md)
+* [LLM05:2025 安全でない出力処理 (Insecure Output Handling)](LLM05_ImproperOutputHandling.md)
+* [LLM06:2025 過剰なエージェンシー (Excessive Agency)](LLM06_ExcessiveAgency.md)
+* [LLM07:2025 システムプロンプトの漏洩 (System Prompt Leakage)](LLM07_SystemPromptLeakage.md)
+* [LLM08:2025 ベクトルとエンベディングの脆弱性 (Vector and Embedding Weaknesses)](LLM08_VectorAndEmbeddingWeaknesses.md)
+* [LLM09:2025 誤情報 (Misinformation)](LLM09_Misinformation.md)
+* [LLM10:2025 無制限の消費 (Unbounded Consumption)](LLM10_UnboundedConsumption.md)
