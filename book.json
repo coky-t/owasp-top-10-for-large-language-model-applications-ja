@@ -1,5 +1,5 @@
 {
-  "root" : "./Document/1_1_vulns",
+  "root" : "./Document/Archive/1_1_vulns",
   "plugins" : [ "anchors" ],
 
   "structure": {
