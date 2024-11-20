@@ -7,37 +7,30 @@ tags: example-tag
 pitch: 大規模言語モデル (LLM) をデプロイおよび管理する際の潜在的なリスクについて、開発者、デザイナー、アーキテクト、マネージャー、組織を教育することを目的としています。
 ---
 
-OWASP Top 10 大規模言語モデルアプリケーションプロジェクトは大規模言語モデル (LLM) をデプロイおよび管理する際の潜在的なリスクについて、開発者、デザイナー、アーキテクト、マネージャー、組織を教育することを目的としています。このプロジェクトでは LLM アプリケーションでよくみられる最も重大な脆弱性トップ 10 のリストを提供し、その潜在的な影響、悪用しやすさ、実世界のアプリケーションでの普及度をハイライトします。脆弱性の例としては、プロンプトインジェクション、データ漏洩、不十分なサンドボックス化、認可されていないコード実行などがあります。目標はこれらの脆弱性に対する認識を高め、改善策を提案し、最終的に LLM アプリケーションのセキュリティ態勢を改善することです。詳細については [グループ憲章](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/wiki/Charter) をご覧ください。
+OWASP Top 10 大規模言語モデルアプリケーションプロジェクトは大規模言語モデル (LLM) と生成 AI アプリケーションをデプロイおよび管理する際の潜在的なリスクについて、開発者、デザイナー、アーキテクト、マネージャー、組織を教育することを目的としています。このプロジェクトではさまざまなリソースを提供します。最も注目すべきは LLM アプリケーション向けの OWASP Top 10 リストで、LLM アプリケーションでよくみられる最も重大な脆弱性のトップ 10 をリストし、その潜在的な影響、悪用しやすさ、実世界のアプリケーションにおける普及度をハイライトしています。
 
-これまでに行われた作業を理解するには、公式 2025 リリース ([フルバージョン](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/blob/main/assets/PDF/OWASP-Top-10-for-LLMs-v2025.pdf)) を確認してください。
+脆弱性の例としては、プロンプトインジェクション、データ漏洩、不十分なサンドボックス化、認可されていないコード実行などがあります。目標はこれらの脆弱性に対する認識を高め、改善策を提案し、最終的に LLM アプリケーションのセキュリティ態勢を改善することです。
 
-# 📢 新しいドキュメントのリリース: セキュリティとガバナンスのチェックリスト
+## 📢 2025 年のリストが利用可能になりました:
+2025 年の LLM 向け OWASP Top 10 リスト [フルバージョン](https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/) をダウンロードしてください。
 
-最新ドキュメント **セキュリティとガバナンスのチェックリスト** のバージョン 1.0 を発表できることをうれしく思います。この包括的なガイドは組織内で生成 AI テクノロジのロールアウトを管理する最高情報セキュリティ責任者 (CISO) にとって不可欠です。
+## 私たちの [ウェブサイト](https://genai.owasp.org) から以下の追加リソースをダウンロードしてください:
+- [Security & Governance Checklist v1.0](https://genai.owasp.org/resource/llm-applications-cybersecurity-and-governance-checklist-english/) 生成 AI テクノロジのロールアウトを管理する CISO にとって必須のガイダンス。
+- [Guide for Preparing and Responding to DeepFakes](https://genai.owasp.org/resource/guide-for-preparing-and-responding-to-deepfake-events/)
+- [2025 AI Security Solutions Directory and Guide](https://genai.owasp.org/ai-security-solutions-landscape/)
 
-🔗 [こちらから PDF をダウンロードしてください](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/blob/main/llm-top-10-governance-doc/LLM_AI_Security_and_Governance_Checklist-v1.1.pdf) - また [フランス語版](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/blob/main/llm-top-10-governance-doc/LLM_AI_Security_and_Governance_Checklist-v1_FR.pdf) と [日本語版](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/blob/main/llm-top-10-governance-doc/LLM_AI_Security_and_Governance_Checklist-v1_1_JP.pdf) もあります。
+## ローカライズバージョンも利用可能です。
+- Security & Governance Checklist v1.0 - 現在 [フランス語](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/tree/main/llm-top-10-governance-doc/LLM_AI_Security_and_Governance_Checklist-v1_FR.pdf) と [日本語](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/tree/main/llm-top-10-governance-doc/LLM_AI_Security_and_Governance_Checklist-v1_1_JP.pdf) でも利用できます。
 
-# 📢 新しいウェブサイトを立ち上げました: こちらもご覧ください
+## 専門知識を貢献しませんか？参加してください。
+- [OWASP Slack](https://owasp.org/slack/invite) にワーキンググループチャネルがありますので、サインアップして #project-top10-for-llm チャネルに参加してください。
+- ワーキンググループは [wiki](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/wiki) で共同作業を行っています。
+- 最新の進捗状況を定期的に知りたいですか？ [ニュースレターを申し込み](https://llmtop10.beehiiv.com/subscribe) するか、 [プロジェクトの LinkedIn ページをフォロー](https://www.linkedin.com/company/owasp-top-10-for-large-language-model-applications/) してください。
 
-このプロジェクトを補完するために [新しいウェブサイト](https://genai.owasp.org) を立ち上げました。
+## LLM セキュリティについて学びたい
+LLM アプリケーションセキュリティは初めてですか？詳しくは [リソースページ](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/wiki/Educational-Resources) をご覧ください。
 
-この取り組みはコミュニティ主導で行われ、すべての利害関係者の参加と貢献を推奨します。
+## プロジェクトサポーターまたはスポンサーになる
+私たちは非営利のオープンソースコミュニティ主導のプロジェクトです。もしあなたがリソースでプロジェクトをサポートしたり、スポンサーになることに興味があれば、私たちがコミュニティの取り組みを継続し続け、運営やアウトリーチのコストを相殺できるようにするための支援をしてください。私たちのウェブサイトの [スポンサーセクション](https://genai.owasp.org/sponsorship) をご覧ください。
 
-- [OWASP Slack](https://owasp.org/slack/invite) にワーキンググループチェンネルがあるので、サインアップしてから #project-top10-for-llm チェンネルに参加してください。
-- ワーキンググループは [Wiki](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/wiki) でコラボレーションしています。
-- 最新の進捗状況を定期的に知りたいでしょうか？ [ニュースレターを申し込んでください](https://llmtop10.beehiiv.com/subscribe) もしくは [プロジェクトの LinkedIn ページをフォローしてください](https://www.linkedin.com/company/owasp-top-10-for-large-language-model-applications/)
-
-LLM アプリケーションセキュリティは初めてですか？詳細については [resources ページ](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/wiki/Educational-Resources) をご覧ください。
-
-
-
-## プロジェクトのスポンサーシップ
-
-### [OWASP LLM プロジェクトスポンサー/ドナー](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/wiki/Donors-and-Project-Sponsors) になる方法をご覧ください。
-
-私たちは新しいプロジェクトスポンサープログラムを立ち上げたところです。OWASP Top 10 for LLM プロジェクトは貢献したい人なら誰でも参加できるコミュニティ主導の取り組みです。このプロジェクトは非営利の取り組みであり、スポンサーシップは運営および支援/教育のコストをカバーすることを助け、コミュニティの貢献がプロジェクト全体にもたらす価値を最大化するためのリソースを提供することで、プロジェクトの成功を確実にするのに役立ちます。見返りとして、プロジェクトは企業の貢献を表彰する多くの特典を提供します。
-
-
-## スポンサー
-
-スポンサーロゴは近日公開予定です。
+## 現在の [スポンサーとサポーター](https://genai.owasp.org/supporters/) に感謝いたします
