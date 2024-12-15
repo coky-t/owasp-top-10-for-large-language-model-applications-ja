@@ -40,7 +40,7 @@
 #### 4. 権限制御と最小権限アクセスを強制する
   拡張可能な機能のためにアプリケーションに独自の API トークンを提供し、これらの機能をモデルに提供するのではなくコードで処理します。モデルのアクセス権限を、意図した操作に必要な最小限に制限します。
 #### 5. 高リスクのアクションには人間による承認を要求する
-  権限操作に人間参加型 (human-in-the-loop) 制御を実装して、認可されていないアクションを防ぎます。
+  権限操作に人間参加型 (human-in-the-loop) 制御を実装して、不正なアクションを防ぎます。
 #### 6. 外部コンテンツを分離して識別する
   信頼できないコンテンツを分離して明示し、ユーザープロンプトへの影響を制限します。
 #### 7. 敵対的テストと攻撃シミュレーションを実施する
@@ -48,24 +48,24 @@
 
 ### 攻撃シナリオの例
 
-#### Scenario #1: Direct Injection
-  An attacker injects a prompt into a customer support chatbot, instructing it to ignore previous guidelines, query private data stores, and send emails, leading to unauthorized access and privilege escalation.
-#### Scenario #2: Indirect Injection
-  A user employs an LLM to summarize a webpage containing hidden instructions that cause the LLM to insert an image linking to a URL, leading to exfiltration of the the private conversation.
-#### Scenario #3: Unintentional Injection
-  A company includes an instruction in a job description to identify AI-generated applications. An applicant, unaware of this instruction, uses an LLM to optimize their resume, inadvertently triggering the AI detection.
-#### Scenario #4: Intentional Model Influence
-  An attacker modifies a document in a repository used by a Retrieval-Augmented Generation (RAG) application. When a user's query returns the modified content, the malicious instructions alter the LLM's output, generating misleading results.
-#### Scenario #5: Code Injection
-  An attacker exploits a vulnerability (CVE-2024-5184) in an LLM-powered email assistant to inject malicious prompts, allowing access to sensitive information and manipulation of email content.
-#### Scenario #6: Payload Splitting
-  An attacker uploads a resume with split malicious prompts. When an LLM is used to evaluate the candidate, the combined prompts manipulate the model's response, resulting in a positive recommendation despite the actual resume contents.
-#### Scenario #7: Multimodal Injection
-  An attacker embeds a malicious prompt within an image that accompanies benign text. When a multimodal AI processes the image and text concurrently, the hidden prompt alters the model's behavior, potentially leading to unauthorized actions or disclosure of sensitive information.
-#### Scenario #8: Adversarial Suffix
-  An attacker appends a seemingly meaningless string of characters to a prompt, which influences the LLM's output in a malicious way, bypassing safety measures.
-#### Scenario #9: Multilingual/Obfuscated Attack
-  An attacker uses multiple languages or encodes malicious instructions (e.g., using Base64 or emojis) to evade filters and manipulate the LLM's behavior.
+#### シナリオ #1: 直接インジェクション
+  攻撃者はプロンプトを顧客サポートチャットボットに注入し、以前のガイドラインを無視して、個人データストアに問い合わせたり、電子メールを送信するように指示し、不正アクセスと権限昇格を引き起こします。
+#### シナリオ #2: 間接インジェクション
+  ユーザーが LLM を使用して、隠された指示を含むウェブページを要約すると、LLM は URL にリンクする画像を挿入し、プライベートな会話の流出につながります。
+#### シナリオ #3: 意図しないインジェクション
+  企業は AI が生成した応募書類を特定するための指示を求人情報に記載しています。この指示を知らない応募者は LLM を使用して履歴書を最適化し、不注意にも AI 検出を引き起こします。
+#### シナリオ #4: 意図したモデルの影響
+  攻撃者は検索拡張生成 (Retrieval-Augmented Generation, RAG) アプリケーションで使用されるリポジトリ内のドキュメントを変更します。ユーザーのクエリが変更されたコンテンツを返すと、悪意のある指示が LLM の出力を変更し、誤解を招く結果を生成します。
+#### シナリオ #5: コードインジェクション
+  攻撃者は LLM を搭載した電子メールアシスタントの脆弱性 (CVE-2024-5184) を悪用して悪意のあるプロンプトを注入し、機密情報へのアクセスや電子メールコンテンツの操作を可能にします。
+#### シナリオ #6: ペイロードの分割
+  攻撃者は悪意のあるプロンプトを分割した履歴書をアップロードします。LLM を使用して候補者を評価すると、組み合わされたプロンプトがモデルのレスポンスを操作し、実際の履歴書の内容に関わらず肯定的な推奨をもたらします。
+#### シナリオ #7: マルチモーダルインジェクション
+  攻撃者は悪意のあるプロンプトを無害なテキストに付随する画像内に埋め込みます。マルチモーダル AI が画像とテキストを同時に処理すると、隠されたプロンプトがモデルの動作を変更し、不正なアクションや機密情報の開示につながる可能性があります。
+#### シナリオ #8: 敵対的サフィックス
+  攻撃者は一見意味のない文字列をプロンプトに追加し、LLM の出力に悪意のある方法で影響を及ぼし、安全対策を回避します。
+#### シナリオ #9: 多言語/難読化攻撃
+  攻撃者は複数の言語を使用したり、悪意のある指示をエンコード (Base64 や絵文字を使用するなど) して、フィルタを回避し、LLM の動作を操作します。
 
 ### 参考情報リンク
 
@@ -86,7 +86,7 @@
 
 ### 関連するフレームワークと分類
 
-Refer to this section for comprehensive information, scenarios strategies relating to infrastructure deployment, applied environment controls and other best practices.
+インフラストラクチャデプロイメント、適用される環境制御、その他のベストプラクティスに関する包括的な情報、シナリオ戦略については、このセクションを参照してください。
 
 - [AML.T0051.000 - LLM Prompt Injection: Direct](https://atlas.mitre.org/techniques/AML.T0051.000) **MITRE ATLAS**
 - [AML.T0051.001 - LLM Prompt Injection: Indirect](https://atlas.mitre.org/techniques/AML.T0051.001) **MITRE ATLAS**
