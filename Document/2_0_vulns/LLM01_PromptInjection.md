@@ -10,22 +10,22 @@
 
 ### プロンプトインジェクション脆弱性の種類
 
-#### Direct Prompt Injections
-  Direct prompt injections occur when a user's prompt input directly alters the behavior of the model in unintended or unexpected ways. The input can be either intentional (i.e., a malicious actor deliberately crafting a prompt to exploit the model) or unintentional (i.e., a user inadvertently providing input that triggers unexpected behavior).
+#### 直接プロンプトインジェクション
+  直接プロンプトインジェクションはユーザーのプロンプト入力が意図しない方法や予期しない方法でモデルの動作を直接変更する際に発生します。入力には意図的な (つまり、悪意のある行為者がモデルを悪用するためにプロンプトを作成する) ものと意図的でない (つまり、ユーザーが予期しない動作を引き起こす入力を誤って提供する) ものがあります。
 
-#### Indirect Prompt Injections
-  Indirect prompt injections occur when an LLM accepts input from external sources, such as websites or files. The content may have in the external content data that when interpreted by the model, alters the behavior of the model in unintended or unexpected ways. Like direct injections, indirect injections can be either intentional or unintentional.
+#### 間接プロンプトインジェクション
+  間接プロンプトインジェクションは LLM がウェブサイトやファイルなどの外部ソースからの入力を受け入れる際に発生します。そのコンテンツは、モデルによって解釈される際に、意図しない方法や予期しない方法でモデルの動作を変更する外部コンテンツデータを有する可能性があります。直接インジェクションと同様に、間接インジェクションにも意図的なものと意図的でないものがあります。
 
-The severity and nature of the impact of a successful prompt injection attack can vary greatly and are largely dependent on both the business context the model operates in, and the agency with which the model is architected. Generally, however, prompt injection can lead to unintended outcomes, including but not limited to:
+プロンプトインジェクション攻撃が成功した場合の影響の重大性と性質は大きく異なる可能性があり、モデルが動作するビジネスコンテキストと、モデルが設計されたエージェンシーの両方に大きく依存します。しかし、一般的にプロンプトインジェクションは意図しない結果につながる可能性があり、以下を含みますがそれに限定されません。
 
-- Disclosure of sensitive information
-- Revealing sensitive information about AI system infrastructure or system prompts
-- Content manipulation leading to incorrect or biased outputs
-- Providing unauthorized access to functions available to the LLM
-- Executing arbitrary commands in connected systems
-- Manipulating critical decision-making processes
+- 機密情報の開示
+- AI システムインフラストラクチャやシステムプロンプトに関する機密情報の漏洩
+- 誤った出力や偏った出力につながるコンテンツ操作
+- LLM で利用可能な機能への不正アクセスの提供
+- 接続されたシステムでの任意のコマンドの実行
+- 重要な意思決定プロセスの操作
 
-The rise of multimodal AI, which processes multiple data types simultaneously, introduces unique prompt injection risks. Malicious actors could exploit interactions between modalities, such as hiding instructions in images that accompany benign text. The complexity of these systems expands the attack surface. Multimodal models may also be susceptible to novel cross-modal attacks that are difficult to detect and mitigate with current techniques. Robust multimodal-specific defenses are an important area for further research and development.
+複数のデータタイプを同時に処理するマルチモーダル AI の台頭は、プロンプトインジェクション特有のリスクをもたらします。悪意のある行為者は、無害なテキストに付随する画像に指示を隠すなど、モダリティ間のやり取りを悪用する可能性があります。これらのシステムの複雑さは攻撃対象領域を拡大します。マルチモーダルモデルは、現在の技術では検出や軽減が難しい、新しいクロスモーダル攻撃の影響を受けやすくなる可能性もあります。堅牢なマルチモーダル固有の防御はさらなる研究開発の重要な分野です。
 
 ### 予防および緩和戦略
 
