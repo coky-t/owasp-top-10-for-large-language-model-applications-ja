@@ -6,7 +6,7 @@
 
 プロンプトインジェクション脆弱性は、モデルがプロンプトを処理する方法と、入力によってモデルがモデルの他の部分に誤って渡す方法に存在し、ガイドラインに違反したり、有害なコンテンツを生成したり、不正アクセスを可能にしたり、重要な決定に影響を及ぼす可能性があります。検索拡張生成 (Retrieval Augmented Generation, RAG) やファインチューニングなどの技法は LLM 出力をより適切で正確なものにすることを目的としていますが、プロンプトインジェクション脆弱性を完全に緩和するものではないことが研究によって示されています。
 
-プロンプトインジェクションとジェイルブレーキングは LLM セキュリティの関連概念ですが、しばしば同じ意味で使用されます。プロンプトインジェクションは特定の入力によってモデルの応答を操作して、その動作を変更します。それには安全対策のバイパスを含む可能性があります。ジェイルブレーキングはプロンプトインジェクションの一形態であり、攻撃者がモデルの安全プロトコルを完全に無視させる入力を提供します。開発者はシステムプロンプトと入力処理にセーフガードを組み込み、プロンプトインジェクション攻撃の軽減しますが、ジェイルブレーキングを効果的に防止するには、モデルのトレーニングと安全メカニズムを継続的に更新する必要があります。
+プロンプトインジェクションとジェイルブレーキングは LLM セキュリティの関連概念ですが、しばしば同じ意味で使用されます。プロンプトインジェクションは特定の入力によってモデルのレスポンスを操作して、その動作を変更します。それには安全対策のバイパスを含む可能性があります。ジェイルブレーキングはプロンプトインジェクションの一形態であり、攻撃者がモデルの安全プロトコルを完全に無視させる入力を提供します。開発者はシステムプロンプトと入力処理にセーフガードを組み込み、プロンプトインジェクション攻撃の軽減しますが、ジェイルブレーキングを効果的に防止するには、モデルのトレーニングと安全メカニズムを継続的に更新する必要があります。
 
 ### プロンプトインジェクション脆弱性の種類
 
@@ -29,22 +29,22 @@
 
 ### 予防および緩和戦略
 
-Prompt injection vulnerabilities are possible due to the nature of generative AI. Given the stochastic influence at the heart of the way models work, it is unclear if there are fool-proof methods of prevention for prompt injection. However, the following measures can mitigate the impact of prompt injections:
+プロンプトインジェクション脆弱性は生成 AI の性質上、発生する可能性があります。モデルの動作方法の中核にある確率的な影響を考えると、プロンプトインジェクションを防ぐ確実な方法があるかどうかは不明です。ただし、以下の対策はプロンプトインジェクションの影響を緩和できます。
 
-#### 1. Constrain model behavior
-  Provide specific instructions about the model's role, capabilities, and limitations within the system prompt. Enforce strict context adherence, limit responses to specific tasks or topics, and instruct the model to ignore attempts to modify core instructions.
-#### 2. Define and validate expected output formats
-  Specify clear output formats, request detailed reasoning and source citations, and use deterministic code to validate adherence to these formats.
-#### 3. Implement input and output filtering
-  Define sensitive categories and construct rules for identifying and handling such content. Apply semantic filters and use string-checking to scan for non-allowed content. Evaluate responses using the RAG Triad: Assess context relevance, groundedness, and question/answer relevance to identify potentially malicious outputs.
-#### 4. Enforce privilege control and least privilege access
-  Provide the application with its own API tokens for extensible functionality, and handle these functions in code rather than providing them to the model. Restrict the model's access privileges to the minimum necessary for its intended operations.
-#### 5. Require human approval for high-risk actions
-  Implement human-in-the-loop controls for privileged operations to prevent unauthorized actions.
-#### 6. Segregate and identify external content
-  Separate and clearly denote untrusted content to limit its influence on user prompts.
-#### 7. Conduct adversarial testing and attack simulations
-  Perform regular penetration testing and breach simulations, treating the model as an untrusted user to test the effectiveness of trust boundaries and access controls.
+#### 1. モデルの動作を制限する
+  システムプロンプト内でモデルの役割、能力、制限について具体的な指示を与えます。コンテキストの厳格な遵守を強制し、レスポンスを特定のタスクやトピックに制限し、中核となる指示を修正しようとする試みを無視するようにモデルに指示します。
+#### 2. 期待する出力形式を定義して検証する
+  明確な出力形式を指定し、詳細な理由とソース引用を要求し、決定論的コードを使用してこれらの形式に準拠しているかどうかを検証します。
+#### 3. 入出力フィルタリングを実装する
+  センシティブのカテゴリを定義し、そのようなコンテンツを識別して処理するためのルールを構築します。  セマンティックフィルタを適用し、文字列チェックを使用して、許可されていないコンテンツをスキャンします。  RAG トライアドを使用してレスポンスを評価します。コンテキストの関連性、根拠、質問/回答の関連性を評価して、潜在的に悪意のある出力を特定します。
+#### 4. 権限制御と最小権限アクセスを強制する
+  拡張可能な機能のためにアプリケーションに独自の API トークンを提供し、これらの機能をモデルに提供するのではなくコードで処理します。モデルのアクセス権限を、意図した操作に必要な最小限に制限します。
+#### 5. 高リスクのアクションには人間による承認を要求する
+  権限操作に人間参加型 (human-in-the-loop) 制御を実装して、認可されていないアクションを防ぎます。
+#### 6. 外部コンテンツを分離して識別する
+  信頼できないコンテンツを分離して明示し、ユーザープロンプトへの影響を制限します。
+#### 7. 敵対的テストと攻撃シミュレーションを実施する
+  定期的なペネトレーションテストと侵害シミュレーションを実施し、信頼できないユーザーとしてモデルを扱い、信頼境界とアクセス制御の有効性をテストします。
 
 ### 攻撃シナリオの例
 
