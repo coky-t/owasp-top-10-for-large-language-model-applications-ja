@@ -2,11 +2,11 @@
 
 ### 説明
 
-A Prompt Injection Vulnerability occurs when user prompts alter the LLM’s behavior or output in unintended ways. These inputs can affect the model even if they are imperceptible to humans, therefore prompt injections do not need to be human-visible/readable, as long as the content is parsed by the model.
+プロンプトインジェクション脆弱性はユーザープロンプトが LLM の動作や出力を意図しない方法で変更する際に発生します。これらの入力は人間に近くできない場合でもモデルに影響を及ぼす可能性があるため、コンテンツがモデルによって解析される限り、プロンプトインジェクションは人間が可視/可読である必要はありません。
 
-Prompt Injection vulnerabilities exist in how models process prompts, and how input may force the model to incorrectly pass prompt data to other parts of the model, potentially causing them to violate guidelines, generate harmful content, enable unauthorized access, or influence critical decisions. While techniques like Retrieval Augmented Generation (RAG) and fine-tuning aim to make LLM outputs more relevant and accurate, research shows that they do not fully mitigate prompt injection vulnerabilities.
+プロンプトインジェクション脆弱性は、モデルがプロンプトを処理する方法と、入力によってモデルがモデルの他の部分に誤って渡す方法に存在し、ガイドラインに違反したり、有害なコンテンツを生成したり、不正アクセスを可能にしたり、重要な決定に影響を及ぼす可能性があります。検索拡張生成 (Retrieval Augmented Generation, RAG) やファインチューニングなどの技法は LLM 出力をより適切で正確なものにすることを目的としていますが、プロンプトインジェクション脆弱性を完全に緩和するものではないことが研究によって示されています。
 
-While prompt injection and jailbreaking are related concepts in LLM security, they are often used interchangeably. Prompt injection involves manipulating model responses through specific inputs to alter its behavior, which can include bypassing safety measures. Jailbreaking is a form of prompt injection where the attacker provides inputs that cause the model to disregard its safety protocols entirely. Developers can build safeguards into system prompts and input handling to help mitigate prompt injection attacks, but effective prevention of jailbreaking requires ongoing updates to the model's training and safety mechanisms.
+プロンプトインジェクションとジェイルブレーキングは LLM セキュリティの関連概念ですが、しばしば同じ意味で使用されます。プロンプトインジェクションは特定の入力によってモデルの応答を操作して、その動作を変更します。それには安全対策のバイパスを含む可能性があります。ジェイルブレーキングはプロンプトインジェクションの一形態であり、攻撃者がモデルの安全プロトコルを完全に無視させる入力を提供します。開発者はシステムプロンプトと入力処理にセーフガードを組み込み、プロンプトインジェクション攻撃の軽減しますが、ジェイルブレーキングを効果的に防止するには、モデルのトレーニングと安全メカニズムを継続的に更新する必要があります。
 
 ### プロンプトインジェクション脆弱性の種類
 
