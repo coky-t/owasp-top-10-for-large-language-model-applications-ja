@@ -10,12 +10,12 @@ LLM は、特にアプリケーションに組み込まれている場合、そ�
 
 ### 脆弱性の一般的な例
 
-#### 1. PII Leakage
-  Personal identifiable information (PII) may be disclosed during interactions with the LLM.
-#### 2. Proprietary Algorithm Exposure
-  Poorly configured model outputs can reveal proprietary algorithms or data. Revealing training data can expose models to inversion attacks, where attackers extract sensitive information or reconstruct inputs. For instance, as demonstrated in the 'Proof Pudding' attack (CVE-2019-20634), disclosed training data facilitated model extraction and inversion, allowing attackers to circumvent security controls in machine learning algorithms and bypass email filters.
-#### 3. Sensitive Business Data Disclosure
-  Generated responses might inadvertently include confidential business information.
+#### 1. PII 漏洩
+  個人を特定できる情報 (PII) は LLM とのやり取りの中で開示される可能性があります。
+#### 2. プロプライエタリアルゴリズムの露出
+  不適切に設定されたモデル出力はプロプライエタリアルゴリズムやデータを露出する可能性があります。トレーニングデータが露出すると、モデルを反転攻撃にさらす可能性があり、攻撃者は機密情報を抽出したり、入力を再構築します。たとえば、'Proof Pudding' 攻撃 (CVE-2019-20634) で実証されたように、開示されたトレーニングデータによってモデルの抽出と反転が容易になり、攻撃者は機械学習アルゴリズムのセキュリティコントロールを回避し、電子メールフィルタをバイパスできます。
+#### 3. ビジネス上の機密データの開示
+  生成されたレスポンスにはビジネス上の機密情報が不注意で含まれるかもしれません。
 
 ### 予防および緩和戦略
 
