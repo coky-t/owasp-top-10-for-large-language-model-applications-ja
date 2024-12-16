@@ -2,11 +2,11 @@
 
 ### 説明
 
-Sensitive information can affect both the LLM and its application context. This includes personal identifiable information (PII), financial details, health records, confidential business data, security credentials, and legal documents. Proprietary models may also have unique training methods and source code considered sensitive, especially in closed or foundation models.
+機密情報は LLM とそのアプリケーションコンテキストの両方に影響を及ぼす可能性があります。これは、個人を特定できる情報 (PII)、資産情報、医療記録、ビジネス上の機密データ、セキュリティクレデンシャル、法的文書を含みます。プロプライエタリモデルは、特にクローズドモデルやファウンデーションモデルにおいて、機密とみなされる独自のトレーニング方法やソースコードを有することもあります。
 
-LLMs, especially when embedded in applications, risk exposing sensitive data, proprietary algorithms, or confidential details through their output. This can result in unauthorized data access, privacy violations, and intellectual property breaches. Consumers should be aware of how to interact safely with LLMs. They need to understand the risks of unintentionally providing sensitive data, which may later be disclosed in the model's output.
+LLM は、特にアプリケーションに組み込まれている場合、その出力を通じて機密データ、プロプライエタリアルゴリズム、機密情報を開示するリスクがあります。これは、不正なデータアクセス、プライバシー侵害、知的財産侵害を引き起こす可能性があります。利用者は LLM と安全にやり取りする方法を意識すべきです。利用者は意図せずに機密データを提供するリスクを理解する必要があります。機密データが後にモデルの出力で開示される可能性があります。
 
-To reduce this risk, LLM applications should perform adequate data sanitization to prevent user data from entering the training model. Application owners should also provide clear Terms of Use policies, allowing users to opt out of having their data included in the training model. Adding restrictions within the system prompt about data types that the LLM should return can provide mitigation against sensitive information disclosure. However, such restrictions may not always be honored and could be bypassed via prompt injection or other methods.
+このリスクを軽減するには、LLM アプリケーションは適切なデータサニタイゼーションを実行し、ユーザーデータがトレーニングモデルに入力されることを防ぐべきです。また、アプリケーション所有者は明確な利用規約を提供し、ユーザーがトレーニングモデルに含まれるそれらのデータをオプトアウトできるようにすべきです。システムプロンプト内に LLM が返すべきデータの種類に関する制限を追加することで、機密情報の開示を緩和できます。ただし、このような制限は常に守られるとは限らず、プロンプトインジェクションやその他の方法で回避される可能性があります。
 
 ### 脆弱性の一般的な例
 
