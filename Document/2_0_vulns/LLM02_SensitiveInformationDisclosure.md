@@ -64,12 +64,12 @@ LLM は、特にアプリケーションに組み込まれている場合、そ�
 
 ### 攻撃シナリオの例
 
-#### Scenario #1: Unintentional Data Exposure
-  A user receives a response containing another user's personal data due to inadequate data sanitization.
-#### Scenario #2: Targeted Prompt Injection
-  An attacker bypasses input filters to extract sensitive information.
-#### Scenario #3: Data Leak via Training Data
-  Negligent data inclusion in training leads to sensitive information disclosure.
+#### シナリオ #1: 意図しないデータ開示
+  データのサニタイズが不十分なため、ユーザーが別のユーザーの個人データを含むレスポンスを受け取ります。
+#### シナリオ #2: 標的型プロンプトインジェクション
+  攻撃者は入力フィルタをバイパスして機密データを抽出します。
+#### シナリオ #3: トレーニングデータによるデータ漏洩
+  トレーニングに不適切なデータを含めると機密情報の開示につながります。
 
 ### 参考情報リンク
 
@@ -81,7 +81,7 @@ LLM は、特にアプリケーションに組み込まれている場合、そ�
 
 ### 関連するフレームワークと分類
 
-Refer to this section for comprehensive information, scenarios strategies relating to infrastructure deployment, applied environment controls and other best practices.
+インフラストラクチャデプロイメント、適用される環境制御、その他のベストプラクティスに関する包括的な情報、シナリオ戦略については、このセクションを参照してください。
 
 - [AML.T0024.000 - Infer Training Data Membership](https://atlas.mitre.org/techniques/AML.T0024.000) **MITRE ATLAS**
 - [AML.T0024.001 - Invert ML Model](https://atlas.mitre.org/techniques/AML.T0024.001) **MITRE ATLAS**
