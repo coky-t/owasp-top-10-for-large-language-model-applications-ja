@@ -19,48 +19,48 @@ LLM は、特にアプリケーションに組み込まれている場合、そ�
 
 ### 予防および緩和戦略
 
-#### Sanitization:
+#### サニタイゼーション:
 
-#### 1. Integrate Data Sanitization Techniques
-  Implement data sanitization to prevent user data from entering the training model. This includes scrubbing or masking sensitive content before it is used in training.
-#### 2. Robust Input Validation
-  Apply strict input validation methods to detect and filter out potentially harmful or sensitive data inputs, ensuring they do not compromise the model.
+#### 1. データサニタイゼーション技法を統合する
+  データサニタイゼーションを実装して、ユーザーデータがトレーニングモデルに入力されることを防ぎます。これは、トレーニングに使用する前に機密コンテンツを削除またはマスクすることを含みます。
+#### 2. 堅牢な入力バリデーション
+  厳密な入力バリデーションを適用して、潜在的に有害または機密性の高いデータ入力を検出して除外し、モデルを危険にさらさないようにします。
 
-#### Access Controls:
+#### アクセス制御:
 
-#### 1. Enforce Strict Access Controls
-  Limit access to sensitive data based on the principle of least privilege. Only grant access to data that is necessary for the specific user or process.
-#### 2. Restrict Data Sources
-  Limit model access to external data sources, and ensure runtime data orchestration is securely managed to avoid unintended data leakage.
+#### 1. 厳格なアクセス制御を実施する
+  最小権限の原則に基づいて機密データへのアクセスを制限します。特定のユーザーまたはプロセスに必要なデータへのアクセスのみを許可します。
+#### 2. データソースの制限
+  外部データソースへのモデルアクセスを制限し、実行時データオーケストレーションが安全に管理され、意図しないデータ漏洩を回避するようにします。
 
-#### Federated Learning and Privacy Techniques:
+#### 連合学習とプライバシー技法:
 
-#### 1. Utilize Federated Learning
-  Train models using decentralized data stored across multiple servers or devices. This approach minimizes the need for centralized data collection and reduces exposure risks.
-#### 2. Incorporate Differential Privacy
-  Apply techniques that add noise to the data or outputs, making it difficult for attackers to reverse-engineer individual data points.
+#### 1. 連合学習を活用する
+  複数のサーバーやデバイスに分散して保存されているデータを使用してモデルをトレーニングします。このアプローチは一元的なデータ収集の必要性を最小限に抑え、露出リスクを軽減します。
+#### 2. 差分プライバシーを組み込む
+  データや出力にノイズを加える技法を適用して、攻撃者が個々のデータポイントをリバースエンジニアすることを困難にします。
 
-#### User Education and Transparency:
+#### ユーザー教育と透明性:
 
-#### 1. Educate Users on Safe LLM Usage
-  Provide guidance on avoiding the input of sensitive information. Offer training on best practices for interacting with LLMs securely.
-#### 2. Ensure Transparency in Data Usage
-  Maintain clear policies about data retention, usage, and deletion. Allow users to opt out of having their data included in training processes.
+#### 1. LLM の安全な使用方法についてユーザーを教育する
+  機密情報の入力を避けるためのガイダンスを提供します。LLM を安全に利用するためのベストプラクティスについてのトレーニングを提供します。
+#### 2. データ使用の透明性を確保する
+  データの保持、使用、削除に関する明確なポリシーを維持します。ユーザーがトレーニングプロセスに含まれるデータをオプトアウトできるようにします。
 
-#### Secure System Configuration:
+#### 安全なシステム構成:
 
-#### 1. Conceal System Preamble
-  Limit the ability for users to override or access the system's initial settings, reducing the risk of exposure to internal configurations.
-#### 2. Reference Security Misconfiguration Best Practices
-  Follow guidelines like "OWASP API8:2023 Security Misconfiguration" to prevent leaking sensitive information through error messages or configuration details.
-  (Ref. link:[OWASP API8:2023 Security Misconfiguration](https://owasp.org/API-Security/editions/2023/en/0xa8-security-misconfiguration/))
+#### 1. システムプリアンブルを隠す
+  ユーザーがシステムの初期設定を上書きしたりアクセスする機能を制限し、内部構成が開示されるリスクを軽減します。
+#### 2. セキュリティ設定ミスのベストプラクティスを参照する
+  "OWASP API8:2023 Security Misconfiguration" などのガイダンスに従って、エラーメッセージや設定の詳細から機密情報が漏洩することを防ぎます。
+  (参照リンク:[OWASP API8:2023 Security Misconfiguration](https://owasp.org/API-Security/editions/2023/en/0xa8-security-misconfiguration/))
 
-#### Advanced Techniques:
+#### 高度な技法:
 
-#### 1. Homomorphic Encryption
-  Use homomorphic encryption to enable secure data analysis and privacy-preserving machine learning. This ensures data remains confidential while being processed by the model.
-#### 2. Tokenization and Redaction
-  Implement tokenization to preprocess and sanitize sensitive information. Techniques like pattern matching can detect and redact confidential content before processing.
+#### 1. 準同型暗号
+  準道警暗号を使用して、安全なデータ分析とプライバシー保護された機械学習を可能にします。これにより、モデルによって処理される間、データの機密性を維持します。
+#### 2. トークン化と編集
+  トークン化を実装し、機密情報を前処理してサニタイズします。パターンマッチングなどの技法により、機密コンテンツを処理前に検出して編集できます。
 
 ### 攻撃シナリオの例
 
