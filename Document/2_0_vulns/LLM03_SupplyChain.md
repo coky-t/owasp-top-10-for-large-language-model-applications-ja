@@ -2,14 +2,14 @@
 
 ### 説明
 
-LLM supply chains are susceptible to various vulnerabilities, which can affect the integrity of training data, models, and deployment platforms. These risks can result in biased outputs, security breaches, or system failures. While traditional software vulnerabilities focus on issues like code flaws and dependencies, in ML the risks also extend to third-party pre-trained models and data.
+LLM サプライチェーンはさまざまな脆弱性の影響を受けやすく、トレーニングデータ、モデル、デプロイメントプラットフォームの完全性に影響を及ぼす可能性があります。これらのリスクは偏った出力、セキュリティ侵害、システム障害を引き起こす可能性があります。従来のソフトウェアの脆弱性はコードの欠陥や依存関係などの問題に焦点を当てていますが、ML ではリスクはサードパティの事前トレーニング済みモデルやデータにも及びます。
 
-These external elements can be manipulated through tampering or poisoning attacks.
+これらの外部要素は改竄やポイズニング攻撃によって操作される可能性があります。
 
-Creating LLMs is a specialized task that often depends on third-party models. The rise of open-access LLMs and new fine-tuning methods like "LoRA" (Low-Rank Adaptation)  and "PEFT" (Parameter-Efficient Fine-Tuning), especially on platforms like Hugging Face, introduce new supply-chain risks. Finally, the emergence of on-device LLMs increase the attack surface and supply-chain risks for LLM applications.
+LLM の作成は専門的なタスクであり、多くの場合、サードパーティモデルに依存します。オープンアクセス LLM の台頭や、"LoRA" (Low-Rank Adaptation) や "PEFT" (Parameter-Efficient Fine-Tuning) などの新しいファインチューニング手法により、特に Hugging Face などのプラットフォーム上で、新たなサプライチェーンリスクをもたらします。最後に、オンデバイス LLM の出現により、LLM アプリケーションの攻撃対象領域とサプライチェーンリスクが増加します。
 
-Some of the risks discussed here are also discussed in "LLM04 Data and Model Poisoning." This entry focuses on the supply-chain aspect of the risks.
-A simple threat model can be found [here](https://github.com/jsotiro/ThreatModels/blob/main/LLM%20Threats-LLM%20Supply%20Chain.png).
+ここで説明されているリスクの一部は「LLM04 データおよびモデルポイズニング」でも説明されています。このエントリでは、リスクのサプライチェーンの側面に焦点を当てています。
+簡単な脅威モデルは [こちら](https://github.com/jsotiro/ThreatModels/blob/main/LLM%20Threats-LLM%20Supply%20Chain.png) にあります。
 
 ### リスクの一般的な例
 
