@@ -13,25 +13,25 @@ LLM の作成は専門的なタスクであり、多くの場合、サードパ�
 
 ### リスクの一般的な例
 
-#### 1. Traditional Third-party Package Vulnerabilities
-  Such as outdated or deprecated components, which attackers can exploit to compromise LLM applications. This is similar to "A06:2021 – Vulnerable and Outdated Components" with increased risks when components are used during model development or finetuning.
-  (Ref. link: [A06:2021 – Vulnerable and Outdated Components](https://owasp.org/Top10/A06_2021-Vulnerable_and_Outdated_Components/))
-#### 2. Licensing Risks
-  AI development often involves diverse software and dataset licenses, creating risks if not properly managed. Different open-source and proprietary licenses impose varying legal requirements. Dataset licenses may restrict usage, distribution, or commercialization. 
-#### 3. Outdated or Deprecated Models
-  Using outdated or deprecated models that are no longer maintained leads to security issues.
-#### 4. Vulnerable Pre-Trained Model
-  Models are binary black boxes and unlike open source, static inspection can offer little to security assurances. Vulnerable pre-trained models can contain hidden biases, backdoors, or other malicious features that have not been identified through  the safety evaluations of model repository. Vulnerable models can be created by both poisoned datasets and direct model tampering using tehcniques such as ROME also known as lobotomisation.
-#### 5. Weak Model Provenance
-  Currently there are no strong provenance assurances in published models. Model Cards and associated documentation provide model information and relied upon users, but they offer no guarantees on the origin of the model. An attacker can compromise supplier account on a model repo or create a similar one and combine it with social engineering techniques to compromise the supply-chain of an LLM application.
-#### 6. Vulnerable LoRA adapters
-  LoRA is a popular fine-tuning technique that enhances modularity by allowing pre-trained layers to be bolted onto an existing LLM. The method increases efficiency but create new risks, where a malicious LorA adapter compromises the integrity and security of the pre-trained base model. This can happen both in collaborative model merge environments but also exploiting the support for LoRA from popular inference deployment platforms such as vLMM and OpenLLM where adapters can be downloaded and applied to a deployed model.
-#### 7. Exploit Collaborative Development Processes
-  Collaborative model merge and model handling services (e.g. conversions) hosted in shared environments can be exploited to introduce vulnerabilities in shared models. Model merging is is very popular on Hugging Face with model-merged models topping the OpenLLM leaderboard and can be exploited to bypass reviews. Similarly, services such as conversation bot have been proved to be vulnerable to maniputalion and introduce malicious code in models.
-#### 8. LLM Model on Device supply-chain vulnerabilities
-  LLM models on device increase the supply attack surface with compromised manufactured processes and exploitation of device OS or fimware vulnerabilities to compromise models. Attackers can reverse engineer and re-package applications with tampered models. 
-#### 9. Unclear T&Cs and Data Privacy Policies
-  Unclear T&Cs and data privacy policies of the model operators lead to the application's sensitive data being used for model training and subsequent sensitive information exposure. This may also apply to risks from using copyrighted material by the model supplier.
+#### 1. 従来のサードパーティパッケージの脆弱性
+  古くなったコンポーネントや非推奨のコンポーネントなどは、攻撃者が悪用して、LLM アプリケーションを侵害できます。これは "A06:2021 – Vulnerable and Outdated Components" に似ていますが、コンポーネントがモデルの開発時やファインチューニング時に使用されるとリスクが高まります。
+  (参照リンク: [A06:2021 – Vulnerable and Outdated Components](https://owasp.org/Top10/A06_2021-Vulnerable_and_Outdated_Components/))
+#### 2. ライセンスのリスク
+  AI 開発にはさまざまなソフトウェアやデータセットのライセンスが関係することがよくあり、適切に管理しないとリスクが生じます。さまざまなオープンソースライセンスとプロプライエタリライセンスはそれぞれ異なる法的要件を課します。データセットライセンスは使用、配布、商利用を制限することがあります。
+#### 3. 古くなったモデルや非推奨のモデル
+  もはやメンテナンスされていない古くなったモデルや非推奨のモデルを使用すると、セキュリティ問題につながります。
+#### 4. 脆弱な事前トレーニング済みモデル
+  モデルはバイナリブラックボックスであり、オープンソースとは異なり、静的検査ではセキュリティの保証がほとんどできません。脆弱な事前トレーニング済みモデルには、モデルリポジトリの安全性評価では特定されていない隠されたバイアス、バックドア、その他の悪意のある機能を含む可能性があります。脆弱なモデルは、汚染されたデータセットと、ロボトミーとも呼ばれる ROME などの技法を使用した直接的なモデル改竄の両方によって作成される可能性があります。
+#### 5. 弱いモデル来歴
+  現在のところ、公開されているモデルには強力な来歴保証がありません。モデルカードと関連ドキュメントはモデル情報を提供し、ユーザーを信頼させますが、モデルの起源についての保証はありません。攻撃者は、モデルリポジトリのサプライヤアカウントを侵害したり、同様のアカウントを作成してソーシャルエンジニアリング技法と組み合わせて、LLM アプリケーションのサプライチェーンを侵害できます。
+#### 6. 脆弱な LoRA アダプタ
+  LoRA は一般的なファインチューニング技法であり、事前トレーニング済みレイヤを既存の LLM にボルト固定することでモジュール性を高めます。この手法は効率性を高めますが、悪意のある LoRA アダプタが事前トレーニング済みのベースモデルの完全性とセキュリティを損なうという新たなリスクを生み出します。これは、共同モデルマージ環境だけでなく、アダプタをダウンロードしてデプロイ済みモデルに適用できる vLMM や OpenLLM などの一般的な推論デプロイメントプラットフォームから LoRA のサポートを悪用する場合にも発生する可能性があります。
+#### 7. 共同開発プロセスの悪用
+  共有環境でホストされている共同モデルマージおよびモデル処理サービス (変換など) は、共有モデルの脆弱性をもたらすために悪用される可能性があります。  モデルマージは Hugging Face で非常に人気があり、モデルマージされたモデルは OpenLLM リーダーボードの上位を占めており、レビューをバイパスするために悪用される可能性があります。  同様に、会話ボットなどのサービスは操作に対して脆弱であり、モデルに悪意のあるコードをもたらすことが証明されています。
+#### 8. デバイス上の LLM モデルのサプライチェーンの脆弱性
+  デバイス上の LLM モデルは、侵害された製造プロセスや、デバイス OS やファームウェアの脆弱性を悪用してモデルを侵害することで、サプライ攻撃対象領域を拡大します。攻撃者が改竄されたモデルでアプリケーションをリバースエンジニアして再パッケージ化できます。
+#### 9. 不明確な利用規約とデータプライバシーポリシー
+  モデル運営者の利用規約とデータプライバシーポリシーが不明確であると、アプリケーションの機密データがモデルのトレーニングに使用され、その後、機密情報の暴露につながります。これは、モデル供給者が著作権で保護された素材を使用することによるリスクにも当てはまる可能性があります。
 
 ### 予防および緩和戦略
 
