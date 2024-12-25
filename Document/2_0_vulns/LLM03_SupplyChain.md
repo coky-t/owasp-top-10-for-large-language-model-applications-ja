@@ -50,33 +50,33 @@ LLM の作成は専門的なタスクであり、多くの場合、サードパ�
 
 ### 攻撃シナリオの例
 
-#### Scenario #1: Vulnerable Python Library
-  An attacker exploits a vulnerable Python library to compromise an LLM app. This happened in the first Open AI data breach.  Attacks on  the PyPi package registry  tricked model developers into downloading a compromised PyTorch dependency with malware in a model development environment.  A more sophisticated example of this type of attack is Shadow Ray attack on the Ray AI framework used by many vendors to manage AI infrastructure.  In this attack, five vulnerabilities are believed to have been exploited in the wild affecting many servers.
-#### Scenario #2: Direct Tampering
-  Direct Tampering and publishing a model to spread misinformation. This is an actual attack with PoisonGPT bypassing Hugging Face safety features by directly changing model parameters.
-#### Scenario #3: Finetuning Popular Model
-  An attacker finetunes a popular open access model to remove key safety features and perform high in a specific domain (insurance). The model is finetuned to score highly on safety benchmarks but  has very targeted  triggers. They deploy it on Hugging Face for victims to use it exploiting their trust on  benchmark assurances. 
-#### Scenario #4: Pre-Trained Models
-  An LLM system deploys pre-trained models from a widely used repository without thorough verification. A compromised model introduces malicious code, causing biased outputs in certain contexts and leading to harmful or manipulated outcomes
-#### Scenario #5: Compromised Third-Party Supplier
-  A compromised third-party supplier provides a vulnerable LorA adapter that is being merged to an LLM using model merge on Hugging Face.
-#### Scenario #6: Supplier Infiltration
-  An attacker infiltrates a third-party supplier and compromises the production of a LoRA (Low-Rank Adaptation) adapter intended for integration with an on-device LLM deployed using frameworks like vLLM or OpenLLM. The compromised LoRA adapter is subtly altered to include hidden vulnerabilities and malicious code. Once this adapter is merged with the LLM, it provides the attacker with a covert entry point into the system. The malicious code can activate during model operations, allowing the attacker to manipulate the LLM’s outputs.
-#### Scenario #7: CloudBorne and CloudJacking Attacks
-  These attacks target cloud infrastructures, leveraging shared resources and vulnerabilities in the virtualization layers. CloudBorne involves exploiting firmware vulnerabilities in shared cloud environments, compromising the physical servers hosting virtual instances. CloudJacking refers to malicious control or misuse of cloud instances, potentially leading to unauthorized access to critical LLM deployment platforms. Both attacks represent significant risks for supply chains reliant on cloud-based ML models, as compromised environments could expose sensitive data or facilitate further attacks. 
-#### Scenario #8: LeftOvers (CVE-2023-4969)
-  LeftOvers exploitation of leaked GPU local memory to recover sensitive data. An attacker can use this attack to exfiltrate sensitive data in production servers and development workstations or laptops.  	
-#### Scenario #9: WizardLM
-  Following the removal of WizardLM, an attacker exploits the interest in this model and publish a fake version of the model with the same name but containing malware and backdoors.  
-#### Scenario #10: Model Merge/Format Conversion Service
-  An attacker stages an attack with a model merge or format conversation service to compromise a publicly available access model to inject malware. This is an actual attack published by vendor HiddenLayer.
-#### Scenario #11: Reverse-Engineer Mobile App
-  An attacker reverse-engineers an mobile app to replace the model with a tampered version that leads the user to scam sites. Users are encouraged to dowload the app directly via social engineering techniques. This is a "real attack on predictive AI" that affected 116 Google Play apps including popular security and safety-critical applications used for as cash recognition, parental control, face authentication, and financial service.
-  (Ref. link: [real attack on predictive AI](https://arxiv.org/abs/2006.08131))
-#### Scenario #12: Dataset Poisoning
-  An attacker poisons publicly available datasets to help create a back door when fine-tuning models. The back door subtly favors certain companies in different markets.
-#### Scenario #13: T&Cs and Privacy Policy
-  An LLM operator changes its T&Cs and Privacy Policy to require an explicit opt out from using application data for model training, leading to the memorization of sensitive data.
+#### シナリオ #1: 脆弱な Python ライブラリ
+  攻撃者は脆弱な Python ライブラリを悪用して LLM アプリを侵害します。これは最初の Open AI データ侵害で起きました。PyPi パッケージレジストリに対する攻撃は、モデル開発環境にマルウェアを含む侵害された PyTorch 依存関係をダウンロードするようにモデル開発者を仕向けました。この種の攻撃のより巧妙な例としては、多くのベンダーが AI インフラストラクチャを管理するために使用している Ray AI フレームワークに対する Shadow Ray 攻撃があります。この攻撃では、五つの脆弱性が悪用されて、多くのサーバーに影響を及ぼしたと考えられています。
+#### シナリオ #2: 直接改竄
+  直接改竄して、誤った情報を拡散するモデルを公開します。これは、PoisonGPT がモデルのパラメータを直接変更することで Hugging Face の安全機能をバイパスする実際の攻撃です。
+#### シナリオ #3: 人気モデルのファインチューニング
+  攻撃者は人気のオープンアクセスモデルをファインチューンして、主要な安全機能を削除し、特定のドメイン (保険) で高いパフォーマンスを発揮します。このモデルは安全性ベンチマークで高いスコアを獲得するようにファインチューンされていますが、非常にターゲットを絞ったトリガーがあります。攻撃者はそれを Hugging Face にデプロイして、ベンチマーク保証に対する信頼を悪用し、被害者が使用してしまいます。
+#### シナリオ #4: 事前学習済みモデル
+  LLM システムは徹底的な検証を行うことなく、広く使用されているリポジトリから事前学習済みモデルをデプロイします。侵害されたモデルは悪意のあるコードを導入し、特定のコンテキストで偏った出力を引き起こし、有害な結果や操作された結果につながります。
+#### シナリオ #5: 侵害されたサードパーティサプライヤ
+  侵害されたサードパーティサプライヤは、Hugging Face のモデルマージを使用して LLM にマージされている、脆弱な LoRA アダプタを提供します。
+#### シナリオ #6: サプライヤへの侵入
+  攻撃者はサードパーティサプライヤに侵入し、vLLM や OpenLLM などのフレームワークを使用してデプロイされたオンデバイス LLM との統合を目的とした LoRA (Low-Rank Adaptation) アダプタの製造を侵害します。侵害された LoRA アダプタは、隠れた脆弱性と悪意のあるコードを含むように微妙に変更されています。このアダプタが LLM とマージされると、攻撃者にシステムへの秘密のエントリポイントを提供します。悪意のあるコードはモデル動作中にアクティブになる可能性があり、攻撃者は LLM の出力を操作できるようになります。
+#### シナリオ #7: CloudBorne 攻撃と CloudJacking 攻撃
+  これらの攻撃はクラウドインフラストラクチャをターゲットとして、共有リソースと仮想レイヤの脆弱性を活用します。CloudBorne は共有クラウド環境のファームウェアの脆弱性を悪用し、仮想インスタンスをホストする物理サーバーを侵害します。CloudJacking はクラウドインスタンスの悪意のある制御や悪用を指し、重要な LLM デプロイメントプラットフォームへの不正アクセスにつながる可能性があります。どちらの攻撃もクラウドベースの ML モデルに依存するサプライチェーンにとっては重大なリスクとなり、侵害された環境が機密データを開示したり、さらなる攻撃を容易にする可能性があります。
+#### シナリオ #8: LeftOvers (CVE-2023-4969)
+  LeftOvers は漏洩した GPU ローカルメモリを悪用して機密データを復元します。攻撃者はこの攻撃を使用して、本番サーバーや開発ワークステーション、ラップトップ内の機密データを盗み出すことができます。
+#### シナリオ #9: WizardLM
+  WizardLM の削除後、攻撃者はこのモデルへの関心を悪用し、同じ名前でマルウェアやバックドアを含むモデルの偽バージョンを公開します。
+#### シナリオ #10: モデルマージ/フォーマット変換サービス
+  攻撃者はモデルマージまたはフォーマット変換サービスで攻撃を仕掛け、一般に公開されているアクセスモデルを侵害してマルウェアを注入します。これはベンダーである HiddenLayer によって公開された実際の攻撃です。
+#### シナリオ #11: モバイルアプリのリバースエンジニアリング
+  攻撃者はモバイルアプリをリバースエンジニアして、モデルを改竄されたバージョンに置き換え、ユーザーを詐欺サイトに誘導します。ユーザーはソーシャルエンジニアリング技法を介して直接アプリをダウンロードするよう促されます。これは「予測 AI に対する実際の攻撃」であり、現金認識、ペアレンタルコントロール、顔認証、金融サービスなどに使用される人気のセキュリティおよびセーフティクリティカルなアプリケーションを含む 116 の Google Play アプリに影響を与えました。
+  (参照リンク: [real attack on predictive AI](https://arxiv.org/abs/2006.08131))
+#### シナリオ #12: データセットポイズニング
+  攻撃者は一般に公開されているデータセットを改竄して、モデルをファインチューンする際にバックドアを作成します。バックドアはさまざまな市場の特定の企業を微妙に優遇します。
+#### シナリオ #13: 利用規約とプライバシーポリシー
+  LLM 事業者は利用規約とプライバシーポリシーを変更して、モデルトレーニングにアプリケーションデータを使用することから明示的にオプトアウトすることを要求し、機密データが記憶されることになります。
 
 ### 参考情報リンク
 
@@ -93,6 +93,6 @@ LLM の作成は専門的なタスクであり、多くの場合、サードパ�
 
 ### 関連するフレームワークと分類
 
-Refer to this section for comprehensive information, scenarios strategies relating to infrastructure deployment, applied environment controls and other best practices.
+インフラストラクチャデプロイメント、適用される環境制御、その他のベストプラクティスに関する包括的な情報、シナリオ戦略については、このセクションを参照してください。
 
 - [ML Supply Chain Compromise](https://atlas.mitre.org/techniques/AML.T0010) -  **MITRE ATLAS**
