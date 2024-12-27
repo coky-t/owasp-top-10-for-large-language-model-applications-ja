@@ -2,11 +2,11 @@
 
 ### 説明
 
-Data poisoning occurs when pre-training, fine-tuning, or embedding data is manipulated to introduce vulnerabilities, backdoors, or biases. This manipulation can compromise model security, performance, or ethical behavior, leading to harmful outputs or impaired capabilities. Common risks include degraded model performance, biased or toxic content, and exploitation of downstream systems.
+データポイズニングは、事前トレーニング、ファインチューニング、埋め込みデータが操作されて、脆弱性、バックドア、バイアスを持ち込まれたときに発生します。この操作は、モデルのセキュリティ、パフォーマンス、倫理的行動を損ない、有害な出力や能力の低下につながる可能性があります。一般的なリスクには、モデルのパフォーマンス低下、偏ったコンテンツや有害なコンテンツ、ダウンストリームシステムの悪用などがあります。
 
-Data poisoning can target different stages of the LLM lifecycle, including pre-training (learning from general data), fine-tuning (adapting models to specific tasks), and embedding (converting text into numerical vectors). Understanding these stages helps identify where vulnerabilities may originate. Data poisoning is considered an integrity attack since tampering with training data impacts the model's ability to make accurate predictions. The risks are particularly high with external data sources, which may contain unverified or malicious content.
+データポイズニングは、事前トレーニング (一般的なデータからの学習)、ファインチューニング (特定のタスクへのモデルの適応)、エンベディング (テキストから数値ベクトルへの変換) など、LLM ライフサイクルの様々な段階をターゲットにできます。これらの段階を理解することは、脆弱性がどこから発生するかを特定するのに役立ちます。トレーニングデータの改竄はモデルの正確な予測を行う能力に影響を影響を及ぼすため、データポイズニングは完全性攻撃とみなされます。検証されていないコンテンツや悪意のあるコンテンツが含まれている可能性のある外部データソースでは、リスクが特に高くなります。
 
-Moreover, models distributed through shared repositories or open-source platforms can carry risks beyond data poisoning, such as malware embedded through techniques like malicious pickling, which can execute harmful code when the model is loaded. Also, consider that poisoning may allow for the implementation of a backdoor. Such backdoors may leave the model's behavior untouched until a certain trigger causes it to change. This may make such changes hard to test for and detect, in effect creating the opportunity for a model to become a sleeper agent.
+さらに、共有リポジトリやオープンソースプラットフォームを通じて配布されるモデルは、データポイズニング以外のリスクを伴う可能性があります。たとえば、悪意のあるピクリングなどの技法で埋め込まれたマルウェアは、モデルがロードされるときに有害なコードを実行する可能性があります。また、ポイズニングはバックドアの実装を許す可能性があることも考慮してください。そのようなバックドアは、特定のトリガーが変更するまで、モデルの動作をそのままにしておくかもしれません。これはそのような変更をテストしたり検出することが難しくなり、事実上、モデルがスリーパーエージェントになる機会を生み出すかもしれません。
 
 ### 脆弱性の一般的な例
 
