@@ -10,13 +10,13 @@
 
 ### 脆弱性の一般的な例
 
-1. Malicious actors introduce harmful data during training, leading to biased outputs. Techniques like "Split-View Data Poisoning" or "Frontrunning Poisoning" exploit model training dynamics to achieve this.
-  (Ref. link: [Split-View Data Poisoning](https://github.com/GangGreenTemperTatum/speaking/blob/main/dc604/hacker-summer-camp-23/Ads%20_%20Poisoning%20Web%20Training%20Datasets%20_%20Flow%20Diagram%20-%20Exploit%201%20Split-View%20Data%20Poisoning.jpeg))
-  (Ref. link: [Frontrunning Poisoning](https://github.com/GangGreenTemperTatum/speaking/blob/main/dc604/hacker-summer-camp-23/Ads%20_%20Poisoning%20Web%20Training%20Datasets%20_%20Flow%20Diagram%20-%20Exploit%202%20Frontrunning%20Data%20Poisoning.jpeg))
-2. Attackers can inject harmful content directly into the training process, compromising the model’s output quality.
-3. Users unknowingly inject sensitive or proprietary information during interactions, which could be exposed in subsequent outputs.
-4. Unverified training data increases the risk of biased or erroneous outputs.
-5. Lack of resource access restrictions may allow the ingestion of unsafe data, resulting in biased outputs.
+1. 悪意のある行為者はトレーニング時に有害なデータを導入し、偏った出力をもたらします。"Split-View Data Poisoning" や "Frontrunning Poisoning" などの技法はモデルトレーニングダイナミクスを悪用してこれを実現します。
+  (参照リンク: [Split-View Data Poisoning](https://github.com/GangGreenTemperTatum/speaking/blob/main/dc604/hacker-summer-camp-23/Ads%20_%20Poisoning%20Web%20Training%20Datasets%20_%20Flow%20Diagram%20-%20Exploit%201%20Split-View%20Data%20Poisoning.jpeg))
+  (参照リンク: [Frontrunning Poisoning](https://github.com/GangGreenTemperTatum/speaking/blob/main/dc604/hacker-summer-camp-23/Ads%20_%20Poisoning%20Web%20Training%20Datasets%20_%20Flow%20Diagram%20-%20Exploit%202%20Frontrunning%20Data%20Poisoning.jpeg))
+2. 攻撃者は有害なコンテンツをトレーニングプロセスに直接注入し、モデルの出力品質を損なう可能性があります。
+3. ユーザーはインタラクション時に機密情報やプロプライエタリ情報を無意識のうちに注入し、その後の出力で開示される可能性があります。
+4. 検証されていないトレーニングデータは、偏った出力や誤った出力のリスクを高めます。
+5. リソースアクセス制限がないと、安全でないデータの取り込みを許可し、偏った出力となる可能性があります。
 
 ### 予防および緩和戦略
 
