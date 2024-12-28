@@ -20,16 +20,16 @@
 
 ### 予防および緩和戦略
 
-1. Track data origins and transformations using tools like OWASP CycloneDX or ML-BOM. Verify data legitimacy during all model development stages.
-2. Vet data vendors rigorously, and validate model outputs against trusted sources to detect signs of poisoning.
-3. Implement strict sandboxing to limit model exposure to unverified data sources. Use anomaly detection techniques to filter out adversarial data.
-4. Tailor models for different use cases by using specific datasets for fine-tuning. This helps produce more accurate outputs based on defined goals.
-5. Ensure sufficient infrastructure controls to prevent the model from accessing unintended data sources.
-6. Use data version control (DVC) to track changes in datasets and detect manipulation. Versioning is crucial for maintaining model integrity.
-7. Store user-supplied information in a vector database, allowing adjustments without re-training the entire model.
-8. Test model robustness with red team campaigns and adversarial techniques, such as federated learning, to minimize the impact of data perturbations.
-9. Monitor training loss and analyze model behavior for signs of poisoning. Use thresholds to detect anomalous outputs.
-10. During inference, integrate Retrieval-Augmented Generation (RAG) and grounding techniques to reduce risks of hallucinations.
+1. OWASP CycloneDX や ML-BOM などのツールを使用してデータの起源と変化を追跡します。すべてのモデル開発段階においてデータの正当性を検証します。
+2. データベンダーを厳密に審査し、信頼できるソースに対してモデル出力を検証して、ポイズニングの兆候を検出します。
+3. 厳密なサンドボックスを実装して、検証されていないデータソースへのモデルの開示を制限します。異常検出技法を使用して、敵対的なデータを除外します。
+4. ファインチューニング用の特定のデータセット使用して、さまざまなユースケースに合わせてモデルを調整します。これは定義された目標に基づいてより正確な出力を生成するのに役立ちます。
+5. 十分なインフラストラクチャコントロールを確保し、モデルが意図しないデータソースにアクセスすることを防ぎます。
+6. データバージョンコントロール (DVC) を使用して、データセットの変更を追跡し、操作を検出します。バージョン管理はモデルの完全性を維持するために極めて重要です。
+7. ユーザーが提供した情報をベクトルデータベースに保存し、モデル全体を再トレーニングせずに調整できるようにします。
+8. レッドチームキャンペーンや、連合学習などの敵対的技法を使用してモデルの堅牢性をテストし、データ摂動の影響を最小限に抑えます。
+9. トレーニングの損失を監視し、モデルの動作を分析して、ポイズニングの兆候を探します。閾値を使用して異常な出力を検出します。
+10. 推論時に、検索拡張生成 (Retrieval-Augmented Generation, RAG) とグラウンディング技法を統合して、幻覚のリスクを軽減します。
 
 ### 攻撃シナリオの例
 
