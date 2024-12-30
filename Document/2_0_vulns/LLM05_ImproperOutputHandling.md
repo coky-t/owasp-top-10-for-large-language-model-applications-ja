@@ -23,13 +23,13 @@
 
 ### 予防および緩和戦略
 
-1. Treat the model as any other user, adopting a zero-trust approach, and apply proper input validation on responses coming from the model to backend functions.
-2. Follow the OWASP ASVS (Application Security Verification Standard) guidelines to ensure effective input validation and sanitization.
-3. Encode model output back to users to mitigate undesired code execution by JavaScript or Markdown. OWASP ASVS provides detailed guidance on output encoding.
-4. Implement context-aware output encoding based on where the LLM output will be used (e.g., HTML encoding for web content, SQL escaping for database queries).
-5. Use parameterized queries or prepared statements for all database operations involving LLM output.
-6. Employ strict Content Security Policies (CSP) to mitigate the risk of XSS attacks from LLM-generated content.
-7. Implement robust logging and monitoring systems to detect unusual patterns in LLM outputs that might indicate exploitation attempts.
+1. モデルを他のユーザーと同様に扱い、ゼロトラストアプローチを採用し、モデルからバックエンド機能へのレスポンスに対して適切な入力バリデーションを適用します。
+2. OWASP ASVS (Application Security Verification Standard) ガイドラインに従い、効果的な入力バリデーションとサニタイゼーションを確実に実行します。
+3. モデル出力をエンコードしてユーザーに戻し、JavaScript や Markdown による望ましくないコード実行を緩和します。OWASP ASVS は出力エンコーディングに関する詳細なガイダンスを提供しています。
+4. LLM 出力が使用される場所 (ウェブコンテンツの HTML エンコーディング、データベースクエリの SQL エスケープなど) に基づいて、コンテキストを考慮した出力エンコーディングを実装します。
+5. LLM 出力に関連するすべてのデータベース操作に、パラメータ化されたクエリまたはプリペアドステートメントを使用します。
+6. 厳格な Content Security Policies (CSP) を採用して、LLM が生成するコンテンツから XSS 攻撃のリスクを緩和します。
+7. 堅牢なログ記録および監視システムを実装して、悪用の試みを示す可能性のある LLM 出力の異常なパターンを検出します。
 
 ### 攻撃シナリオの例
 
