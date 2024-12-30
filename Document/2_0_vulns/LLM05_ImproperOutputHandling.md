@@ -33,18 +33,18 @@
 
 ### 攻撃シナリオの例
 
-#### Scenario #1
-  An application utilizes an LLM extension to generate responses for a chatbot feature. The extension also offers a number of administrative functions accessible to another privileged LLM. The general purpose LLM directly passes its response, without proper output validation, to the extension causing the extension to shut down for maintenance.
-#### Scenario #2
-  A user utilizes a website summarizer tool powered by an LLM to generate a concise summary of an article. The website includes a prompt injection instructing the LLM to capture sensitive content from either the website or from the user's conversation. From there the LLM can encode the sensitive data and send it, without any output validation or filtering, to an attacker-controlled server.
-#### Scenario #3
-  An LLM allows users to craft SQL queries for a backend database through a chat-like feature. A user requests a query to delete all database tables. If the crafted query from the LLM is not scrutinized, then all database tables will be deleted.
-#### Scenario #4
-  A web app uses an LLM to generate content from user text prompts without output sanitization. An attacker could submit a crafted prompt causing the LLM to return an unsanitized JavaScript payload, leading to XSS when rendered on a victim's browser. Insufficient validation of prompts enabled this attack.
-#### Scenario # 5
-  An LLM is used to generate dynamic email templates for a marketing campaign. An attacker manipulates the LLM to include malicious JavaScript within the email content. If the application doesn't properly sanitize the LLM output, this could lead to XSS attacks on recipients who view the email in vulnerable email clients.
-#### Scenario #6
-  An LLM is used to generate code from natural language inputs in a software company, aiming to streamline development tasks. While efficient, this approach risks exposing sensitive information, creating insecure data handling methods, or introducing vulnerabilities like SQL injection. The AI may also hallucinate non-existent software packages, potentially leading developers to download malware-infected resources. Thorough code review and verification of suggested packages are crucial to prevent security breaches, unauthorized access, and system compromises.
+#### シナリオ #1
+  アプリケーションは LLM 拡張機能を利用して、チャットボット機能のレスポンスを生成します。この拡張機能は別の特権 LLM にアクセスできる管理機能もいくつか提供します。汎用 LLM は、適切な出力バリデーションなしで、そのレスポンスを直接渡すため、この拡張機能はメンテナンスのためのシャッドダウンを引き起こします。
+#### シナリオ #2
+  ユーザーは LLM を搭載したウェブサイト要約ツールを利用して、記事の簡潔な要約を生成します。ウェブサイトには LLM にウェブサイトまたはユーザーの会話から機密コンテンツをキャプチャするよう指示するプロンプトインジェクションを含んでいます。そこから LLM は機密データをエンコードし、出力バリデーションやフィルタリングなしで、攻撃者が制御するサーバーに送信できます。
+#### シナリオ #3
+  LLM はユーザーがチャットのような機能を通じてバックエンドデータベースに対する SQL クエリを作成できます。ユーザーはすべてのデータベーステーブルを削除するクエリをリクエストします。LLM から作成されたクエリが精査されなければ、すべてのデータベーステーブルが削除されます。
+#### シナリオ #4
+  ウェブアプリは LLM を使用して、出力サニタイゼーションなしでユーザーテキストプロンプトからコンテンツを生成します。攻撃者は細工したプロンプトを送信して、LLM がサニタイズされていない JavaScript ペイロードを返すようにし、被害者のブラウザで処理された際に XSS を引き起こす可能性があります。プロンプトのバリデーションが不十分なため、この攻撃が可能になりました。
+#### シナリオ # 5
+  LLM を使用して、マーケティングキャンペーン用の動的な電子メールテンプレートを生成します。攻撃者は LLM を操作して、電子メールコンテンツの中に悪意のある JavaScript を含めます。アプリケーションが LLM 出力を適切にサニタイズしない場合、これは脆弱な電子メールクライアントで電子メールを閲覧する受信者に対する XSS 攻撃につながる可能性があります。
+#### シナリオ #6
+  LLM は、ソフトウェア会社で自然言語入力からコードを生成するために使用され、開発タスクの効率化を目指しています。このアプローチは効率的ですが、機密情報の開示、安全でないデータ処理手法の作成、SQL インジェクションなどの脆弱性の導入といったリスクがあります。また、AI は存在しないソフトウェアパッケージを幻覚する可能性があり、開発者はマルウェアに感染したリソースのダウンロードにつながる可能性があります。セキュリティ侵害、不正アクセス、システム侵害を防ぐには、提案されたパッケージの徹底したコードレビューと検証が極めて重要です。
 
 ### 参考情報リンク
 
