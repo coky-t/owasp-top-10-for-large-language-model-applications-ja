@@ -2,20 +2,20 @@
 
 ### 説明
 
-An LLM-based system is often granted a degree of agency by its developer - the ability to call functions or interface with other systems via extensions (sometimes referred to as tools, skills or plugins by different vendors) to undertake actions in response to a prompt. The decision over which extension to invoke may also be delegated to an LLM 'agent' to dynamically determine based on input prompt or LLM output. Agent-based systems will typically make repeated calls to an LLM using output from previous invocations to ground and direct subsequent invocations.
+LLM ベースのシステムは開発者によってある程度のエージェンシーを付与されることがよくあります。拡張機能 (ベンダーによってツール、スキル、プラグインと呼ばれることもあります) を介して機能を呼び出したり、他のシステムとインタフェースして、プロンプトへのレスポンスとしてアクションを実行できます。どの拡張機能を呼び出すかの決定は、LLM 'agent' に委譲して、入力プロンプトや LLM 出力に基づいて動的に決定することもできます。エージェントベースのシステムは一般的に LLM を繰り返し呼び出し、以前の呼び出しからの出力を使用して後続の呼び出しの基盤として指示します。
 
-Excessive Agency is the vulnerability that enables damaging actions to be performed in response to unexpected, ambiguous or manipulated outputs from an LLM, regardless of what is causing the LLM to malfunction. Common triggers include:
-* hallucination/confabulation caused by poorly-engineered benign prompts, or just a poorly-performing model;
-* direct/indirect prompt injection from a malicious user, an earlier invocation of a malicious/compromised extension, or (in multi-agent/collaborative systems) a malicious/compromised peer agent.
+過剰なエージェンシーは、LLM が誤動作する原因となっているものに関わらず、LLM からの予期しない出力、曖昧な出力、操作された出力へのレスポンスとして有害なアクションを実行できる脆弱性です。一般的なトリガーは以下のとおりです。
+* 不十分な設計での無害なプロンプト、または単にパフォーマンスが悪いモデルによって引き起こされる幻覚/幻想。
+* 悪意のあるユーザーからの直接/間接プロンプトインジェクション、悪意のある/侵害された拡張機能の早期呼び出し、(マルチエージェント/共同システムにおける) 悪意のある/侵害されたピアエージェント。
 
-The root cause of Excessive Agency is typically one or more of:
-* excessive functionality;
-* excessive permissions;
-* excessive autonomy.
+過剰なエージェンシーの根本原因は一般的に以下のひとつまたは複数です。
+* 過剰な機能性
+* 過剰な権限
+* 過剰な自律性
 
-Excessive Agency can lead to a broad range of impacts across the confidentiality, integrity and availability spectrum, and is dependent on which systems an LLM-based app is able to interact with.
+過剰なエージェンシーは、機密性、完全性、可用性の各領域にわたって広範にわたる影響をもたらす可能性があり、LLM ベースのアプリがどのシステムとやり取りできるかに依存します。
 
-Note: Excessive Agency differs from Insecure Output Handling which is concerned with insufficient scrutiny of LLM outputs.
+注: 過剰なエージェンシーは、LLM 出力の不十分な精査を懸念する、不適切な出力処理とは異なります。
 
 ### リスクの一般的な例
 
