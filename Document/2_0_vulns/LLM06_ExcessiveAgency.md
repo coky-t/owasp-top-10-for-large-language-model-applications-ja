@@ -19,18 +19,18 @@ LLM ベースのシステムは開発者によってある程度のエージェ�
 
 ### リスクの一般的な例
 
-#### 1. Excessive Functionality
-  An LLM agent has access to extensions which include functions that are not needed for the intended operation of the system. For example, a developer needs to grant an LLM agent the ability to read documents from a repository, but the 3rd-party extension they choose to use also includes the ability to modify and delete documents.
-#### 2. Excessive Functionality
-  An extension may have been trialled during a development phase and dropped in favor of a better alternative, but the original plugin remains available to the LLM agent.
-#### 3. Excessive Functionality
-  An LLM plugin with open-ended functionality fails to properly filter the input instructions for commands outside what's necessary for the intended operation of the application. E.g., an extension to run one specific shell command fails to properly prevent other shell commands from being executed.
-#### 4. Excessive Permissions
-  An LLM extension has permissions on downstream systems that are not needed for the intended operation of the application. E.g., an extension intended to read data connects to a database server using an identity that not only has SELECT permissions, but also UPDATE, INSERT and DELETE permissions.
-#### 5. Excessive Permissions
-  An LLM extension that is designed to perform operations in the context of an individual user accesses downstream systems with a generic high-privileged identity. E.g., an extension to read the current user's document store connects to the document repository with a privileged account that has access to files belonging to all users.
-#### 6. Excessive Autonomy
-  An LLM-based application or extension fails to independently verify and approve high-impact actions. E.g., an extension that allows a user's documents to be deleted performs deletions without any confirmation from the user.
+#### 1. 過剰な機能性
+  LLM エージェントはシステムの意図した動作には必要のない機能を含む拡張機能にアクセスできます。たとえば、開発者は LLM エージェントにリポジトリからドキュメントを読み取る能力を付与する必要がありますが、使用するために選択したサードパーティ拡張機能にはドキュメントを変更および削除する能力も含みます。
+#### 2. 過剰な機能性
+  拡張機能は開発段階で使用され、より優れた代替手段のために取りやめとなりましたが、元のプラグインは LLM エージェントで利用可能なままとなっています。
+#### 3. 過剰な機能性
+  オープンエンドな機能性を有する LLM プラグインは、アプリケーションの意図した動作に必要となるもの以外の入力指示を適切にフィルタできません。たとえば、特定のシェルコマンドを実行する拡張機能は、他のシェルコマンドの実行を適切に防止できません。
+#### 4. 過剰な権限
+  LLM 拡張機能はアプリケーションの意図した動作に必要のないダウンストリームシステムに対する権限を持ちます。たとえば、データの読み取りを意図した拡張機能は、SELECT 権限だけでなく UPDATE、INSERT、DELETE 権限も有する ID を使用してデータベースサーバーに接続します。
+#### 5. 過剰な権限
+  個々のユーザーのコンテキストで操作を実行するように設計された LLM 拡張機能は、一般的な高権限 ID でダウンストリームシステムにアクセスします。たとえば、カレントユーザーのドキュメントストアを読み取る拡張機能は、すべてのユーザーのファイルにアクセスできる特権アカウントでドキュメントリポジトリに接続します。
+#### 6. 過剰な自律性
+  LLM ベースのアプリケーションや拡張機能は、影響の大きいアクションを独立して検証および承認できません。たとえば、ユーザーのドキュメントを削除できるようにする拡張機能は、ユーザーからの確認なしに削除を実行します。
 
 ### 予防および緩和戦略
 
