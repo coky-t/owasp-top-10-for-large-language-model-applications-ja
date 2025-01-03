@@ -20,7 +20,7 @@ LLM ベースのシステムは開発者によってある程度のエージェ�
 ### リスクの一般的な例
 
 #### 1. 過剰な機能性
-  LLM エージェントはシステムの意図した動作には必要のない機能を含む拡張機能にアクセスできます。たとえば、開発者は LLM エージェントにリポジトリからドキュメントを読み取る能力を付与する必要がありますが、使用するために選択したサードパーティ拡張機能にはドキュメントを変更および削除する能力も含みます。
+  LLM エージェントはシステムの意図した動作には必要のない機能を含む拡張機能にアクセスできます。たとえば、開発者は LLM エージェントにリポジトリからドキュメントを読み取る機能を付与する必要がありますが、使用するために選択したサードパーティ拡張機能にはドキュメントを変更および削除する機能も含みます。
 #### 2. 過剰な機能性
   拡張機能は開発段階で使用され、より優れた代替手段のために取りやめとなりましたが、元のプラグインは LLM エージェントで利用可能なままとなっています。
 #### 3. 過剰な機能性
@@ -34,29 +34,29 @@ LLM ベースのシステムは開発者によってある程度のエージェ�
 
 ### 予防および緩和戦略
 
-The following actions can prevent Excessive Agency:
+以下のアクションで過剰なエージェンシーを防止できます。
 
-#### 1. Minimize extensions
-  Limit the extensions that LLM agents are allowed to call to only the minimum necessary. For example, if an LLM-based system does not require the ability to fetch the contents of a URL then such an extension should not be offered to the LLM agent.
-#### 2. Minimize extension functionality
-  Limit the functions that are implemented in LLM extensions to the minimum necessary. For example, an extension that accesses a user's mailbox to summarise emails may only require the ability to read emails, so the extension should not contain other functionality such as deleting or sending messages.
-#### 3. Avoid open-ended extensions
-  Avoid the use of open-ended extensions where possible (e.g., run a shell command, fetch a URL, etc.) and use extensions with more granular functionality. For example, an LLM-based app may need to write some output to a file. If this were implemented using an extension to run a shell function then the scope for undesirable actions is very large (any other shell command could be executed). A more secure alternative would be to build a specific file-writing extension that only implements that specific functionality.
-#### 4. Minimize extension permissions
-  Limit the permissions that LLM extensions are granted to other systems to the minimum necessary in order to limit the scope of undesirable actions. For example, an LLM agent that uses a product database in order to make purchase recommendations to a customer might only need read access to a 'products' table; it should not have access to other tables, nor the ability to insert, update or delete records. This should be enforced by applying appropriate database permissions for the identity that the LLM extension uses to connect to the database.
-#### 5. Execute extensions in user's context
-  Track user authorization and security scope to ensure actions taken on behalf of a user are executed on downstream systems in the context of that specific user, and with the minimum privileges necessary. For example, an LLM extension that reads a user's code repo should require the user to authenticate via OAuth and with the minimum scope required.
-#### 6. Require user approval
-  Utilise human-in-the-loop control to require a human to approve high-impact actions before they are taken. This may be implemented in a downstream system (outside the scope of the LLM application) or within the LLM extension itself. For example, an LLM-based app that creates and posts social media content on behalf of a user should include a user approval routine within the extension that implements the 'post' operation.
-#### 7. Complete mediation
-  Implement authorization in downstream systems rather than relying on an LLM to decide if an action is allowed or not. Enforce the complete mediation principle so that all requests made to downstream systems via extensions are validated against security policies.
-#### 8. Sanitise LLM inputs and outputs
-  Follow secure coding best practice, such as applying OWASP’s recommendations in ASVS (Application Security Verification Standard), with a particularly strong focus on input sanitisation. Use Static Application Security Testing (SAST) and Dynamic and Interactive application testing (DAST, IAST) in development pipelines.
+#### 1. 拡張機能を最小限に抑える
+  LLM エージェントが呼び出すことができる拡張機能を必要最小限のものに制限します。たとえば、LLM ベースのシステムが URL のコンテンツを取得する機能を必要としない場合、そのような拡張機能は LLM エージェントに提供すべきではありません。
+#### 2. 拡張機能の機能性を最小限に抑える
+  LLM 拡張機能に実装される機能は必要最小限に制限します。たとえば、ユーザーのメールボックスにアクセスして電子メールを要約する拡張機能では、電子メールの読み取り機能のみが必要になるため、拡張機能にはメッセージの削除や送信などの他の機能を含めるべきではありません。
+#### 3. オープンエンドな拡張機能を避ける
+  可能な限りオープンエンドな拡張機能 (シェルコマンドの実行、URL の取得など) の使用を避け、より細かい機能性の拡張機能を使用します。たとえば、LLM ベースのアプリでは出力をファイルに書き込み必要があるかもしれません。これをシェル関数を実行する拡張機能を使用して実装した場合、望ましくないアクションの範囲が非常に大きくなります (他のシェルコマンドが実行できるかもしれません)。より安全な代替手段としては、その特定の機能のみを実装した、特定のファイル書き込み拡張機能を構築することです。
+#### 4. 拡張機能の権限を最小限に抑える
+  LLM 拡張機能が他のシステムに付与する権限を必要最小限に制限して、望ましくないアクションの範囲を制限します。たとえば、顧客に購入をお勧めするために商品データベースを使用する LLM エージェントは 'products' テーブルへの読み取りアクセスのみが必要かもしれません。他のテーブルにアクセスしたり、レコードを挿入、更新、削除する権限は持つべきではありません。これは、LLM 拡張機能がデータベースに接続するために使用する ID に対して、適切なデータベース権限を適用することで実施すべきです。
+#### 5. ユーザーのコンテキストで拡張機能を実行する
+  ユーザー認可とセキュリティスコープを追跡して、ユーザーに代わって実行されたアクションが、その特定のユーザーのコンテキストで、かつ必要最小限の権限で、ダウンストリームシステム上で実行されるようにします。たとえば、ユーザーのコードリポジトリを読み取る LLM 拡張機能はユーザーを OAuth 経由かつ必要最小限のスコープで認証するように要求すべきです。
+#### 6. ユーザーの承認を必要とする
+  人間参加型 (human-in-the-loop) 制御を利用して、影響の大きいアクションを実行する前に人間が承認することを求めます。これはダウンストリームシステム内 (LLM アプリケーションの範囲外) または LLM 拡張機能自体に実装できます。たとえば、ユーザーに代わってソーシャルメディアコンテンツを作成して投稿する LLM ベースのアプリは、'post' 操作を実装する拡張機能内にユーザー承認ルーチンを含めるべきです。
+#### 7. 完全な仲介
+  アクションが許可されるかどうかを決定するために LLM に依存するのではなく、ダウンストリームシステムに認可を実装します。完全な仲介の原則を適用して、拡張機能を介してダウンストリームシステムに対して行われるすべてのリクエストがセキュリティポリシーに照らして検証されるようにします。
+#### 8. LLM の入出力をサニタイズする
+  OWASP の ASVS (Application Security Verification Standard) の勧告を適用するなど、セキュアコーディングのベストプラクティスに従います。特に入力のサニタイゼーションに強く重点を置きます。開発パイプラインにおいて静的アプリケーションセキュリティテスト (SAST) と動的およびインタラクティブアプリケーション (DAST, IAST) を使用します。
 
-The following options will not prevent Excessive Agency, but can limit the level of damage caused:
+以下のオプションは過剰なエージェンシーを防ぐものではありませんが、発生する損害のレベルを制限することができます。
 
-- Log and monitor the activity of LLM extensions and downstream systems to identify where undesirable actions are taking place, and respond accordingly.
-- Implement rate-limiting to reduce the number of undesirable actions that can take place within a given time period, increasing the opportunity to discover undesirable actions through monitoring before significant damage can occur.
+- LLM 拡張機能とダウンストリームシステムのアクティビティをログ記録して監視し、望ましくないアクションが行われている場所を特定し、それに応じて対応します。
+- レート制限を実装して、一定期間内に起こりうる望ましくないアクションの回数を減らし、重大な損害が発生する前に監視を通じて望ましくないアクションを発見する機会を増やします。
 
 ### 攻撃シナリオの例
 
