@@ -60,12 +60,12 @@ LLM ベースのシステムは開発者によってある程度のエージェ�
 
 ### 攻撃シナリオの例
 
-An LLM-based personal assistant app is granted access to an individual’s mailbox via an extension in order to summarise the content of incoming emails. To achieve this functionality, the extension requires the ability to read messages, however the plugin that the system developer has chosen to use also contains functions for sending messages. Additionally, the app is vulnerable to an indirect prompt injection attack, whereby a maliciously-crafted incoming email tricks the LLM into commanding the agent to scan the user's inbox for senitive information and forward it to the attacker's email address. This could be avoided by:
-* eliminating excessive functionality by using an extension that only implements mail-reading capabilities,
-* eliminating excessive permissions by authenticating to the user's email service via an OAuth session with a read-only scope, and/or
-* eliminating excessive autonomy by requiring the user to manually review and hit 'send' on every mail drafted by the LLM extension.
+LLM ベースのパーソナルアシスタントアプリは、受信メールの内容を要約するために、拡張機能を介して個人のメールボックスへのアクセスを許可されます。この機能を実現するために、拡張機能にはメッセージを読み取る機能が必要ですが、システム開発者が使用することを選択したプラグインにはメッセージを送信する機能も含んでいます。さらに、このアプリは間接プロンプトインジェクション攻撃に対して脆弱であり、悪意を持って作成された受信メールが LLM を騙して、ユーザーの受信トレイをスキャンして機密情報を探し、攻撃者の電子メールアドレスに転送するようにエージェントに命令します。これは以下のいずれかによって回避できます。
+* メール読み取り機能のみを実装した拡張機能を使用することで、過剰な機能性を排除します。
+* 読み取り専用スコープの OAuth セッションを介してユーザーの電子メールサービスへの認証を行うことで、過剰な権限を排除します。
+* LLM 拡張機能によって作成されたすべてのメールをユーザーが手作業で確認して「送信」を押すように要求することで、過剰な自律性を排除します。
 
-Alternatively, the damage caused could be reduced by implementing rate limiting on the mail-sending interface.
+あるいは、メール送信インタフェースにレート制限を実装することで、発生する損害を軽減できます。
 
 ### 参考情報リンク
 
