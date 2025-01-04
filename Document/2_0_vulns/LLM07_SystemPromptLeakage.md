@@ -2,13 +2,13 @@
 
 ### 説明
 
-The system prompt leakage vulnerability in LLMs refers to the risk that the system prompts or instructions used to steer the behavior of the model can also contain sensitive information that was not intended to be discovered. System prompts are designed to guide the model's output based on the requirements of the application, but may inadvertently contain secrets. When discovered, this information can be used to facilitate other attacks.
+LLM におけるシステムプロンプトの漏洩の脆弱性とは、モデルの動作を操縦するために使用されるシステムプロンプトや指示に、発見されることを意図していない機密情報も含む可能性があるリスクを指します。システムプロンプトは、アプリケーションの要件に基づいてモデルの出力をガイドするように設計されていますが、不注意にシークレットを含む可能性があります。発見された場合、この情報は他の攻撃を容易にするために使用される可能性があります。
 
-It's important to understand that the system prompt should not be considered a secret, nor should it be used as a security control. Accordingly, sensitive data such as credentials, connection strings, etc. should not be contained within the system prompt language.
+システムプロンプトはシークレットとみなされるべきではなく、セキュリティコントロールとして使用されるべきでもないことを理解することが重要です。したがって、クレデンシャル、接続文字列などの機密データはシステムプロンプト言語内に含めるべきではありません。
 
-Similarly, if a system prompt contains information describing different roles and permissions, or sensitive data like connection strings or passwords, while the disclosure of such information may be helpful, the fundamental security risk is not that these have been disclosed, it is that the application allows bypassing strong session management and authorization checks by delegating these to the LLM, and that sensitive data is being stored in a place that it should not be.
+同様に、システムプロンプトがさまざまなロールや権限を記述する情報や、接続文字列やパスワードなどの機密データを含む場合、そのような情報の開示は役に立つかもしれませんが、根本的なセキュリティリスクはこれらが開示されたことではなく、アプリケーションが LLM にそれらを委譲することで強力なセッション管理と認可チェックをバイパスし、機密データがあるべきではない場所に保存されてしまうことにあります。
 
-In short: disclosure of the system prompt itself does not present the real risk -- the security risk lies with the underlying elements, whether that be sensitive information disclosure, system guardrails bypass, improper separation of privileges, etc. Even if the exact wording is not disclosed, attackers interacting with the system will almost certainly be able to determine many of the guardrails and formatting restrictions that are present in system prompt language in the course of using the application, sending utterances to the model, and observing the results.
+つまり、システムプロンプト自体の開示は実際のリスクをもたらすのではなく、セキュリティリスクは、機密情報の開示、システムガードレールのバイパス、権限の不適切な分離など、その基盤となる要素にあります。たとえ正確な文言が開示されていなくても、システムとやり取りする攻撃者は、アプリケーションを使用し、モデルに発話を送信し、結果を観察する過程で、システムプロンプト言語に存在するガードレールとフォーマットの制限の多くをほぼ確実に判断できます。
 
 ### リスクの一般的な例
 
