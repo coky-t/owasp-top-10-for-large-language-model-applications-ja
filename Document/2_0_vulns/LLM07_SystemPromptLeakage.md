@@ -12,19 +12,19 @@ LLM におけるシステムプロンプトの漏洩の脆弱性とは、モデ�
 
 ### リスクの一般的な例
 
-#### 1. Exposure of Sensitive Functionality
-  The system prompt of the application may reveal sensitive information or functionality that is intended to be kept confidential, such as sensitive system architecture, API keys, database credentials, or user tokens.  These can be extracted or used by attackers to gain unauthorized access into the application. For example, a system prompt that contains the type of database used for a tool could allow the attacker to target it for SQL injection attacks.
-#### 2. Exposure of Internal Rules
-  The system prompt of the application reveals information on internal decision-making processes that should be kept confidential. This information allows attackers to gain insights into how the application works which could allow attackers to exploit weaknesses or bypass controls in the application. For example - There is a banking application that has a chatbot and its system prompt may reveal information like 
-    >"The Transaction limit is set to $5000 per day for a user. The Total Loan Amount for a user is $10,000".
-  This information allows the attackers to bypass the security controls in the application like doing transactions more than the set limit or bypassing the total loan amount.
-#### 3. Revealing of Filtering Criteria
-  A system prompt might ask the model to filter or reject sensitive content. For example, a model might have a system prompt like,
-    >“If a user requests information about another user, always respond with ‘Sorry, I cannot assist with that request’”.
-#### 4. Disclosure of Permissions and User Roles
-  The system prompt could reveal the internal role structures or permission levels of the application. For instance, a system prompt might reveal,
-    >“Admin user role grants full access to modify user records.”
-  If the attackers learn about these role-based permissions, they could look for a privilege escalation attack.
+#### 1. 機密機能の露出
+  アプリケーションのシステムプロンプトは、機密性の高いシステムアーキテクチャ、API キー、データベースクレデンシャル、ユーザートークンなど、機密情報や機能を明らかにするかもしれません。これらは、攻撃者がアプリケーションに不正アクセスを行うために抽出されたり使用される可能性があります。たとえば、ツールに使用されるデータベースのタイプを含むシステムプロンプトは、攻撃者がそれを SQL インジェクション攻撃のターゲットにする可能性があります。
+#### 2. 内部ルールの露出
+  アプリケーションのシステムプロンプトは、機密にしておくべき内部意思決定プロセスの情報を明らかにします。この情報により、攻撃者がアプリケーションの動作方法の洞察を得て、攻撃者がアプリケーションの弱点を悪用したりコントロールをバイパスできます。たとえば、チャットボットを備えた銀行アプリケーションがあり、そのシステムプロンプトから以下のような情報を明らかにすることがあります。
+    > 「ユーザーの取引限度額は一日あたり 5000 ドルに設定されています。ユーザーの総融資額は 10000 ドルです。」
+  この情報により、攻撃者が設定された限度額を取引を実行したり、総融資額をバイパスするなど、アプリケーションのセキュリティコントロールをバイパスできます。
+#### 3. フィルタリング基準の露呈
+  システムプロンプトは機密コンテンツをフィルタしたり拒否することをモデルに要求するかもしれません。たとえば、モデルには以下のようなシステムプロンプトがあるかもしれません。
+    > 「ユーザーが別のユーザーに関する情報を供給した場合、常に『申し訳ありませんが、そのリクエストには対応できません』と応答します。」
+#### 4. 権限とユーザーロールの開示
+  システムプロンプトはアプリケーションの内部ロール構造や権限レベルを明らかにする可能性があります。たとえば、システムプロンプトは以下のことを明らかにするかもしれません。
+    > 「管理ユーザーロールはユーザーレコードを変更するためのフルアクセスを許可します。」
+  攻撃者がこれらのロールベースの権限について知ると、権限昇格攻撃を招く可能性があります。
 
 ### 予防および緩和戦略
 
