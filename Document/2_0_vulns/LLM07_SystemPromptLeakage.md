@@ -28,14 +28,14 @@ LLM におけるシステムプロンプトの漏洩の脆弱性とは、モデ�
 
 ### 予防および緩和戦略
 
-#### 1. Separate Sensitive Data from System Prompts
-  Avoid embedding any sensitive information (e.g. API keys, auth keys, database names, user roles, permission structure of the application) directly in the system prompts. Instead, externalize such information to the systems that the model does not directly access.
-#### 2. Avoid Reliance on System Prompts for Strict Behavior Control
-  Since LLMs are susceptible to other attacks like prompt injections which can alter the system prompt, it is recommended to avoid using system prompts to control the model behavior where possible.  Instead, rely on systems outside of the LLM to ensure this behavior.  For example, detecting and preventing harmful content should be done in external systems.
-#### 3. Implement Guardrails
-  Implement a system of guardrails outside of the LLM itself.  While training particular behavior into a model can be effective, such as training it not to reveal its system prompt, it is not a guarantee that the model will always adhere to this.  An independent system that can inspect the output to determine if the model is in compliance with expectations is preferable to system prompt instructions.
-#### 4. Ensure that security controls are enforced independently from the LLM
-  Critical controls such as privilege separation, authorization bounds checks, and similar must not be delegated to the LLM, either through the system prompt or otherwise. These controls need to occur in a deterministic, auditable manner, and LLMs are not (currently) conducive to this. In cases where an agent is performing tasks, if those tasks require different levels of access, then multiple agents should be used, each configured with the least privileges needed to perform the desired tasks.
+#### 1. システムプロンプトから機密データを分離する
+  機密情報 (API キー、認証キー、データベース名、ユーザーロール、アプリケーションの権限構造など) をシステムプロンプトに直接埋め込むことは避けます。代わりに、そのような情報をモデルが直接アクセスしないシステムに外部化します。
+#### 2. 厳密な動作制御のためにシステムプロンプトへの依存を避ける
+  LLM は、システムプロンプトを改変するプロンプトインジェクションなどの他の攻撃の影響を受けやすいため、可能な限り、モデルの動作を制御するためにシステムプロンプトの使用を避けることをお勧めします。代わりに、LLM の外部のシステムに依存して、この動作を確保します。たとえば、有害なコンテンツの検出と防止は外部システムで行うべきです。
+#### 3. ガードレールを実装する
+  LLM 自体の外側にガードレールのシステムを実装します。システムプロンプトを明らかにしないようにトレーニングするなど、特定の動作をモデルにトレーニングすることは効果的かもしれませんが、モデルが常にこれを守るという保証はありません。モデルが期待どおりであるかどうかを判断するために出力を検査できる独立したシステムは、システムプロンプトの指示よりも望ましいものです。
+#### 4. セキュリティコントロールが LLM から独立して実施されることを確保する
+  権限の分離、認可境界チェックなどの重要なコントロールは、システムプロンプトを通じていてもそうでなくても、LLM に委譲してはいけません。これらのコントールは決定論的で監査可能な方法で行われる必要があり、LLM は (現在のところ) これに適していません。エージェントがタスクを実行する場合に、それらのタスクが異なるレベルのアクセスを必要とするのであれば、複数のエージェントを使用して、それぞれが目的のタスクを実行するために必要な最小の権限で構成されるべきです。
 
 ### 攻撃シナリオの例
 
