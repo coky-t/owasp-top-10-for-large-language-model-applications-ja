@@ -39,10 +39,10 @@ LLM におけるシステムプロンプトの漏洩の脆弱性とは、モデ�
 
 ### 攻撃シナリオの例
 
-#### Scenario #1
-   An LLM has a system prompt that contains a set of credentials used for a tool that it has been given access to.  The system prompt is leaked to an attacker, who then is able to use these credentials for other purposes.
-#### Scenario #2
-  An LLM has a system prompt prohibiting the generation of offensive content, external links, and code execution. An attacker extracts this system prompt and then uses a prompt injection attack to bypass these instructions, facilitating a remote code execution attack.
+#### シナリオ #1
+  LLM には、アクセスを得られたツールで使用される一連のクレデンシャルを含むシステムプロンプトがあります。システムプロンプトが攻撃者に漏洩すると、攻撃者はこれらのクレデンシャルを他の目的に使用できます。
+#### シナリオ #2
+  LLM には、攻撃的なコンテンツの生成、外部リンク、コード実行を禁止するシステムプロンプトがあります。攻撃者はこのシステムプロンプトを抽出し、プロンプトインジェクション攻撃を使用してこれらの指示をバイパスし、リモートコード実行攻撃を容易にします。
 
 ### 参考情報リンク
 
@@ -54,6 +54,6 @@ LLM におけるシステムプロンプトの漏洩の脆弱性とは、モデ�
 
 ### 関連するフレームワークと分類
 
-Refer to this section for comprehensive information, scenarios strategies relating to infrastructure deployment, applied environment controls and other best practices.
+インフラストラクチャデプロイメント、適用される環境制御、その他のベストプラクティスに関する包括的な情報、シナリオ戦略については、このセクションを参照してください。
 
 - [AML.T0051.000 - LLM Prompt Injection: Direct (Meta Prompt Extraction)](https://atlas.mitre.org/techniques/AML.T0051.000) **MITRE ATLAS**
