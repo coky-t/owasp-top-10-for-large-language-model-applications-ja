@@ -8,16 +8,16 @@
 
 ### リスクの一般的な例
 
-#### 1. Unauthorized Access & Data Leakage
-  Inadequate or misaligned access controls can lead to unauthorized access to embeddings containing sensitive information. If not properly managed, the model could retrieve and disclose personal data, proprietary information, or other sensitive content. Unauthorized use of copyrighted material or non-compliance with data usage policies during augmentation can lead to legal repercussions.
-#### 2. Cross-Context Information Leaks and Federation Knowledge Conflict
-  In multi-tenant environments where multiple classes of users or applications share the same vector database, there's a risk of context leakage between users or queries. Data federation knowledge conflict errors can occur when data from multiple sources contradict each other (Ref #2). This can also happen when an LLM can’t supersede old knowledge that it has learned while training, with the new data from Retrieval Augmentation.
-#### 3. Embedding Inversion Attacks
-  Attackers can exploit vulnerabilities to invert embeddings and recover significant amounts of source information, compromising data confidentiality.(Ref #3, #4)  
-#### 4. Data Poisoning Attacks
-  Data poisoning can occur intentionally by malicious actors  (Ref #5, #6, #7) or unintentionally. Poisoned data can originate from insiders, prompts, data seeding, or unverified data providers, leading to manipulated model outputs.
-#### 5. Behavior Alteration
-  Retrieval Augmentation can inadvertently alter the foundational model's behavior. For example, while factual accuracy and relevance may increase, aspects like emotional intelligence or empathy can diminish, potentially reducing the model's effectiveness in certain applications. (Scenario #3)
+#### 1. 不正アクセスとデータ漏洩
+  アクセス制御が不十分であったり不適切であると、機密情報を含むエンベディングへの不正アクセスにつながる可能性があります。適切に管理されていない場合、モデルは個人データ、プロプライエタリ情報、その他の機密コンテンツを取得して開示する可能性があります。著作権で保護されたマテリアルの不正使用や、拡張時のデータ使用ポリシーの不遵守は、法的影響につながる可能性があります。
+#### 2. クロスコンテキストの情報漏洩と連合知識の衝突
+  複数のクラスのユーザーやアプリケーションが同じベクトルデータベースを共有するマルチテナント環境では、ユーザー間やクエリ間でコンテキストが漏洩するリスクがあります。データフェデレーションの知識衝突エラーは、複数のソースからのデータが互いに矛盾する場合に発生する可能性があります (参考 #2)。これは、LLM がトレーニング時に学習した古い知識を、検索拡張からの新しいデータで置き換えることができない場合にも発生する可能性があります。
+#### 3. 埋め込み反転攻撃
+  攻撃者は脆弱性を悪用してエンベディングを反転し、大量のソース情報を復元して、データの機密性を損なう可能性があります。 (参考 #3, #4)
+#### 4. データポイズニング攻撃
+  データポイズニングは、悪意のある行為者によって意図的に発生する (参考 #5, #6, #7) こともあれば、意図せず発生することもあります。汚染されたデータは、内部関係者、プロンプト、データシーディング、未検証のデータプロバイダから発生し、モデル出力が操作されることにつながる可能性があります。
+#### 5. 動作の改変
+  検索拡張は、基礎となるモデルの動作を不注意に改変する可能性があります。たとえば、事実の正確性と関連性は向上するかもしれませんが、感情的知性や共感などの側面は低下し、特定のアプリケーションではモデルの有効性が低下する可能性があります。 (シナリオ #3)
 
 ### 予防および緩和戦略
 
