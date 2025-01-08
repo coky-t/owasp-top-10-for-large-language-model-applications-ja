@@ -21,14 +21,14 @@
 
 ### 予防および緩和戦略
 
-#### 1. Permission and access control
-  Implement fine-grained access controls and permission-aware vector and embedding stores. Ensure strict logical and access partitioning of datasets in the vector database to prevent unauthorized access between different classes of users or different groups.
-#### 2. Data validation & source authentication
-  Implement robust data validation pipelines for knowledge sources. Regularly audit and validate the integrity of the knowledge base for hidden codes and data poisoning. Accept data only from trusted and verified sources.
-#### 3. Data review for combination & classification
-  When combining data from different sources, thoroughly review the combined dataset. Tag and classify data within the knowledge base to control access levels and prevent data mismatch errors.
-#### 4. Monitoring and Logging
-  Maintain detailed immutable  logs of retrieval activities to detect and respond promptly to suspicious behavior.
+#### 1. 権限とアクセス制御
+  きめ細かなアクセス制御と権限を考慮したベクトルとエンベディングのストアを実装します。ベクトルデータベース内のデータセットの厳密な論理およびアクセスのパーティション分割を確保し、異なるクラスのユーザーや異なるグループ間の不正アクセスを防止します。
+#### 2. データバリデーションとソース認証
+  知識ソースに対して堅牢なデータバリデーションパイプラインを実装します。隠しコードやデータポイズニングがないかどうかについて、知識ベースの完全性を定期的に監査して検証します。信頼できる検証済みソースからのデータのみを受け入れます。
+#### 3. 組み合わせと分類のためのデータレビュー
+  さまざまなソースからのデータを組み合わせる場合は、組み合わせたデータセットを徹底的にレビューします。知識ベース内のデータにタグをつけて分類し、アクセスレベルを制御してデータ不一致エラーを防止します。
+#### 4. 監視とログ記録
+  検索アクティビティの詳細な不変のログを維持して、疑わしい動作を迅速に検出して対応します。
 
 ### 攻撃シナリオの例
 
