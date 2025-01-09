@@ -2,11 +2,11 @@
 
 ### 説明
 
-Misinformation from LLMs poses a core vulnerability for applications relying on these models. Misinformation occurs when LLMs produce false or misleading information that appears credible. This vulnerability can lead to security breaches, reputational damage, and legal liability.
+LLM からの誤情報は、これらのモデルに依存するアプリケーションにとって重大な脆弱性となります。誤情報は、LLM が信頼できるように見える誤った情報や誤解を招く情報を生成する際に発生します。この脆弱性はセキュリティ侵害、風評被害、法的責任につながる可能性があります。
 
-One of the major causes of misinformation is hallucination—when the LLM generates content that seems accurate but is fabricated. Hallucinations occur when LLMs fill gaps in their training data using statistical patterns, without truly understanding the content. As a result, the model may produce answers that sound correct but are completely unfounded. While hallucinations are a major source of misinformation, they are not the only cause; biases introduced by the training data and incomplete information can also contribute.
+誤情報の主な原因の一つは幻覚で、LLM が正確そうに見えるが捏造されたコンテンツを生成するものです。幻覚は、LLM がそのコンテンツを真に理解せずに統計パターンを使用してトレーニングデータのギャップを埋める際に発生します。結果として、モデルは正しいように聞こえるがまったく根拠のない回答を生成する可能性があります。幻覚は誤情報の主な原因ですが、それだけが原因ではありません。トレーニングデータによってもたらされるバイアスや不完全な情報も一因となることもあります。
 
-A related issue is overreliance. Overreliance occurs when users place excessive trust in LLM-generated content, failing to verify its accuracy. This overreliance exacerbates the impact of misinformation, as users may integrate incorrect data into critical decisions or processes without adequate scrutiny.
+関連する問題に過度の依存があります。過度の依存は、LLM が生成したコンテンツをユーザーが過度に信頼し、その正確性を検証できない場合に発生します。この過度の依存は誤情報の影響を悪化させます。ユーザは十分な精査を行わずに誤ったデータを重要な意思決定やプロセスに統合する可能性があるためです。
 
 ### リスクの一般的な例
 
