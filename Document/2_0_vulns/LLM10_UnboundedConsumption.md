@@ -2,9 +2,9 @@
 
 ### 説明
 
-Unbounded Consumption refers to the process where a Large Language Model (LLM) generates outputs based on input queries or prompts. Inference is a critical function of LLMs, involving the application of learned patterns and knowledge to produce relevant responses or predictions.
+無制限の消費は、大規模言語モデル (Large Language Model, LLM) が入力クエリまたはプロンプトに基づいて出力を生成するプロセスを指します。推論は LLM の重要な機能であり、学習したパターンや知識を適用して、関連するレスポンスや予測を生成します。
 
-Attacks designed to disrupt service, deplete the target's financial resources, or even steal intellectual property by cloning a model’s behavior all depend on a common class of security vulnerability in order to succeed. Unbounded Consumption occurs when a Large Language Model (LLM) application allows users to conduct excessive and uncontrolled inferences, leading to risks such as denial of service (DoS), economic losses, model theft, and service degradation. The high computational demands of LLMs, especially in cloud environments, make them vulnerable to resource exploitation and unauthorized usage.
+サービスを妨害したり、ターゲットの経済的リソースを枯渇させたり、モデルの動作を複製して知的財産を窃取することを目的とした攻撃はすべて、成功するために共通のセキュリティ脆弱性に依存しています。無制限の消費は、大規模言語モデル (Large Language Model, LLM) アプリケーションによってユーザーが過剰で制御されていない推論を実行できる際に発生し、サービス拒否 (DoS)、経済的損失、モデル窃取、サービス低下などのリスクにつながります。特にクラウド環境では、LLM の計算要求が高いため、リソースの悪用や不正使用に対して脆弱となります。
 
 ### 脆弱性の一般的な例
 
