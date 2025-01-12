@@ -25,22 +25,22 @@ LLM からの誤情報は、これらのモデルに依存するアプリケー�
 
 ### 予防および緩和戦略
 
-#### 1. Retrieval-Augmented Generation (RAG)
-  Use Retrieval-Augmented Generation to enhance the reliability of model outputs by retrieving relevant and verified information from trusted external databases during response generation. This helps mitigate the risk of hallucinations and misinformation.
-#### 2. Model Fine-Tuning
-  Enhance the model with fine-tuning or embeddings to improve output quality. Techniques such as parameter-efficient tuning (PET) and chain-of-thought prompting can help reduce the incidence of misinformation.
-#### 3. Cross-Verification and Human Oversight
-  Encourage users to cross-check LLM outputs with trusted external sources to ensure the accuracy of the information. Implement human oversight and fact-checking processes, especially for critical or sensitive information. Ensure that human reviewers are properly trained to avoid overreliance on AI-generated content.
-#### 4. Automatic Validation Mechanisms
-  Implement tools and processes to automatically validate key outputs, especially output from high-stakes environments.
-#### 5. Risk Communication
-  Identify the risks and possible harms associated with LLM-generated content, then clearly communicate these risks and limitations to users, including the potential for misinformation.
-#### 6. Secure Coding Practices
-  Establish secure coding practices to prevent the integration of vulnerabilities due to incorrect code suggestions.
-#### 7. User Interface Design
-  Design APIs and user interfaces that encourage responsible use of LLMs, such as integrating content filters, clearly labeling AI-generated content and informing users on limitations of reliability and accuracy. Be specific about the intended field of use limitations.
-#### 8. Training and Education
-  Provide comprehensive training for users on the limitations of LLMs, the importance of independent verification of generated content, and the need for critical thinking. In specific contexts, offer domain-specific training to ensure users can effectively evaluate LLM outputs within their field of expertise.
+#### 1. 検索拡張生成 (Retrieval-Augmented Generation, RAG)
+  検索拡張生成を使用し、レスポンス生成時に信頼できる外部データベースから関連する検証済みの情報を取得することで、モデル出力の信頼性を高めます。これは幻覚や誤情報のリスクを緩和するのに役立ちます。
+#### 2. モデルのファインチューニング
+  ファインチューニングやエンベディングでモデルを強化し、出力品質を改善します。パラメータ効率的チューニング (Parameter-Efficient Tuning, PET) や思考連鎖 (Chain-of-Thought) プロンプトなどの技法は誤情報の発生を減らすのに役立ちます。
+#### 3. 相互検証と人的監視
+  ユーザーに LLM 出力を信頼できる外部ソースと相互チェックするように促し、情報の正確性を確保します。特に重要な情報や機密情報については、人的監視と事実確認プロセスを実装します。人間のレビュー担当者が適切に訓練されていることを確保し、AI 生成コンテンツへの過度の依存を避けます。
+#### 4. 自動バリデーションメカニズム
+  主要な出力、特に利害の大きい環境からの出力、を自動的に検証するツールとプロセスを導入します。
+#### 5. リスクの伝達
+  LLM が生成するコンテンツに関連するリスクと起こり得る弊害を特定し、誤情報の可能性を含め、これらのリスクと制限をユーザーに明確に伝えます。
+#### 6. セキュアコーディングプラクティス
+  セキュアコーディングプラクティスを確立して、誤ったコード提案による脆弱性の統合を防ぎます。
+#### 7. ユーザーインタフェースの設計
+  コンテンツフィルタの統合、AI 生成コンテンツの明確なラベル付け、信頼性と正確性の制限に関するユーザーへの通知など、LLM の責任ある使用を促す API とユーザーインタフェースを設計します。想定される使用分野の制限について具体的に示します。
+#### 8. トレーニングと教育
+  LLM の限界、生成されるコンテンツの独立した検証の重要性、批判的思考の必要性について、ユーザーに包括的なトレーニングを提供します。特定のコンテキストでは、ドメイン固有のトレーニングを提供して、ユーザーが専門分野内で LLM 出力を効果的に評価できるようにします。
 
 ### 攻撃シナリオの例
 
