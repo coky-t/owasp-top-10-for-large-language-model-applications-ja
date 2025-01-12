@@ -10,18 +10,18 @@ LLM からの誤情報は、これらのモデルに依存するアプリケー�
 
 ### リスクの一般的な例
 
-#### 1. Factual Inaccuracies
-  The model produces incorrect statements, leading users to make decisions based on false information. For example, Air Canada's chatbot provided misinformation to travelers, leading to operational disruptions and legal complications. The airline was successfully sued as a result.
-  (Ref. link: [BBC](https://www.bbc.com/travel/article/20240222-air-canada-chatbot-misinformation-what-travellers-should-know))
-#### 2. Unsupported Claims
-  The model generates baseless assertions, which can be especially harmful in sensitive contexts such as healthcare or legal proceedings. For example, ChatGPT fabricated fake legal cases, leading to significant issues in court.
-  (Ref. link: [LegalDive](https://www.legaldive.com/news/chatgpt-fake-legal-cases-generative-ai-hallucinations/651557/))
-#### 3. Misrepresentation of Expertise
-  The model gives the illusion of understanding complex topics, misleading users regarding its level of expertise. For example, chatbots have been found to misrepresent the complexity of health-related issues, suggesting uncertainty where there is none, which misled users into believing that unsupported treatments were still under debate.
-  (Ref. link: [KFF](https://www.kff.org/health-misinformation-monitor/volume-05/))
-#### 4. Unsafe Code Generation
-  The model suggests insecure or non-existent code libraries, which can introduce vulnerabilities when integrated into software systems. For example, LLMs propose using insecure third-party libraries, which, if trusted without verification, leads to security risks.
-  (Ref. link: [Lasso](https://www.lasso.security/blog/ai-package-hallucinations))
+#### 1. 事実の不正確さ
+  モデルは正しくない発言を生成し、ユーザーが誤った情報に基づいて意思決定を行うことになります。たとえば、Air Canada のチャットボットは旅行者に誤情報を提供し、運航の混乱と法的な問題につながりました。その航空会社は結果として訴訟に勝訴しました。
+  (参照リンク: [BBC](https://www.bbc.com/travel/article/20240222-air-canada-chatbot-misinformation-what-travellers-should-know))
+#### 2. 裏付けのない主張
+  モデルは根拠のない主張を生成し、医療や法的手続きなどのセンシティブな状況では特に有害となる可能性があります。たとえば、ChatGPT は偽の訴訟事例を捏造し、法廷での重大な問題につながりました。
+  (参照リンク: [LegalDive](https://www.legaldive.com/news/chatgpt-fake-legal-cases-generative-ai-hallucinations/651557/))
+#### 3. 専門知識の虚偽表示
+  モデルは複雑なトピックを理解しているという錯覚を与え、専門知識のレベルに関してユーザーに誤解を与えます。たとえば、チャットボットは医療関連の問題の複雑さを虚偽表示し、存在しない不確実性を示唆し、裏付けのない治療法がまだ議論中であると考えられているとユーザーに誤解を与えます。
+  (参照リンク: [KFF](https://www.kff.org/health-misinformation-monitor/volume-05/))
+#### 4. 安全でないコード生成
+  モデルは安全でないコードライブラリや存在しないコードライブラリを提案し、ソフトウェアシステムに統合されると脆弱性をもたらす可能性があります。たとえば、LLM は安全でないサードパーティライブラリの使用を提案し、検証せずに信頼するとセキュリティリスクにつながります。
+  (参照リンク: [Lasso](https://www.lasso.security/blog/ai-package-hallucinations))
 
 ### 予防および緩和戦略
 
