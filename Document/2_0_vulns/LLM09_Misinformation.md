@@ -11,7 +11,7 @@ LLM からの誤情報は、これらのモデルに依存するアプリケー�
 ### リスクの一般的な例
 
 #### 1. 事実の不正確さ
-  モデルは正しくない発言を生成し、ユーザーが誤った情報に基づいて意思決定を行うことになります。たとえば、Air Canada のチャットボットは旅行者に誤情報を提供し、運航の混乱と法的な問題につながりました。その航空会社は結果として訴訟に勝訴しました。
+  モデルは正しくない発言を生成し、ユーザーが誤った情報に基づいて意思決定を行うことになります。たとえば、Air Canada のチャットボットは旅行者に誤情報を提供し、運航の混乱と法的な問題につながりました。結果としてその航空会社に勝訴しました。
   (参照リンク: [BBC](https://www.bbc.com/travel/article/20240222-air-canada-chatbot-misinformation-what-travellers-should-know))
 #### 2. 裏付けのない主張
   モデルは根拠のない主張を生成し、医療や法的手続きなどのセンシティブな状況では特に有害となる可能性があります。たとえば、ChatGPT は偽の訴訟事例を捏造し、法廷での重大な問題につながりました。
@@ -44,10 +44,10 @@ LLM からの誤情報は、これらのモデルに依存するアプリケー�
 
 ### 攻撃シナリオの例
 
-#### Scenario #1
-  Attackers experiment with popular coding assistants to find commonly hallucinated package names. Once they identify these frequently suggested but nonexistent libraries, they publish malicious packages with those names to widely used repositories. Developers, relying on the coding assistant's suggestions, unknowingly integrate these poised packages into their software. As a result, the attackers gain unauthorized access, inject malicious code, or establish backdoors, leading to significant security breaches and compromising user data.
-#### Scenario #2
-  A company provides a chatbot for medical diagnosis without ensuring sufficient accuracy. The chatbot provides poor information, leading to harmful consequences for patients. As a result, the company is successfully sued for damages. In this case, the safety and security breakdown did not require a malicious attacker but instead arose from the insufficient oversight and reliability of the LLM system. In this scenario, there is no need for an active attacker for the company to be at risk of reputational and financial damage.
+#### シナリオ #1
+  攻撃者は、人気のあるコーディングアシスタントを試みて、よくある幻覚となるようなパッケージ名を探します。頻繁に提案されるが存在しないライブラリを特定すると、その名前で悪意のあるパッケージを広く使用されているリポジトリに公開します。開発者はコーディングアシスタントの提案に頼り、知らないうちにこれらの偽装パッケージソフトウェアに統合します。結果として、攻撃者は不正アクセスを行い、悪意のあるコードを注入したり、バックドアを確立して、重大なセキュリティ侵害やユーザーデータの危殆化につながります。
+#### シナリオ #2
+  企業は十分な正確さを確保していない医療診断用のチャットボットを提供します。そのチャットボットは質の悪い情報を提供し、患者に有害な結果をもたらします。結果として、損害に対してその企業に勝訴しました。このケースでは、安全性とセキュリティの崩壊には悪意のある攻撃者は必要ありませんが、代わりに LLM システムの不十分な監視と信頼性から生じました。このシナリオでは、企業に対する積極的な攻撃者は必要ありませんが、風評被害や金銭的損害のリスクがあります。
 
 ### 参考情報リンク
 
@@ -65,6 +65,6 @@ LLM からの誤情報は、これらのモデルに依存するアプリケー�
 
 ### 関連するフレームワークと分類
 
-Refer to this section for comprehensive information, scenarios strategies relating to infrastructure deployment, applied environment controls and other best practices.
+インフラストラクチャデプロイメント、適用される環境制御、その他のベストプラクティスに関する包括的な情報、シナリオ戦略については、このセクションを参照してください。
 
 - [AML.T0048.002 - Societal Harm](https://atlas.mitre.org/techniques/AML.T0048) **MITRE ATLAS**
