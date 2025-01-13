@@ -8,20 +8,20 @@
 
 ### 脆弱性の一般的な例
 
-#### 1. Variable-Length Input Flood
-  Attackers can overload the LLM with numerous inputs of varying lengths, exploiting processing inefficiencies. This can deplete resources and potentially render the system unresponsive, significantly impacting service availability.
-#### 2. Denial of Wallet (DoW)
-  By initiating a high volume of operations, attackers exploit the cost-per-use model of cloud-based AI services, leading to unsustainable financial burdens on the provider and risking financial ruin.
-#### 3. Continuous Input Overflow
-  Continuously sending inputs that exceed the LLM's context window can lead to excessive computational resource use, resulting in service degradation and operational disruptions.
-#### 4. Resource-Intensive Queries
-  Submitting unusually demanding queries involving complex sequences or intricate language patterns can drain system resources, leading to prolonged processing times and potential system failures.
-#### 5. Model Extraction via API
-  Attackers may query the model API using carefully crafted inputs and prompt injection techniques to collect sufficient outputs to replicate a partial model or create a shadow model. This not only poses risks of intellectual property theft but also undermines the integrity of the original model.
-#### 6. Functional Model Replication
-  Using the target model to generate synthetic training data can allow attackers to fine-tune another foundational model, creating a functional equivalent. This circumvents traditional query-based extraction methods, posing significant risks to proprietary models and technologies.
-#### 7. Side-Channel Attacks
-  Malicious attackers may exploit input filtering techniques of the LLM to execute side-channel attacks, harvesting model weights and architectural information. This could compromise the model's security and lead to further exploitation.
+#### 1. 可変長入力フラッド
+  攻撃者は、処理の非効率性を悪用して、さまざまな長さの多数の入力で LLM に過負荷をかけることができます。これはリソースを枯渇し、システムが応答しなくなる可能性があり、サービスの可用性に重大な影響を及ぼす可能性があります。
+#### 2. ウォレット拒否 (Denial of Wallet, DoW)
+  大量のオペレーションを開始することで、攻撃者はクラウドベースの AI サービスの従量課金モデルを悪用し、プロバイダに持続不可能な経済的負担をもたらし、財政破綻のリスクをもたらします。
+#### 3. 連続的な入力オーバーフロー
+  LLM のコンテキストウィンドウを超える入力を連続的に送信すると、計算リソースを過剰に使用し、サービス低下や運用中断につながる可能性があります。
+#### 4. リソース集約型クエリ
+  複雑なシーケンスや入り組んだ言語パターンを含む、異常に負荷の高いクエリを送信すると、システムリソースを消費し、処理時間が長引いたり、システム障害が発生する可能性があります。
+#### 5. API 経由のモデル抽出
+  攻撃者は、注意深く細工した入力とプロンプトインジェクション技法を使用してモデル API をクエリし、部分的なモデルを複製したり、シャドウモデルを作成するのに十分な出力を収集する可能性があります。これは知的財産の盗難リスクをもたらすだけでなく、元のモデルの完全性を損なうことにもなります。
+#### 6. 機能モデルの複製
+  ターゲットモデルを使用して、模造トレーニングデータを生成することで、攻撃者は他の機能モデルをファインチューンして、機能的に等価なものを作成できます。これは従来のクエリベースの抽出手法を巧みに迂回して、プロプライエタリモデルやテクノロジに重大なリスクをもたらします。
+#### 7. サイドチャネル攻撃
+  悪意のある攻撃者は、LLM の入力フィルタリング技法を悪用して、サイドチャネル攻撃を実行し、モデルの重みやアーキテクチャ情報を採取する可能性があります。これはモデルのセキュリティを侵害し、さらなる悪用につながる可能性があります。
 
 ### 予防および緩和戦略
 
