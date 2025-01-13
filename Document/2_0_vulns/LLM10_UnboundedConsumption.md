@@ -25,37 +25,37 @@
 
 ### 予防および緩和戦略
 
-#### 1. Input Validation
-  Implement strict input validation to ensure that inputs do not exceed reasonable size limits.
-#### 2. Limit Exposure of Logits and Logprobs
-  Restrict or obfuscate the exposure of `logit_bias` and `logprobs` in API responses. Provide only the necessary information without revealing detailed probabilities.
-#### 3. Rate Limiting
-  Apply rate limiting and user quotas to restrict the number of requests a single source entity can make in a given time period.
-#### 4. Resource Allocation Management
-  Monitor and manage resource allocation dynamically to prevent any single user or request from consuming excessive resources.
-#### 5. Timeouts and Throttling
-  Set timeouts and throttle processing for resource-intensive operations to prevent prolonged resource consumption.
-#### 6.Sandbox Techniques
-  Restrict the LLM's access to network resources, internal services, and APIs.
-  - This is particularly significant for all common scenarios as it encompasses insider risks and threats. Furthermore, it governs the extent of access the LLM application has to data and resources, thereby serving as a crucial control mechanism to mitigate or prevent side-channel attacks.
-#### 7. Comprehensive Logging, Monitoring and Anomaly Detection
-  Continuously monitor resource usage and implement logging to detect and respond to unusual patterns of resource consumption.
-#### 8. Watermarking
-  Implement watermarking frameworks to embed and detect unauthorized use of LLM outputs.
-#### 9. Graceful Degradation
-  Design the system to degrade gracefully under heavy load, maintaining partial functionality rather than complete failure.
-#### 10. Limit Queued Actions and Scale Robustly
-  Implement restrictions on the number of queued actions and total actions, while incorporating dynamic scaling and load balancing to handle varying demands and ensure consistent system performance.
-#### 11. Adversarial Robustness Training
-  Train models to detect and mitigate adversarial queries and extraction attempts.
-#### 12. Glitch Token Filtering
-  Build lists of known glitch tokens and scan output before adding it to the model’s context window.
-#### 13. Access Controls
-  Implement strong access controls, including role-based access control (RBAC) and the principle of least privilege, to limit unauthorized access to LLM model repositories and training environments.
-#### 14. Centralized ML Model Inventory
-  Use a centralized ML model inventory or registry for models used in production, ensuring proper governance and access control.
-#### 15. Automated MLOps Deployment
-  Implement automated MLOps deployment with governance, tracking, and approval workflows to tighten access and deployment controls within the infrastructure.
+#### 1. 入力バリデーション
+  厳密な入力バリデーションを実装して、入力が適切なサイズ制限を超えないようにします。
+#### 2. Logits と Logprobs の開示制限
+  API レスポンスでの `logit_bias` と `logprobs` の開示を制限するか難読化します。詳細な確率を明らかにせず、必要な情報のみを提供します。
+#### 3. レート制限
+  レート制限とユーザークォータを適用して、単一ソースエンティティが一定期間内に実行できるリクエスト数を制限します。
+#### 4. リソース割り当て管理
+  リソース割り当てを動的に監視および管理して、過剰なリソースを消費する単一のユーザーやリクエストを防ぎます。
+#### 5. タイムアウトとスロットル
+  リソース集約型操作に対してタイムアウトとスロットルを設定して、リソース消費が長引くのを防ぎます。
+#### 6. サンドボックス技法
+  LLM のネットワークリソース、内部サービス、API へのアクセスを制限します。
+  - これは内部のリスクと脅威を包含するため、すべての一般的なシナリオで特に重要です。さらに、LLM アプリケーションがデータやリソースにアクセスできる範囲を管理して、サイドチャネル攻撃を緩和ないし防御するための重要な制御メカニズムとして機能します。
+#### 7. 包括的なログ記録、監視、異常検出
+  リソースの使用状況を継続的に監視し、ログ記録を実装して、リソース消費の異常なパターンを検出して対応します。
+#### 8. 電子透かし
+  電子透かしフレームワークを導入して、埋め込みを行い、LLM 出力の不正使用を検出します。
+#### 9. 段階的な劣化
+  高負荷時にシステムが段階的に劣化するように設計し、完全な障害ではなく部分的に機能を維持します。
+#### 10. キューに入れられるアクションの制限と堅牢なスケール
+  キューに入れられるアクションの数とアクションの総数に制限を設けて、動的スケーリングと負荷分散を組み込むことで、さまざまな需要に対応し、一貫したシステムパフォーマンスを確保します。
+#### 11. 敵対的堅牢性トレーニング
+  モデルをトレーニングして、敵対的なクエリや抽出の試みを検出して緩和します。
+#### 12. グリッチトークンのフィルタリング
+  既知のグリッチトークンのリストを作成して、モデルのコンテキストウィンドウに追加する前に出力をスキャンします。
+#### 13. アクセス制御
+  ロールベースのアクセス制御 (RBAC) や最小権限の原則などの強力なアクセス制御を実装して、LLM モデルリポジトリやトレーニング環境への不正アクセスを制限します。
+#### 14. ML モデルインベントリの一元化
+  本番環境で使用されるモデルには一元化された ML モデルインベントリやレジストリを使用して、適切なガバナンスとアクセス制御を確保します。
+#### 15. MLOps デプロイメントの自動化
+  ガバナンス、追跡、承認ワークフローを備えた自動化された MLOps デプロイメントを実装して、インフラストラクチャ内のアクセスとデプロイメントの制御を強化します。
 
 ### 攻撃シナリオの例
 
