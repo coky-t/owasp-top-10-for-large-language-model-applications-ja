@@ -59,18 +59,18 @@
 
 ### 攻撃シナリオの例
 
-#### Scenario #1: Uncontrolled Input Size
-  An attacker submits an unusually large input to an LLM application that processes text data, resulting in excessive memory usage and CPU load, potentially crashing the system or significantly slowing down the service.
-#### Scenario #2: Repeated Requests
-  An attacker transmits a high volume of requests to the LLM API, causing excessive consumption of computational resources and making the service unavailable to legitimate users.
-#### Scenario #3: Resource-Intensive Queries
-  An attacker crafts specific inputs designed to trigger the LLM's most computationally expensive processes, leading to prolonged CPU usage and potential system failure.
-#### Scenario #4: Denial of Wallet (DoW)
-  An attacker generates excessive operations to exploit the pay-per-use model of cloud-based AI services, causing unsustainable costs for the service provider.
-#### Scenario #5: Functional Model Replication
-  An attacker uses the LLM's API to generate synthetic training data and fine-tunes another model, creating a functional equivalent and bypassing traditional model extraction limitations.
-#### Scenario #6: Bypassing System Input Filtering
-  A malicious attacker bypasses input filtering techniques and preambles of the LLM to perform a side-channel attack and retrieve model information to a remote controlled resource under their control.
+#### シナリオ #1: 制御されていない入力サイズ
+  攻撃者はテキストデータを処理する LLM アプリケーションに異常に大きな入力を送信することで、メモリ使用量と CPU 負荷が過剰になり、システムがクラッシュしたり、サービスが大幅に遅くなる可能性があります。
+#### シナリオ #2: 繰り返されるリクエスト
+  攻撃者は LLM API に大量のリクエストを送信することで、計算リソースを過剰に消費して、正当なユーザーがサービスを利用できなくなります。
+#### シナリオ #3: リソース集約型クエリ
+  攻撃者は LLM の最も計算負荷の高いプロセスをトリガーするように設計された特定の入力を作成することで、CPU 使用を長引かせてシステム障害を引き起こす可能性があります。
+#### シナリオ #4: ウォレット拒否 (Denial of Wallet, DoW)
+  攻撃者は大量のオペレーションを生成して、クラウドベースの AI サービスの従量課金モデルを悪用し、サービスプロバイダに持続不可能なコストをもたらします。
+#### シナリオ #5: 機能モデルの複製
+  攻撃者は LLM の API を使用して、模造トレーニングデータを生成し、別のモデルをファインチューンすることで、機能的に等価なものを作成し、従来のモデル抽出の制限を回避します。
+#### シナリオ #6: システム入力フィルタリングのバイパス
+  悪意のある攻撃者は LLM の入力フィルタリング技法とプリアンブルをバイパスしてサイドチャネル攻撃を実行し、制御下にあるリモート制御リソースにモデル情報を取得します。
 
 ### 参考情報リンク
 
@@ -87,7 +87,7 @@
 
 ### 関連するフレームワークと分類
 
-Refer to this section for comprehensive information, scenarios strategies relating to infrastructure deployment, applied environment controls and other best practices.
+インフラストラクチャデプロイメント、適用される環境制御、その他のベストプラクティスに関する包括的な情報、シナリオ戦略については、このセクションを参照してください。
 
 - [MITRE CWE-400: Uncontrolled Resource Consumption](https://cwe.mitre.org/data/definitions/400.html) **MITRE Common Weakness Enumeration**
 - [AML.TA0000 ML Model Access: Mitre ATLAS](https://atlas.mitre.org/tactics/AML.TA0000) & [AML.T0024 Exfiltration via ML Inference API](https://atlas.mitre.org/techniques/AML.T0024) **MITRE ATLAS**
