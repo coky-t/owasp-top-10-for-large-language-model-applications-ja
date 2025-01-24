@@ -1,9 +1,9 @@
 {
-  "root" : "./Document/2_0_vulns",
+  "root" : ".",
   "plugins" : [ "anchors" ],
 
   "structure": {
-    "readme": "SUMMARY.md"
+    "readme": "README.md"
   }
 
 }
