@@ -12,7 +12,7 @@ OWASP Top 10 大規模言語モデルアプリケーションプロジェクト�
 脆弱性の例としては、プロンプトインジェクション、データ漏洩、不十分なサンドボックス化、認可されていないコード実行などがあります。目標はこれらの脆弱性に対する認識を高め、改善策を提案し、最終的に LLM アプリケーションのセキュリティ態勢を改善することです。
 
 ## 📢 2025 年のリストが利用可能になりました:
-2025 年の LLM 向け OWASP Top 10 リスト [フルバージョン](https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/) をダウンロードしてください。
+2025 年の LLM アプリケーション向け OWASP Top 10 リスト [フルバージョン](https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/) をダウンロードしてください。
 
 ## 私たちの [ウェブサイト](https://genai.owasp.org) から以下の追加リソースをダウンロードしてください:
 - [Security & Governance Checklist v1.0](https://genai.owasp.org/resource/llm-applications-cybersecurity-and-governance-checklist-english/) 生成 AI テクノロジのロールアウトを管理する CISO にとって必須のガイダンス。
