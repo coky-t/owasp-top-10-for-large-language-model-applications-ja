@@ -2,12 +2,15 @@
 
 This is the unofficial Japanese translation of the [OWASP Top 10 for Large Language Model Applications](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications).
 
+- Document Site - <https://coky-t.gitbook.io/owasp-top-10-for-large-language-model-applications/>
+- Document Repository - <https://github.com/coky-t/owasp-top-10-for-large-language-model-applications-ja>
+
 ### Originator
 
 - Official Site - <https://genai.owasp.org/>
 - Project Site - <https://owasp.org/www-project-top-10-for-large-language-model-applications/>
 - Project Repository - <https://github.com/OWASP/www-project-top-10-for-large-language-model-applications>
-- Document Site - <https://llmtop10.com/>
+- Document Site - <https://genai.owasp.org/llm-top-10/>
 
 ## OWASP Top 10 大規模言語モデルアプリケーション 日本語版
 
@@ -47,3 +50,6 @@ This is the unofficial Japanese translation of the [OWASP Top 10 for Large Langu
 ## Translator (Japanese)
 
 [Koki Takeyama](https://github.com/coky-t)
+
+- Document Site - <https://coky-t.gitbook.io/owasp-docs-ja/>
+- Document Repository - <https://github.com/coky-t/owasp-docs-ja>
