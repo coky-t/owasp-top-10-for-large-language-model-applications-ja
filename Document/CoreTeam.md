@@ -1,7 +1,6 @@
-
 # バージョン 1.0 のコアチームメンバー
 
-このバージョンは現在ではレガシーです。 [新しいバージョンはこちら](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/wiki/Core-Team)
+このバージョンは現在ではレガシーです。 [新しいバージョンはこちら](https://genai.owasp.org/contributors/) のサイト上で管理されています。
 
 これらの人物はリストのバージョン 1.0 の作成において特に重要な役割を果たし、プロジェクト管理を支援するために選ばれました。
 
@@ -9,8 +8,7 @@
 | ------------------ | -------------- | --------------------- | ----------------------------------------------------------------------------------- |
 | Steve Wilson       | Overall Lead   | [Contrast Security](https://www.contrastsecurity.com/) | [LinkedIn](https://www.linkedin.com/in/wilsonsd/), [Twitter](https://twitter.com/virtualsteve), [GitHub](https://github.com/virtualsteve-star), [Book](https://www.contrastsecurity.com/hubfs/Cybersecurity%20and%20Artificial%20Intelligence%20Threats%20and%20Opportunities.pdf) |
 | Mike Finch         | Design Lead    | [HackerOne](https://www.hackerone.com) | [LinkedIn](https://www.linkedin.com/in/mkfnch), [Twitter](https://twitter.com/mkfnch), [Personal](https://mkfnch.com) |
-| Autumn Moulder     | PR Lead        |                       |                                                                                     |
-| Ads Dawson         | Expert         | [Cohere](https://cohere.com) | [LinkedIn](https://www.linkedin.com/in/adamdawson0/), [GitHub](https://github.com/GangGreenTemperTatum) |
+| Ads Dawson         | Expert         | [Dreadnode](https://dreadnode.op) | [LinkedIn](https://www.linkedin.com/in/adamdawson0/), [GitHub](https://github.com/GangGreenTemperTatum) |
 | Andy Smith         | Expert         |                       | [LinkedIn](https://www.linkedin.com/in/andysmith-uk/), [Twitter](https://twitter.com/rot169), [Bio](https://www.sans.org/profiles/andy-smith/)|
 | David Rowe         | Expert         |   [AWS](http://aws.amazon.com)                    |    [LinkedIn](https://www.linkedin.com/in/davidprowe/),    [Twitter](https://twitter.com/davidprowe/), [GitHub](https://github.com/davidprowe)                                                                             |
 | Eugene Neelou      | Expert         |                       | [LinkedIn](https://www.linkedin.com/in/eneelou/), [Twitter](https://twitter.com/eneelou) |
