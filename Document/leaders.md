@@ -4,6 +4,7 @@
 - 副リーダー [Ads Dawson](mailto:ads.dawson@owasp.org) - [LinkedIn](https://www.linkedin.com/in/adamdawson0/) [GitHub](https://github.com/GangGreenTemperTatum)
 - 副リーダー [John Sotiropoulos](mailto:john.sotiropoulos@owasp.org) - [LinkedIn](https://www.linkedin.com/in/jsotiropoulos/)
 - 副リーダー [Scott Clinton](mailto:scott.clinton@owasp.org) - [LinkedIn](https://www.linkedin.com/in/scottjclinton/)
+- 副リーダー [Sandy Dunn](mailto:sandy.dunn@owasp.org) - [LinkedIn](https://www.linkedin.com/in/sandydunnciso/)
 
 ### コアリーダーシップ仮想チーム
 
