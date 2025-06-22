@@ -6,11 +6,17 @@ OWASP Foundation Web Repository
 # OWASP Top 10 大規模言語モデルアプリケーション
 
 [![Current version in-flight](https://img.shields.io/badge/current_version-v2.0-purple)](https://www.linkedin.com/posts/wilsonsd_announcing-the-version-2-project-its-time-activity-7157734167244378113-s2v2?utm_source=share&utm_medium=member_ios)
-[![OWASP Lab Status project](https://img.shields.io/badge/owasp-labstatus-blue.svg)](https://owasp.org/projects/)
+[![OWASP Flagship Status project](https://img.shields.io/badge/owasp-flagship-blue.svg)](https://owasp.org/projects/)
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 [![genai.owasp.org](https://img.shields.io/badge/officialsite-genai.owasp.org-032CFA.svg)](https://genai.owasp.org)
 
 OWASP Top 10 大規模言語モデルアプリケーションの公式リポジトリへようこそ！
+
+## このリポジトリについて
+
+このリポジトリには OWASP Top 10 大規模言語モデルアプリケーションを含み、現在は包括的な **OWASP GenAI Security Project** の下に置かれています。OWASP GenAI Security Project は、生成 AI 技術に関連するセキュリティと安全性のリスクを特定、軽減、文書化することに特化したグローバルなオープンソースイニチアチブです。
+
+**メインプロジェクトサイトをご覧ください:** [genai.owasp.org](https://genai.owasp.org)
 
 ## 概要と対象読者 🗣️
 
@@ -34,7 +40,7 @@ OWASP Top 10 大規模言語モデルアプリケーションは開発者とウ�
 
 [OWASP Slack](https://owasp.org/slack/invite) にワーキンググループチェンネルがあるので、サインアップしてから #project-top10-llm チェンネルに参加してください。
 
-プロジェクトに協力するには [私たちの Wiki ページ](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/wiki) に移動して、最新のミーティングと現在のロードマップを把握してください。
+**貢献の仕方:** [https://genai.owasp.org/contribute/](https://genai.owasp.org/contribute/)
 
 ## ライセンス
 
