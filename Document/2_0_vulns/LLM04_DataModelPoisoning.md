@@ -1,4 +1,4 @@
-## LLM04: データおよびモデルポイズニング (Data and Model Poisoning)
+## LLM04:2025 データおよびモデルポイズニング (Data and Model Poisoning)
 
 ### 説明
 
