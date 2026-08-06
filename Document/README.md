@@ -1,65 +1,58 @@
 [![pages-build-deployment](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/actions/workflows/pages/pages-build-deployment/badge.svg?branch=main)](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/actions/workflows/pages/pages-build-deployment)
 
-# www-project-top-10-for-large-language-model-applications
-OWASP Foundation Web Repository
-
 # OWASP Top 10 大規模言語モデルアプリケーション
 
-[![Current version in-flight](https://img.shields.io/badge/current_version-v2.0-purple)](https://www.linkedin.com/posts/wilsonsd_announcing-the-version-2-project-its-time-activity-7157734167244378113-s2v2?utm_source=share&utm_medium=member_ios)
-[![OWASP Flagship Status project](https://img.shields.io/badge/owasp-flagship-blue.svg)](https://owasp.org/projects/)
-[![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
-[![genai.owasp.org](https://img.shields.io/badge/officialsite-genai.owasp.org-032CFA.svg)](https://genai.owasp.org)
+> [!IMPORTANT]
+> **このリポジトリはレガシーエントリポイントと過去のアーカイブとして維持されています。** アクティブな開発は [`GenAI-Security-Project/GenAI-LLM-Top10`](https://github.com/GenAI-Security-Project/GenAI-LLM-Top10) に移行しています。
+>
+> **現行リリース: [OWASP GenAI LLM Top 10 2026](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/) — 2026 年 8 月 4 日公開。**
+>
+> [2026 版を入手する](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/) · [現行ソースを閲覧する](https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/tree/main/2026/final) · [校正を報告する](https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/issues/new?template=release-errata.yml)
 
-OWASP Top 10 大規模言語モデルアプリケーションの公式リポジトリへようこそ！
+[![現行リリース](https://img.shields.io/badge/current_release-2026-purple)](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)
+[![リポジトリ移行先](https://img.shields.io/badge/active_repository-GenAI--LLM--Top10-blue)](https://github.com/GenAI-Security-Project/GenAI-LLM-Top10)
+[![ライセンス: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 
 ## このリポジトリについて
 
-このリポジトリには OWASP Top 10 大規模言語モデルアプリケーションを含み、現在は包括的な **OWASP GenAI Security Project** の下に置かれています。OWASP GenAI Security Project は、生成 AI 技術に関連するセキュリティと安全性のリスクを特定、軽減、文書化することに特化したグローバルなオープンソースイニチアチブです。
+このリポジトリは、当初の OWASP プロジェクトページを支え、OWASP Top 10 for Large Language Model Applications の過去のリリース、翻訳、作業ファイル、関連資料を含みます。
 
-**メインプロジェクトサイトをご覧ください:** [genai.owasp.org](https://genai.owasp.org)
+既存のリンク、引用、過去の成果物が引き続き機能するよう、利用可能なままにしています。新しいイシュー、プルリクエスト、リリース作業は [アクティブリポジトリ](https://github.com/GenAI-Security-Project/GenAI-LLM-Top10) に行う必要があります。
 
-## 概要と対象読者 🗣️
+Top 10 は、現在、より広範な [OWASP GenAI Security Project](https://genai.owasp.org/) 内での中核的な取り組みとなっており、生成 AI システムやアプリケーションを保護するためのフリーに利用可能なガイダンスやリソースを開発しています。
 
-OWASP Top 10 大規模言語モデルアプリケーションは開発者とウェブアプリケーションセキュリティのための標準的な啓発ドキュメントです。大規模言語モデル (LLM) アプリケーションに対する最も重大なセキュリティリスクについて幅広いコンセンサスを表しています。OWASP の内外には他にも進行中のフレームワークがありますが、このプロジェクトと混同しないでください。現在は LLM アプリケーションセキュリティのみを対象としています。
+## リリース
 
-私たちの主な対象読者は LLM テクノロジを活用したアプリケーションやプラグインの設計および構築に携わる開発者、データサイエンティスト、セキュリティ専門家です。これらの専門家が LLM アプリケーションセキュリティの複雑で進化する領域をナビゲートできるように、実践的で実用的かつ簡潔なセキュリティガイダンスを提供することを目指しています。
+* [OWASP GenAI LLM Top 10 2026](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/) — 現行リリース
+* [OWASP Top 10 for LLM Applications 2025](https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/) — アーカイブされたリリース
+* [過去のリリースと翻訳](./Archive/) — 過去の資料
 
-## 主な焦点 📖
+## 貢献
 
-このプロジェクトの主な目的は LLM アプリケーションの潜在的なセキュリティリスクに対処するための理解しやすく採用しやすいガイドを提供することです。私たちのトップ 10 リストはこの分野に慣れていない開発者やセキュリティ専門家には出発点として、経験豊富な人たちには参考情報として役立ちます。
+アクティブリポジトリを使用します。
 
-## ミッションステートメント 🚀
+* [2026 リリースの校正を報告する](https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/issues/new?template=release-errata.yml)
+* [広範なリリースフィードバックを送信する](https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/issues/new?template=release-feedback.yml)
+* [プルリクエストを開く](https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/pulls)
 
-私たちのミッションはアプリケーションセキュリティを可視化することであり、これによって人員や組織が LLM に関連するアプリケーションセキュリティリスクについて十分な情報に基づいた意思決定を行えるようにすることです。私たちのリストは他の OWASP Top 10 リストにみられる脆弱性タイプと DNA を共有していますが、単にこれらの脆弱性を繰り返すわけではありません。代わりに、LLM を利用するアプリケーションでこれらの脆弱性が発生した際の特有の影響を掘り下げています。
+広範なプロジェクト貢献プロセスについては、[genai.owasp.org/contribute](https://genai.owasp.org/contribute/) をご覧ください。
 
-私たちの目標は一般的なアプリケーションセキュリティの原則と LLM がもたらす特有の課題との間の溝を埋めることです。このグループの目標には、従来の脆弱性が LLM 内でどのようにさまざまなリスクをもたらすか、あるいは新しい方法で悪用される可能性があるか、また、開発者が LLM を利用するアプリケーションに対して従来の修復戦略をどのように適用しなければならないかを探ることが含まれます。
-
-## 寄稿 👋
-
-このリストの最初のバージョンは Contrast Security の Steve Wilson によって寄稿されました。私たちはコミュニティがプロジェクトに貢献して改善に協力することを奨励します。なにかしらの提案、フィードバック、リストの改善に協力したい場合は、気軽に isshu をオープンするかプルリクエストをお送りください。
-
-[OWASP Slack](https://owasp.org/slack/invite) にワーキンググループチェンネルがあるので、サインアップしてから #project-top10-llm チェンネルに参加してください。
-
-**貢献の仕方:** [https://genai.owasp.org/contribute/](https://genai.owasp.org/contribute/)
+[OWASP Slack](https://owasp.org/slack/invite) にワーキンググループチャンネル `#team-genai-top-10-llm` があります。
 
 ## ライセンス
 
-このプロジェクトは [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/) の条件に基づいてライセンスされています。
+このプロジェクトは [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/) の下でライセンスされています。
 
-## Support OWASP!
+## 過去のリポジトリアクティビティ
 
 <picture>
   <source
     media="(prefers-color-scheme: dark)"
-    srcset="
-      https://api.star-history.com/svg?repos=OWASP/www-project-top-10-for-large-language-model-applications&type=Date&theme=dark
-    "
+    srcset="https://api.star-history.com/svg?repos=OWASP/www-project-top-10-for-large-language-model-applications&type=Date&theme=dark"
   />
   <source
     media="(prefers-color-scheme: light)"
-    srcset="
-      https://api.star-history.com/svg?repos=OWASP/www-project-top-10-for-large-language-model-applications&type=Date
-    "
+    srcset="https://api.star-history.com/svg?repos=OWASP/www-project-top-10-for-large-language-model-applications&type=Date"
   />
   <img
     alt="Star History Chart"
