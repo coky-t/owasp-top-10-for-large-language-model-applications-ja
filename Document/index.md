@@ -4,12 +4,20 @@ title: OWASP Top 10 for Large Language Model Applications
 level: 2
 type: documentation
 tags: example-tag
-pitch: 大規模言語モデル (LLM) をデプロイおよび管理する際の潜在的なリスクについて、開発者、デザイナー、アーキテクト、マネージャー、組織を教育することを目的としています。
+pitch: OWASP Top 10 for Large Language Model Applications のレガシーエントリポイントです。OWASP GenAI Security Project からの最新の 2026 リリースを入手してください。
 ---
 
-## このリポジトリについて
+## 最新リリースとアクティブリポジトリ
 
-これは **OWASP Top 10 大規模言語モデルアプリケーション** のリポジトリです。ただし、このプロジェクトは現在包括的な **OWASP GenAI Security Project** に成長しており、Top 10 リストにとどまらず、複数のセキュリティイニチアチブを包含するグローバルなイニチアチブとなっています。
+> **レガシーエントリポイント:** この OWASP プロジェクトページとその GitHub リポジトリは、既存のリンクや引用が機能し続けるよう、過去のアーカイブとして維持されています。アクティブな開発は OWASP GenAI Security Project リポジトリに移行しています。
+
+**[OWASP GenAI LLM Top 10 2026 を入手する](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)** — 2026 年 8 月 4 日公開。
+
+**[最新ソースの閲覧と貢献](https://github.com/GenAI-Security-Project/GenAI-LLM-Top10)**
+
+## このレガシーリポジトリについて
+
+このリポジトリは、当初の **OWASP Top 10 for Large Language Model Applications** プロジェクトページを支え、過去のリリース、翻訳、関連資料を保持しています。この取り組みは、現在、Top 10 リストにとどまらない複数のセキュリティ上の取り組みを包含する、包括的な **OWASP GenAI Security Project** 内に収容されています。
 
 ## OWASP GenAI Security Project
 
@@ -19,11 +27,13 @@ OWASP GenAI Security Project は、大規模言語モデル (LLM)、エージェ
 
 **メインのプロジェクトサイトをご覧ください:** [genai.owasp.org](https://genai.owasp.org)
 
-## 最新の Top 10 大規模言語モデルアプリケーション
+## OWASP Top 10 大規模言語モデルアプリケーション
 
 OWASP Top 10 大規模言語モデルアプリケーションは、引き続き私たちの取り組みの中核的な要素であり、LLM アプリケーションの最も重要なセキュリティ脆弱性を特定するものです。
 
-**最新の Top 10 大規模言語モデルアプリケーションにアクセスする:** [https://genai.owasp.org/llm-top-10/](https://genai.owasp.org/llm-top-10/)
+**現行リリース:** [OWASP GenAI LLM Top 10 2026](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/)
+
+**公式ソース:** [GenAI-Security-Project/GenAI-LLM-Top10 — `2026/final`](https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/tree/main/2026/final)
 
 ## プロジェクトの背景と成長
 
@@ -36,7 +46,9 @@ OWASP Top 10 大規模言語モデルアプリケーションは、引き続き�
 ### プロジェクトに貢献する
 セキュリティ専門家、研究者、開発者、そして AI セキュリティに情熱を注ぐ皆様からの専門的なアイデア、貢献、提案、ご意見を歓迎します。
 
-**貢献方法はこちら:** [https://genai.owasp.org/contribute/](https://genai.owasp.org/contribute/)
+**Top 10 に貢献する:** [https://github.com/GenAI-Security-Project/GenAI-LLM-Top10](https://github.com/GenAI-Security-Project/GenAI-LLM-Top10)
+
+**より広範なプロジェクトに貢献する方法を学ぶ:** [https://genai.owasp.org/contribute/](https://genai.owasp.org/contribute/)
 
 ### ミーティングに参加する
 隔週で開催される動機ミーティングに参加し、コミュニティとのつながりを保ちましょう。
@@ -44,7 +56,7 @@ OWASP Top 10 大規模言語モデルアプリケーションは、引き続き�
 **ミーティング情報:** [https://genai.owasp.org/meetings/](https://genai.owasp.org/meetings/)
 
 ### コミュニティとつながる
-- [OWASP Slack](https://owasp.org/slack/invite) のワーキンググループチャンネルに参加します - `#project-top10-for-llm` チャンネルに登録して参加します
+- [OWASP Slack](https://owasp.org/slack/invite) のワーキンググループチャンネルに参加します - `#team-genai-top-10-llm` チャンネルに登録して参加します
 - [プロジェクトの LinkedIn ページをフォローします](https://www.linkedin.com/company/owasp-top-10-for-large-language-model-applications/)
 - [ニュースレターを購読](https://llmtop10.beehiiv.com/subscribe) して定期的に最新情報を受け取ります
 
@@ -56,4 +68,4 @@ OWASP Top 10 大規模言語モデルアプリケーションは、引き続き�
 
 ## 教育リソース
 
-LLM アプリケーションセキュリティは初めてですか？詳しくは [リソースページ](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/wiki/Educational-Resources) をご覧ください。
+LLM アプリケーションセキュリティは初めてですか？[OWASP GenAI Security Project リソース](https://genai.owasp.org/resources/) や [過去の教育リソース Wiki](https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/wiki/Educational-Resources) をご覧ください。
