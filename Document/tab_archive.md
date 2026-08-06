@@ -1,5 +1,5 @@
 ---
-title: Example
+title: Archive
 layout:  null
 tab: true
 order: 1
@@ -7,6 +7,8 @@ tags: example-tag
 ---
 
 # OWASP Top 10 大規模言語モデル バージョン 1.1
+
+> **過去のバージョン:** これは 2023 v1.1 リストのアーカイブです。[最新の OWASP GenAI LLM Top 10 2026 を入手する](https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/) または [公式のソースを閲覧する](https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/tree/main/2026/final)。
 
 ## LLM01: プロンプトインジェクション (Prompt Injection)
 細工された入力を介して LLM を操作すると、認可されていないアクセス、データ侵害、意思決定の危殆化につながる可能性があります。
